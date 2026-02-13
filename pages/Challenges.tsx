@@ -26,7 +26,7 @@ const Challenges: React.FC = () => {
             Why most care homes remain reactive.
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed mb-16">
-            The care sector is unique. It is a high-trust, high-stakes environment where the quality of your first interaction dictates the quality of the long-term relationship.
+            The care sector is unique. It is a high trust, high stakes environment where the quality of your first interaction dictates the quality of the long term relationship.
           </p>
         </div>
 

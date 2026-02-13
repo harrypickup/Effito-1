@@ -30,7 +30,7 @@ const Contact: React.FC = () => {
           <span className="text-xs font-bold tracking-widest uppercase text-slate-400 mb-4 block">Get Started</span>
           <h1 className="text-4xl md:text-5xl font-semibold text-slate-900 mb-8 tracking-tight">Book a Strategy Call.</h1>
           <p className="text-lg text-slate-600 mb-12 leading-relaxed">
-            This is a non-obligation strategic discussion about your current infrastructure and how Effito can stabilize your operations.
+            This is a non obligation strategic discussion about your current infrastructure and how Effito can stabilize your operations.
           </p>
           
           <div className="space-y-6 text-sm text-slate-500">
@@ -40,7 +40,7 @@ const Contact: React.FC = () => {
             </div>
             <div className="flex gap-4 items-center">
               <span className="w-2 h-2 rounded-full bg-slate-900"></span>
-              <span>Focused on long-term operational health.</span>
+              <span>Focused on long term operational health.</span>
             </div>
             <div className="flex gap-4 items-center">
               <span className="w-2 h-2 rounded-full bg-slate-900"></span>

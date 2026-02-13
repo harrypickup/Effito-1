@@ -62,7 +62,7 @@ const Performance: React.FC = () => {
               <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-stone-400 mb-6 block">Diagnostic 01: Response Velocity</span>
               <h2 className="text-4xl font-serif text-slate-900 mb-8 leading-tight">Eliminating <br />Operational <span className="italic">Friction.</span></h2>
               <p className="text-slate-500 font-light leading-relaxed mb-10">
-                In the modern care market, the "Response Gap" is where profit goes to die. Manual legacy systems allow enquiries to drift for hours, resulting in an 85% loss of high-intent private leads.
+                In the modern care market, the "Response Gap" is where profit goes to die. Manual legacy systems allow enquiries to drift for hours, resulting in an 85% loss of high intent private leads.
               </p>
               
               <div className="grid grid-cols-2 gap-8 border-t border-stone-100 pt-10">
@@ -118,7 +118,7 @@ const Performance: React.FC = () => {
              <h2 className="text-5xl font-serif text-slate-900 tracking-tighter">The Stabilization Curve.</h2>
           </div>
           <p className="text-slate-500 max-w-md font-light leading-relaxed text-sm">
-            Manual homes suffer from "Capacity Volatility"—a cycle of move-ins followed by sudden vacancies and slow refills. Effito creates a continuous intake pressure that maintains peak occupancy.
+            Manual homes suffer from "Capacity Volatility"—a cycle of move ins followed by sudden vacancies and slow refills. Effito creates a continuous intake pressure that maintains peak occupancy.
           </p>
         </div>
 
@@ -175,11 +175,11 @@ const Performance: React.FC = () => {
           {[
             { 
               title: "Institutional Flow", 
-              desc: "By treating the intake process as a high-speed pipeline, we remove the reliance on the 'availability' of a human manager to secure a booking." 
+              desc: "By treating the intake process as a high speed pipeline, we remove the reliance on the 'availability' of a human manager to secure a booking." 
             },
             { 
               title: "Agency Elimination", 
-              desc: "The speed of the recruitment engine captures top-tier talent before they drift to agencies, slashing your monthly markup expenditure by up to 40%." 
+              desc: "The speed of the recruitment engine captures top tier talent before they drift to agencies, slashing your monthly markup expenditure by up to 40%." 
             },
             { 
               title: "Operational Peace", 
@@ -206,7 +206,7 @@ const Performance: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-slate-800 border border-slate-800">
             {[
               { label: "Occupancy Gain", value: "98%", sub: "Average stabilized bed capacity" },
-              { label: "Agency Reduction", value: "40%", sub: "Quarter-on-quarter spend reduction" },
+              { label: "Agency Reduction", value: "40%", sub: "Quarter on quarter spend reduction" },
               { label: "Admin Recovery", value: "30h", sub: "Manager time recovered per week" },
               { label: "Response Time", value: "<1m", sub: "Across all digital and voice channels" }
             ].map((stat, i) => (

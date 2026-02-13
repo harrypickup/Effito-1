@@ -8,23 +8,23 @@ const Home: React.FC = () => {
   const switchData = [
     { 
       feature: "Inquiry Handling", 
-      old: "Manual Callbacks (8-24 hrs)", 
+      old: "Manual Callbacks (8 to 24 hrs)", 
       new: "Instant Automated Triage" 
     },
     { 
       feature: "Staffing", 
       old: "Reactive Agency Hiring", 
-      new: "Always-on Talent Pipeline" 
+      new: "Always on Talent Pipeline" 
     },
     { 
       feature: "Visibility", 
-      old: "Gut-feeling & Spreadsheets", 
+      old: "Gut feeling & Spreadsheets", 
       new: "Live Performance Dashboards" 
     },
     { 
       feature: "Cost", 
       old: "High Recurring Admin Costs", 
-      new: "Fixed-cost Efficiency Engine" 
+      new: "Fixed cost Efficiency Engine" 
     },
     { 
       feature: "Scalability", 
@@ -60,7 +60,7 @@ const Home: React.FC = () => {
               of <span className="italic">care.</span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-600 mb-12 max-w-xl leading-relaxed text-balance font-light">
-              Capture every high-intent enquiry, maintain peak bed capacity, and eliminate the chaos of manual follow-ups with institutional-grade automation built specifically for residential care.
+              Capture every high intent enquiry, automate your recruitment pipeline and eliminate manual chaos with a coordinated system designed specifically for residential care.
             </p>
             <div className="flex flex-wrap gap-8 items-center">
               <Link
@@ -125,7 +125,7 @@ const Home: React.FC = () => {
             </p>
             <div className="grid grid-cols-1 gap-8">
               {[
-                { label: "Delayed Lead Handling", desc: "Response times exceeding 4 hours result in 60% drop-off rates." },
+                { label: "Delayed Lead Handling", desc: "Response times exceeding 4 hours result in 60% drop off rates." },
                 { label: "Recruitment Friction", desc: "Competitors move faster, securing quality staff before you follow up." },
                 { label: "Staff Overload", desc: "Senior management bogged down in manual enquiry logging." }
               ].map((item, i) => (
@@ -150,7 +150,7 @@ const Home: React.FC = () => {
           <h2 className="text-5xl font-serif text-slate-900">The Pillars of <br/>Stability.</h2>
           <div className="max-w-md">
             <p className="text-slate-500 text-sm leading-relaxed font-light">
-              Effito replaces operational manual labor with three distinct systemic upgrades that work in unison 24/7.
+              Effito eliminates administrative friction by integrating three core systemic upgrades that protect your time and maintain operational flow 24/7.
             </p>
           </div>
         </div>
@@ -159,17 +159,17 @@ const Home: React.FC = () => {
           {[
             { 
               title: "Occupancy & Reputation", 
-              desc: "The Occupancy Engine handles every new lead within 10 seconds. Sarah AI qualifies needs and books tours directly into your manager's calendar while reputation is built through instant professionalism.",
+              desc: "Ensures every enquiry is met with an immediate, professional response. By qualifying needs and booking tours into the manager’s calendar within seconds, it secures your occupancy while establishing a standard of elite professionalism from the first contact.",
               stat: "Pillar One"
             },
             { 
               title: "Recruitment Engine", 
-              desc: "A high-velocity pipeline for human capital. Every applicant is engaged instantly, screened, and booked for interview, slashing agency dependency by capturing quality staff first.",
+              desc: "A high velocity pipeline for human capital. Every applicant is engaged instantly, screened, and booked for interview, slashing agency dependency by capturing quality staff first.",
               stat: "Pillar Two"
             },
             { 
               title: "Retention & Oracle", 
-              desc: "The 'Oracle' engine turns missed calls into captured data 24/7, while automating the communication threads that keep existing staff informed and residents' families connected.",
+              desc: "The digital knowledge base for your staff, providing instant access to policies, handovers, and SOPs via a simple interface. The Oracle removes the administrative burden of repetitive questions, ensuring staff compliance and total operational clarity.",
               stat: "Pillar Three"
             }
           ].map((item, i) => (
@@ -190,31 +190,31 @@ const Home: React.FC = () => {
       </section>
 
       {/* Why Owners Switch */}
-      <section className="py-32 px-8 bg-[#FAF9F6] relative z-10 border-b border-stone-200">
+      <section className="py-32 px-8 bg-white relative z-10 border-y border-stone-200">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-24">
+          <div className="text-center mb-16">
             <h2 className="text-5xl md:text-7xl font-serif text-slate-900 mb-6 tracking-tighter">Why Owners Switch</h2>
             <p className="text-stone-400 text-lg md:text-xl font-light tracking-wide">
               The difference between surviving and thriving in the current market.
             </p>
           </div>
 
-          <div className="bg-white border border-stone-200 shadow-sm rounded-sm overflow-hidden">
+          <div className="bg-[#FAF9F6] border border-stone-200 shadow-sm rounded-sm overflow-hidden">
             <div className="grid grid-cols-3 bg-stone-50 border-b border-stone-200 py-6 px-8">
               <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-stone-400">Feature</span>
               <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-stone-400">The Old Way</span>
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-900">Effito™ Way</span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-900">Effito Way</span>
             </div>
 
             <div className="divide-y divide-stone-100">
               {switchData.map((row, i) => (
                 <motion.div 
                   key={i}
-                  whileHover={{ backgroundColor: "#FAF9F6" }}
+                  whileHover={{ backgroundColor: "#FFFFFF" }}
                   className="grid grid-cols-3 py-8 px-8 items-center transition-colors duration-300"
                 >
                   <span className="text-sm font-bold text-slate-900 uppercase tracking-tight">{row.feature}</span>
-                  <span className="text-sm text-stone-400 line-through decoration-stone-300 opacity-60 font-light pr-4">{row.old}</span>
+                  <span className="text-sm text-stone-500 line-through decoration-stone-200 font-light pr-4">{row.old}</span>
                   <span className="text-sm text-slate-900 font-semibold tracking-wide">{row.new}</span>
                 </motion.div>
               ))}
@@ -223,13 +223,13 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Operational Alignment (Formerly Who It's For) */}
+      {/* Operational Alignment */}
       <section className="py-32 px-8 max-w-[1400px] mx-auto relative z-10">
         <div className="text-center mb-24">
           <span className="text-[10px] font-mono font-bold tracking-[0.4em] uppercase text-stone-400 mb-4 block">System Compatibility</span>
           <h2 className="text-5xl md:text-7xl font-serif text-slate-900 mb-6 tracking-tighter">Operational Alignment.</h2>
           <p className="text-lg text-slate-500 max-w-2xl mx-auto font-light leading-relaxed">
-            We partner with commercially minded operators who prioritize structural stability over manual short-term fixes.
+            We partner with commercially minded operators who prioritize structural stability over manual short term fixes.
           </p>
         </div>
 
@@ -242,8 +242,8 @@ const Home: React.FC = () => {
             <ul className="space-y-10">
               {[
                 { label: "Independent Groups", sub: "Owners needing the infrastructure of a large corporate without the overhead." },
-                { label: "Growth-Focused Operators", sub: "Homes looking to increase occupancy and reduce agency reliance permanently." },
-                { label: "Quality-Driven Directors", sub: "Leaders who value professional, institutional-grade systems." }
+                { label: "Growth Focused Operators", sub: "Homes looking to increase occupancy and reduce agency reliance permanently." },
+                { label: "Quality Driven Directors", sub: "Leaders who value professional, institutional grade systems." }
               ].map((item, i) => (
                 <li key={i} className="flex gap-6">
                   <span className="text-slate-300 font-mono text-xs mt-1">0{i+1}</span>
@@ -259,12 +259,12 @@ const Home: React.FC = () => {
           <div className="bg-stone-50 p-12 md:p-20">
             <div className="flex items-center gap-4 mb-12">
               <div className="w-2 h-2 bg-stone-300 rounded-full" />
-              <h3 className="text-sm font-bold uppercase tracking-[0.3em] text-stone-400">Non-Target Profiles</h3>
+              <h3 className="text-sm font-bold uppercase tracking-[0.3em] text-stone-400">Non Target Profiles</h3>
             </div>
             <ul className="space-y-10">
               {[
-                { label: "DIY Operators", sub: "Homes looking for low-cost manual tools to manage themselves." },
-                { label: "Marketing-Only Fixes", sub: "We provide infrastructure for the next decade, not just leads for the next week." },
+                { label: "DIY Operators", sub: "Homes looking for low cost manual tools to manage themselves." },
+                { label: "Marketing Only Fixes", sub: "We provide infrastructure for the next decade, not just leads for the next week." },
                 { label: "Budget Solutions", sub: "Effito is a premium operational investment for serious businesses." }
               ].map((item, i) => (
                 <li key={i} className="flex gap-6 opacity-60">
@@ -298,7 +298,7 @@ const Home: React.FC = () => {
             Transition from <span className="italic opacity-60">reactive</span> to <span className="italic">structured.</span>
           </h2>
           <p className="text-slate-400 text-lg mb-16 max-w-2xl mx-auto font-light leading-relaxed">
-            Infrastructure installations are limited each month. We prioritize care homes committed to building a stable, high-occupancy future.
+            Infrastructure installations are limited each month. We prioritize care homes committed to building a stable, high occupancy future.
           </p>
           <Link
             to="/contact"
