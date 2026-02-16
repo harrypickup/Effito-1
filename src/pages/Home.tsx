@@ -34,7 +34,7 @@ const Home: React.FC = () => {
   ];
 
   const stats = [
-    { value: "0%", label: "Lead Decay" }
+    { value: "0%", label: "Lead Decay" },
     { value: "30 Hours", label: "Weekly Admin Recovery" },
     { value: "< 60 Sec", label: "Inquiry Response" },
   ];
