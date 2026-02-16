@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, AreaChart, Area } from 'recharts';
 import { GrowthNode } from '../components/Diagrams';
 
@@ -220,33 +220,30 @@ const Performance: React.FC = () => {
         </div>
       </section>
 
-   import { Link } from 'react-router-dom'; // Ensure this is imported at the top
-import { motion } from 'framer-motion';
-
-// ... (inside your component)
-
-{/* Performance Audit CTA */}
-<section className="py-40 px-8 text-center bg-white border-t border-stone-200">
-  <div className="max-w-3xl mx-auto">
-     <div className="w-12 h-12 bg-stone-100 rounded-full flex items-center justify-center mx-auto mb-10">
-        <div className="w-2 h-2 bg-slate-900 rounded-full" />
-     </div>
-    <h2 className="text-4xl md:text-5xl font-serif text-slate-900 mb-8 tracking-tighter">
-      Initiate a <span className="italic">Performance Audit.</span>
-    </h2>
-    <p className="text-slate-500 mb-12 font-light leading-relaxed text-lg">
-      We provide a granular breakdown of your current operational leakage and demonstrate the exact yield an Effito installation will produce for your home.
-    </p>
-    <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}>
-      {/* Use Link instead of a tag for React Router navigation */}
-      <Link 
-        to="/contact" 
-        className="inline-block bg-slate-900 text-white px-12 py-6 text-[12px] uppercase tracking-[0.4em] font-bold shadow-2xl hover:bg-slate-800 transition-colors"
-      >
-        Request Operational Diagnostic
-      </Link>
-    </motion.div>
-  </div>
-</section>
+      {/* Performance Audit CTA */}
+      <section className="py-40 px-8 text-center bg-white border-t border-stone-200">
+        <div className="max-w-3xl mx-auto">
+           <div className="w-12 h-12 bg-stone-100 rounded-full flex items-center justify-center mx-auto mb-10">
+              <div className="w-2 h-2 bg-slate-900 rounded-full" />
+           </div>
+          <h2 className="text-4xl md:text-5xl font-serif text-slate-900 mb-8 tracking-tighter">
+            Initiate a <span className="italic">Performance Audit.</span>
+          </h2>
+          <p className="text-slate-500 mb-12 font-light leading-relaxed text-lg">
+            We provide a granular breakdown of your current operational leakage and demonstrate the exact yield an Effito installation will produce for your home.
+          </p>
+          <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}>
+            <Link 
+              to="/contact" 
+              className="inline-block bg-slate-900 text-white px-12 py-6 text-[12px] uppercase tracking-[0.4em] font-bold shadow-2xl hover:bg-slate-800 transition-colors"
+            >
+              Request Operational Diagnostic
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  );
+};
 
 export default Performance;
