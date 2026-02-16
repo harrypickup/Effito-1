@@ -15,7 +15,7 @@ const Infrastructure: React.FC = () => {
               A Permanent <br/>Operational <span className="italic">Upgrade.</span>
             </h1>
             <p className="text-xl text-slate-600 mb-16 leading-relaxed font-light">
-              Effito is not software you "use." It is an infrastructure we install—a collection of resilient systems that manage the growth and human capital of your care home automatically.
+              Effito is not software you "use." It is an infrastructure we install. A collection of resilient systems that manage the growth and human capital of your care home automatically.
             </p>
             
             <div className="space-y-12">
@@ -85,8 +85,8 @@ const Infrastructure: React.FC = () => {
                 <div className="space-y-6">
                   {[
                     { label: "The Capture", text: "Generic info@ email inbox check. Delayed and unmonitored." },
-                    { label: "The Process", text: "Manager checks when spare moments allow—often 4 to 24hrs later." },
-                    { label: "The Follow up", text: "Manual phone call. Single attempt, then lead is abandoned." }
+                    { label: "The Process", text: "Manager checks when spare moments allow - often 4 to 24hrs later." },
+                    { label: "The Follow up", text: "Manual phone call. One or two attempts, then lead is abandoned." }
                   ].map((item, i) => (
                     <div key={i} className="border-b border-stone-200 pb-4 last:border-0">
                       <span className="text-[9px] font-bold uppercase tracking-widest text-stone-400 block mb-1">{item.label}</span>
@@ -109,17 +109,17 @@ const Infrastructure: React.FC = () => {
                   From a digital "Black Hole" <br/>to a <span className="italic">High Speed Pipeline.</span>
                 </h3>
                 <p className="text-lg text-slate-500 font-light leading-relaxed max-w-2xl">
-                  We don't sell AI chatbots. We install Instant Response Infrastructure. When a family reaches out, silence is replaced by an empathy driven, professional capture system that secures the "Speed to Trust."
+                  We don't sell AI chatbots. We install instant response infrastructure. When a family reaches out, silence is replaced by an empathy driven, professional capture system that secures the "Speed to Trust."
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-stone-200 border border-stone-200">
                 {[
-                  { title: "Instant Capture", detail: "N8N logic listens to website forms and Carehome.co.uk 24/7. The moment 'Submit' is clicked, the engine fires." },
-                  { title: "30s AI Voice Call", detail: "Sarah (AI Assistant) calls the prospect immediately. Introduces herself, acknowledges the specific care need, and initiates triage." },
+                  { title: "Instant Capture", detail: "Our systems monitor your website and Carehome.co.uk enquiries in real-time. The moment a family reaches out, the engine activates to ensure your home is the first to respond, 24/7." },
+                  { title: "30s AI Voice Call", detail: "Within 30 seconds of an enquiry, our system initiates a professional call to the family. This immediate touchpoint validates their needs and gathers essential details, ensuring your home is established as the primary solution." },
                   { title: "Elite Qualification", detail: "Strategic questioning regarding budget, timeline, and urgency. Identifying high intent private pay leads instantly." },
-                  { title: "Calendar Integration", detail: "Seamless booking. Sarah identifies manager availability and secures tours directly into the GHL master calendar." },
-                  { title: "Multi Channel Nurture", detail: "Automatic WhatsApp and email follow ups with digital brochures and testimonials keep the family warm for 7 days." },
+                  { title: "Calendar Integration", detail: "The system synchronizes with your team’s real-time availability to secure tours and meetings directly into your master calendar, ensuring no opportunity is missed." },
+                  { title: "Multi Channel Nurture", detail: "Automatic text and email follow ups with digital brochures and testimonials keep the family warm for 14 days." },
                   { title: "GHL CRM Sync", detail: "Full transcriptions of every conversation are logged. The manager walks into the tour knowing exactly what the family needs." }
                 ].map((item, i) => (
                   <div key={i} className="bg-white p-10 hover:bg-stone-50 transition-colors">
@@ -144,7 +144,7 @@ const Infrastructure: React.FC = () => {
               <h2 className="text-5xl md:text-7xl font-serif text-slate-900 tracking-tighter">The Recruitment <br/><span className="italic">Engine.</span></h2>
             </div>
             <p className="max-w-md text-slate-500 font-light leading-relaxed">
-              An aggressive, automated direct hire infrastructure designed to eliminate agency dependency and stabilize your workforce.
+              An aggressive, automated direct hire infrastructure designed to reduce agency dependency and stabilize your workforce.
             </p>
           </div>
 
@@ -194,7 +194,7 @@ const Infrastructure: React.FC = () => {
                   Stop paying the 40% <br/><span className="italic">"Impatience Tax"</span> to agencies.
                 </h3>
                 <p className="text-lg text-slate-500 font-light leading-relaxed max-w-2xl">
-                  We don't sell recruitment software. We install Agency Elimination. By contacting every applicant in 60 seconds, we build your own private Staff Bank, ensuring you hire the best talent before an agency even sees their application.
+                  By engaging every applicant within 60 seconds, we build your private staff bank, ensuring you secure the best talent before an agency even sees the application.
                 </p>
               </div>
 
@@ -206,12 +206,12 @@ const Infrastructure: React.FC = () => {
                     detail: "Real time sync with Indeed and LinkedIn. The second a Carer applies, the engine intercepts the data instantly." 
                   },
                   { 
-                    title: "The Chloe Vetting Call", 
-                    detail: "Chloe (AI Recruiter) calls applicants in 2 minutes. No more manager on the floor delays or missed top tier talent." 
+                    title: "Instant Candidate Engagement", 
+                    detail: "Our voice engine contacts every applicant within 2 minutes of their submission. By eliminating manual delays, the system secures top tier talent before they are engaged by competing homes or agencies." 
                   },
                   { 
                     title: "Compliance Triage", 
-                    detail: "Chloe asks the Dealbreaker questions: Right to Work, NVQ levels, and weekend availability confirmed before you even see the CV." 
+                    detail: "Secure your workforce without the manual sift. Our engine confirms mandatory deal breakers: Certification levels, RTW and shift availability before a manager ever spends time reviewing a CV." 
                   },
                   { 
                     title: "Auto Rejection Logic", 
@@ -289,10 +289,10 @@ const Infrastructure: React.FC = () => {
             <div className="lg:col-span-8">
               <div className="mb-20">
                 <h3 className="text-3xl md:text-4xl font-serif text-slate-900 mb-8 leading-tight">
-                  Protect your <span className="italic">Managers</span> from the 40% <br/>"Repetitive FAQ" tax.
+                  Protect your <span className="italic">Managers</span> from administrative saturation.
                 </h3>
                 <p className="text-lg text-slate-500 font-light leading-relaxed max-w-2xl">
-                  We don't sell staff chatbots. We install Instant Support Infrastructure. The Oracle lives on every carer's phone, providing safe, instant policy answers 24/7 and acting as an Early Warning System for burnout.
+                  Replace manual policy lookups with systemic intelligence. The Oracle provides your workforce with instant, compliant answers to routine questions, allowing your leadership to stay focused on high level care.
                 </p>
               </div>
 
@@ -301,15 +301,15 @@ const Infrastructure: React.FC = () => {
                 {[
                   { 
                     title: "Digital Knowledge Core", 
-                    detail: "The 200 page handbook, CQC policies, and SOPs are indexed into a high precision vector database for instant recall." 
+                    detail: "Your 200 page handbook, CQC policies and SOPs are indexed into a high precision database for instant, compliant recall." 
                   },
                   { 
                     title: "WhatsApp Oracle Interface", 
-                    detail: "Carers text the system directly for help with reporting, maintenance, or procedures without leaving the floor." 
+                    detail: "Carers text the system directly for help with reporting, maintenance or procedures without leaving the floor." 
                   },
                   { 
-                    title: "3s Compliant Answers", 
-                    detail: "Instant, safe responses pulled from the 2026 Manual, complete with medical emergency disclaimers and nurse alerts." 
+                    title: "3s Compliant Support", 
+                    detail: "Eliminate guesswork on the floor. The system provides immediate, policy backed guidance for any staff query, ensuring every action taken is compliant with your latest SOPs and safety protocols" 
                   },
                   { 
                     title: "Manager Escalation Logic", 
