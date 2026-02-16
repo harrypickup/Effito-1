@@ -34,7 +34,7 @@ const Performance: React.FC = () => {
               <span className="italic">Certainty.</span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-600 max-w-2xl font-light leading-relaxed">
-              Performance is not a projection—it is the direct output of your infrastructure. We replace the volatility of manual processes with engineered consistency.
+              Performance is not a projection, it is the direct output of your infrastructure. We replace the volatility of manual processes with engineered consistency.
             </p>
           </div>
           <div className="lg:col-span-4 lg:pt-24">
@@ -118,7 +118,7 @@ const Performance: React.FC = () => {
              <h2 className="text-5xl font-serif text-slate-900 tracking-tighter">The Stabilization Curve.</h2>
           </div>
           <p className="text-slate-500 max-w-md font-light leading-relaxed text-sm">
-            Manual homes suffer from "Capacity Volatility"—a cycle of move ins followed by sudden vacancies and slow refills. Effito creates a continuous intake pressure that maintains peak occupancy.
+            Manual homes suffer from "Capacity Volatility" - a cycle of move ins followed by sudden vacancies and slow refills. Effito creates a continuous intake pressure that maintains peak occupancy.
           </p>
         </div>
 
