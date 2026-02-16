@@ -1,27 +1,18 @@
-
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 
 const Contact: React.FC = () => {
-  const [submitted, setSubmitted] = useState(false);
+  useEffect(() => {
+    // Load the GHL form embed script dynamically
+    const script = document.createElement('script');
+    script.src = "https://link.msgsndr.com/js/form_embed.js";
+    script.async = true;
+    document.body.appendChild(script);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
-  if (submitted) {
-    return (
-      <div className="px-6 py-32 max-w-7xl mx-auto text-center animate-in zoom-in-95 duration-500">
-        <h1 className="text-4xl font-semibold text-slate-900 mb-6">Strategy Call Requested.</h1>
-        <p className="text-lg text-slate-600 mb-10 max-w-xl mx-auto">
-          Thank you. An infrastructure consultant will review your request and reach out within 24 hours to schedule a time.
-        </p>
-        <div className="inline-block px-8 py-3 bg-slate-100 text-slate-600 rounded">
-          Priority Review: Active
-        </div>
-      </div>
-    );
-  }
+    return () => {
+      // Clean up script if user navigates away
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <div className="animate-in fade-in duration-700">
@@ -30,7 +21,7 @@ const Contact: React.FC = () => {
           <span className="text-xs font-bold tracking-widest uppercase text-slate-400 mb-4 block">Get Started</span>
           <h1 className="text-4xl md:text-5xl font-semibold text-slate-900 mb-8 tracking-tight">Book a Strategy Call.</h1>
           <p className="text-lg text-slate-600 mb-12 leading-relaxed">
-            This is a non obligation strategic discussion about your current infrastructure and how Effito can stabilize your operations.
+            This is a non-obligation strategic discussion about your current infrastructure and how Effito can stabilize your operations.
           </p>
           
           <div className="space-y-6 text-sm text-slate-500">
@@ -40,7 +31,7 @@ const Contact: React.FC = () => {
             </div>
             <div className="flex gap-4 items-center">
               <span className="w-2 h-2 rounded-full bg-slate-900"></span>
-              <span>Focused on long term operational health.</span>
+              <span>Focused on long-term operational health.</span>
             </div>
             <div className="flex gap-4 items-center">
               <span className="w-2 h-2 rounded-full bg-slate-900"></span>
@@ -49,45 +40,25 @@ const Contact: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white p-8 md:p-12 rounded-xl border border-stone-200 shadow-lg">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-xs font-bold text-slate-400 uppercase mb-2">Full Name</label>
-                <input required type="text" className="w-full bg-stone-50 border border-stone-200 p-3 rounded text-sm focus:outline-none focus:border-slate-900 transition-colors" />
-              </div>
-              <div>
-                <label className="block text-xs font-bold text-slate-400 uppercase mb-2">Job Title</label>
-                <input required type="text" className="w-full bg-stone-50 border border-stone-200 p-3 rounded text-sm focus:outline-none focus:border-slate-900 transition-colors" />
-              </div>
-            </div>
-            <div>
-              <label className="block text-xs font-bold text-slate-400 uppercase mb-2">Care Home Name</label>
-              <input required type="text" className="w-full bg-stone-50 border border-stone-200 p-3 rounded text-sm focus:outline-none focus:border-slate-900 transition-colors" />
-            </div>
-            <div>
-              <label className="block text-xs font-bold text-slate-400 uppercase mb-2">Work Email</label>
-              <input required type="email" className="w-full bg-stone-50 border border-stone-200 p-3 rounded text-sm focus:outline-none focus:border-slate-900 transition-colors" />
-            </div>
-            <div>
-              <label className="block text-xs font-bold text-slate-400 uppercase mb-2">Primary Objective</label>
-              <select className="w-full bg-stone-50 border border-stone-200 p-3 rounded text-sm focus:outline-none focus:border-slate-900 transition-colors">
-                <option>Increase Occupancy</option>
-                <option>Reduce Agency Reliance</option>
-                <option>Improve Response Times</option>
-                <option>Complete Operational Upgrade</option>
-              </select>
-            </div>
-            <button
-              type="submit"
-              className="w-full bg-slate-900 text-white p-4 rounded font-medium hover:bg-slate-800 transition-all shadow-md mt-4"
-            >
-              Request Call
-            </button>
-            <p className="text-[10px] text-center text-slate-400">
-              By submitting, you agree to our privacy policy regarding professional communication.
-            </p>
-          </form>
+        {/* GHL Form Container */}
+        <div className="bg-white p-4 md:p-6 rounded-xl border border-stone-200 shadow-lg min-h-[600px]">
+          <iframe
+            src="https://api.leadconnectorhq.com/widget/form/3Y6cASrktKYiOj9Vb97Y"
+            style={{ width: '100%', height: '100%', border: 'none', borderRadius: '3px' }}
+            id="inline-3Y6cASrktKYiOj9Vb97Y" 
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="Effito Enquiry Form"
+            data-height="568"
+            data-layout-iframe-id="inline-3Y6cASrktKYiOj9Vb97Y"
+            data-form-id="3Y6cASrktKYiOj9Vb97Y"
+            title="Effito Enquiry Form"
+          ></iframe>
         </div>
       </section>
     </div>
