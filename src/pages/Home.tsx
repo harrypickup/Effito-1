@@ -34,10 +34,9 @@ const Home: React.FC = () => {
   ];
 
   const stats = [
-    { value: "60 Days", label: "Payback Period" },
-    { value: "30%", label: "Agency Reduction" },
-    { value: "< 2 Mins", label: "Inquiry Response" },
-    { value: "£200k+", label: "Profit Recovery" }
+    { value: "0%", label: "Lead Decay" }
+    { value: "30 Hours", label: "Weekly Admin Recovery" },
+    { value: "< 60 Sec", label: "Inquiry Response" },
   ];
 
   return (
