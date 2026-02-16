@@ -206,7 +206,7 @@ const Performance: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-slate-800 border border-slate-800">
             {[
               { label: "Occupancy Gain", value: "98%", sub: "Average stabilized bed capacity" },
-              { label: "Agency Reduction", value: "40%", sub: "Quarter on quarter spend reduction" },
+              { label: "Agency Reduction", value: "30%", sub: "Quarter on quarter spend reduction" },
               { label: "Admin Recovery", value: "30h", sub: "Manager time recovered per week" },
               { label: "Response Time", value: "<1m", sub: "Across all digital and voice channels" }
             ].map((stat, i) => (
