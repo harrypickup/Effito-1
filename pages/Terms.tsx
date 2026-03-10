@@ -4,24 +4,24 @@ import { Link } from 'react-router-dom';
 const Terms: React.FC = () => {
   return (
     <div className="bg-[#FAF9F6] min-h-screen">
-      <div className="max-w-4xl mx-auto px-6 py-24 animate-in fade-in duration-700">
-        <div className="mb-16">
-          <span className="text-xs font-bold tracking-widest uppercase text-indigo-600 mb-4 block">Legal</span>
-          <h1 className="text-5xl font-semibold text-slate-900 mb-6 tracking-tight">Terms of Service</h1>
-          <p className="text-slate-500">
+      <div className="max-w-4xl mx-auto px-6 py-16 md:py-24 animate-in fade-in duration-700">
+        <div className="mb-12 md:mb-16">
+          <span className="text-[10px] md:text-xs font-bold tracking-widest uppercase text-indigo-600 mb-4 block">Legal</span>
+          <h1 className="text-3xl md:text-5xl font-semibold text-slate-900 mb-6 tracking-tight">Terms of Service</h1>
+          <p className="text-sm md:text-base text-slate-500 font-light">
             <span className="font-semibold text-slate-700">Last updated: March 2026</span> &nbsp;·&nbsp;
             These terms govern your use of the Effito website.
           </p>
         </div>
 
-        <div className="h-px bg-slate-200 w-full mb-16" />
+        <div className="h-px bg-slate-200 w-full mb-12 md:mb-16" />
 
-        <div className="space-y-16 text-slate-600 leading-relaxed">
+        <div className="space-y-12 md:space-y-16 text-slate-600 leading-relaxed font-light">
           {/* 1 */}
           <section>
             <div className="flex items-center gap-4 mb-6">
-              <span className="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded">01</span>
-              <h2 className="text-2xl font-semibold text-slate-900">Who We Are</h2>
+              <span className="text-[10px] font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded">01</span>
+              <h2 className="text-xl md:text-2xl font-semibold text-slate-900">Who We Are</h2>
             </div>
             <p className="mb-4">
               This website is operated by <strong className="text-slate-900">Effito Ltd</strong>, a company registered in England and Wales.

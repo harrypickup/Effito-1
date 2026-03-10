@@ -30,11 +30,11 @@ const Privacy: React.FC = () => {
 
   return (
     <div className="bg-[#FAF9F6] min-h-screen">
-      <div className="max-w-7xl mx-auto px-6 py-24 animate-in fade-in duration-700">
-        <div className="mb-12">
-          <span className="text-xs font-bold tracking-widest uppercase text-indigo-600 mb-4 block">Legal</span>
-          <h1 className="text-5xl font-semibold text-slate-900 mb-6 tracking-tight">Privacy Policy</h1>
-          <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-slate-500">
+      <div className="max-w-7xl mx-auto px-6 py-16 md:py-24 animate-in fade-in duration-700">
+        <div className="mb-8 md:mb-12">
+          <span className="text-[10px] md:text-xs font-bold tracking-widest uppercase text-indigo-600 mb-4 block">Legal</span>
+          <h1 className="text-3xl md:text-5xl font-semibold text-slate-900 mb-6 tracking-tight">Privacy Policy</h1>
+          <div className="flex flex-wrap gap-x-4 gap-y-2 text-[11px] md:text-sm text-slate-500">
             <span className="font-semibold text-slate-700">Effito Ltd</span>
             <span>Version 1.0</span>
             <span>Last updated: March 2026</span>
@@ -42,9 +42,9 @@ const Privacy: React.FC = () => {
           </div>
         </div>
 
-        <div className="h-px bg-slate-200 w-full mb-16" />
+        <div className="h-px bg-slate-200 w-full mb-12 md:mb-16" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16">
           {/* Sidebar */}
           <aside className="lg:col-span-3 hidden lg:block sticky top-32 h-fit">
             <p className="text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-6">Contents</p>
@@ -62,12 +62,12 @@ const Privacy: React.FC = () => {
           </aside>
 
           {/* Content */}
-          <main className="lg:col-span-9 space-y-20 text-slate-600 leading-relaxed">
+          <main className="lg:col-span-9 space-y-16 md:space-y-20 text-slate-600 leading-relaxed font-light">
             {/* 1 */}
             <section id="s1" className="scroll-mt-32">
               <div className="flex items-center gap-4 mb-6">
-                <span className="w-8 h-8 flex items-center justify-center text-xs font-bold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-lg">1</span>
-                <h2 className="text-2xl font-semibold text-slate-900">Who We Are</h2>
+                <span className="w-8 h-8 flex items-center justify-center text-[10px] font-bold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-lg">1</span>
+                <h2 className="text-xl md:text-2xl font-semibold text-slate-900">Who We Are</h2>
               </div>
               <p className="mb-4">Effito Ltd (Company Number 17074094) is a technology infrastructure provider specialising in the care home sector. Our registered office is at 71-75 Shelton Street, Covent Garden, London, United Kingdom, WC2H 9JQ.</p>
               <p className="mb-4">Effito builds and operates automation systems on behalf of care home operators across the United Kingdom. Our services are delivered through three integrated pillars:</p>

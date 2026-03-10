@@ -7,18 +7,18 @@ const Infrastructure: React.FC = () => {
   return (
     <div className="bg-[#FAF9F6] min-h-screen">
       {/* Hero / Introduction Section */}
-      <section className="px-8 py-32 max-w-[1400px] mx-auto border-b border-stone-200">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-start">
+      <section className="px-6 md:px-8 py-16 md:py-32 max-w-[1400px] mx-auto border-b border-stone-200">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
           <div className="lg:col-span-5">
-            <span className="text-[12px] font-bold tracking-[0.3em] uppercase text-stone-400 mb-8 block">The Architecture</span>
-            <h1 className="text-5xl md:text-7xl font-serif text-slate-900 mb-10 leading-[1.1] tracking-tighter">
-              A Permanent <br/>Operational <span className="italic">Upgrade.</span>
+            <span className="text-[11px] md:text-[12px] font-bold tracking-[0.3em] uppercase text-stone-400 mb-6 md:mb-8 block">The Architecture</span>
+            <h1 className="text-4xl md:text-7xl font-serif text-slate-900 mb-8 md:mb-10 leading-[1.1] tracking-tighter">
+              A Permanent <br className="hidden md:block" />Operational <span className="italic">Upgrade.</span>
             </h1>
-            <p className="text-xl text-slate-600 mb-16 leading-relaxed font-light">
+            <p className="text-lg md:text-xl text-slate-600 mb-10 md:mb-16 leading-relaxed font-light">
               Effito is not software you "use." It is an infrastructure we install—a collection of resilient systems that manage the growth and human capital of your care home automatically.
             </p>
             
-            <div className="space-y-12">
+            <div className="space-y-10 md:space-y-12">
               {[
                 { step: "01", title: "Autonomous Engagement", body: "Enquiries are handled within seconds with professional accuracy, ensuring your home is always the first to respond." },
                 { step: "02", title: "Resilient Workflows", body: "Processes that do not rely on staff availability. Your growth infrastructure is always active, 24/7." },
@@ -30,11 +30,11 @@ const Infrastructure: React.FC = () => {
                   transition={{ delay: i * 0.1 }}
                   viewport={{ once: true }}
                   key={i} 
-                  className="flex gap-10"
+                  className="flex gap-6 md:gap-10"
                 >
                   <span className="text-sm font-bold text-slate-300 font-mono mt-1">{item.step}</span>
                   <div>
-                    <h3 className="text-lg font-semibold text-slate-900 mb-3 uppercase tracking-wider">{item.title}</h3>
+                    <h3 className="text-base md:text-lg font-semibold text-slate-900 mb-2 md:mb-3 uppercase tracking-wider">{item.title}</h3>
                     <p className="text-slate-500 text-sm leading-relaxed font-light">{item.body}</p>
                   </div>
                 </motion.div>
@@ -42,17 +42,21 @@ const Infrastructure: React.FC = () => {
             </div>
           </div>
           
-          <div className="lg:col-span-7 sticky top-32">
+          <div className="lg:col-span-7 lg:sticky lg:top-32">
             <div className="relative p-1 bg-white border border-stone-200 rounded-sm shadow-sm group">
-              <div className="absolute -top-4 -right-4 bg-slate-900 text-white text-[10px] px-3 py-1 uppercase tracking-widest font-bold z-10">
+              <div className="absolute -top-3 -right-3 md:-top-4 md:-right-4 bg-slate-900 text-white text-[9px] md:text-[10px] px-2 md:px-3 py-1 uppercase tracking-widest font-bold z-10">
                 Blueprint v3.1
               </div>
-              <InfrastructureArch />
-              <div className="mt-8 grid grid-cols-3 gap-px bg-stone-200">
+              <div className="overflow-x-auto">
+                <div className="min-w-[500px] md:min-w-0">
+                  <InfrastructureArch />
+                </div>
+              </div>
+              <div className="mt-6 md:mt-8 grid grid-cols-3 gap-px bg-stone-200">
                 {['Growth', 'Talent', 'Intelligence'].map((label, i) => (
-                  <div key={i} className="bg-white p-6 text-center">
-                    <span className="block text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-1">Module {i+1}</span>
-                    <span className="text-sm font-medium text-slate-900">{label}</span>
+                  <div key={i} className="bg-white p-4 md:p-6 text-center">
+                    <span className="block text-[8px] md:text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-1">Module {i+1}</span>
+                    <span className="text-xs md:text-sm font-medium text-slate-900">{label}</span>
                   </div>
                 ))}
               </div>
@@ -63,26 +67,26 @@ const Infrastructure: React.FC = () => {
 
       {/* Pillar 01 Detail Section: Occupancy Engine */}
       <section className="relative overflow-hidden bg-white border-b border-stone-200">
-        <div className="max-w-[1400px] mx-auto px-8 py-32">
-          <div className="mb-24 flex flex-col md:flex-row justify-between items-baseline gap-8">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-8 py-20 md:py-32">
+          <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-baseline gap-8">
             <div>
               <span className="text-[11px] font-bold tracking-[0.4em] uppercase text-stone-400 mb-4 block">System Component 01</span>
-              <h2 className="text-5xl md:text-7xl font-serif text-slate-900 tracking-tighter">The Occupancy <br/><span className="italic">Engine.</span></h2>
+              <h2 className="text-4xl md:text-7xl font-serif text-slate-900 tracking-tighter leading-tight">The Occupancy <br className="hidden md:block" /><span className="italic">Engine.</span></h2>
             </div>
-            <p className="max-w-md text-slate-500 font-light leading-relaxed">
+            <p className="max-w-md text-slate-500 font-light leading-relaxed text-sm md:text-base">
               An institutional grade sales infrastructure that converts interest into occupancy without human intervention.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-32 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-32 items-start">
             <div className="lg:col-span-4 space-y-12">
-              <div className="bg-stone-50 border border-stone-200 p-8 rounded-sm">
-                <div className="flex items-center gap-3 mb-8">
+              <div className="bg-stone-50 border border-stone-200 p-6 md:p-8 rounded-sm">
+                <div className="flex items-center gap-3 mb-6 md:mb-8">
                   <div className="w-2 h-2 bg-stone-300 rounded-full" />
                   <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-400 italic">Current State: The Leaky Bucket</span>
                 </div>
-                <h3 className="text-xl font-serif text-slate-900 mb-6">Passive Intake Failure</h3>
-                <div className="space-y-6">
+                <h3 className="text-lg md:text-xl font-serif text-slate-900 mb-4 md:mb-6">Passive Intake Failure</h3>
+                <div className="space-y-5 md:space-y-6">
                   {[
                     { label: "The Capture", text: "Generic info@ email inbox check. Delayed and unmonitored." },
                     { label: "The Process", text: "Manager checks when spare moments allow—often 4 to 24hrs later." },
@@ -90,13 +94,13 @@ const Infrastructure: React.FC = () => {
                   ].map((item, i) => (
                     <div key={i} className="border-b border-stone-200 pb-4 last:border-0">
                       <span className="text-[9px] font-bold uppercase tracking-widest text-stone-400 block mb-1">{item.label}</span>
-                      <p className="text-sm text-slate-500 font-light leading-relaxed">{item.text}</p>
+                      <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">{item.text}</p>
                     </div>
                   ))}
                 </div>
-                <div className="mt-10 pt-8 border-t border-stone-200">
+                <div className="mt-8 md:mt-10 pt-6 md:pt-8 border-t border-stone-200">
                   <span className="text-[10px] font-bold text-red-900/50 uppercase tracking-widest block mb-4">Economic Impact</span>
-                  <p className="text-sm text-slate-400 italic font-light">
+                  <p className="text-xs md:text-sm text-slate-400 italic font-light">
                     "Losing one private pay resident due to a slow response costs the home £75,000 to £100,000 in annual lost fees."
                   </p>
                 </div>
@@ -104,11 +108,11 @@ const Infrastructure: React.FC = () => {
             </div>
 
             <div className="lg:col-span-8">
-              <div className="mb-20">
-                <h3 className="text-3xl md:text-4xl font-serif text-slate-900 mb-8 leading-tight">
-                  From a digital "Black Hole" <br/>to a <span className="italic">High Speed Pipeline.</span>
+              <div className="mb-12 md:mb-20">
+                <h3 className="text-2xl md:text-4xl font-serif text-slate-900 mb-6 md:mb-8 leading-tight">
+                  From a digital "Black Hole" <br className="hidden md:block" />to a <span className="italic">High Speed Pipeline.</span>
                 </h3>
-                <p className="text-lg text-slate-500 font-light leading-relaxed max-w-2xl">
+                <p className="text-base md:text-lg text-slate-500 font-light leading-relaxed max-w-2xl">
                   We don't sell AI chatbots. We install Instant Response Infrastructure. When a family reaches out, silence is replaced by an empathy driven, professional capture system that secures the "Speed to Trust."
                 </p>
               </div>
@@ -122,10 +126,10 @@ const Infrastructure: React.FC = () => {
                   { title: "Multi Channel Nurture", detail: "Automatic WhatsApp and email follow ups with digital brochures and testimonials keep the family warm for 7 days." },
                   { title: "GHL CRM Sync", detail: "Full transcriptions of every conversation are logged. The manager walks into the tour knowing exactly what the family needs." }
                 ].map((item, i) => (
-                  <div key={i} className="bg-white p-10 hover:bg-stone-50 transition-colors">
-                    <div className="mb-6"><GrowthNode /></div>
-                    <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-slate-900 mb-4">{item.title}</h4>
-                    <p className="text-sm text-slate-500 font-light leading-relaxed">{item.detail}</p>
+                  <div key={i} className="bg-white p-8 md:p-10 hover:bg-stone-50 transition-colors">
+                    <div className="mb-4 md:mb-6"><GrowthNode /></div>
+                    <h4 className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-slate-900 mb-3 md:mb-4">{item.title}</h4>
+                    <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">{item.detail}</p>
                   </div>
                 ))}
               </div>
@@ -136,30 +140,30 @@ const Infrastructure: React.FC = () => {
 
       {/* Pillar 02 Detail Section: Recruitment Engine */}
       <section className="relative overflow-hidden bg-[#FAF9F6] border-b border-stone-200">
-        <div className="max-w-[1400px] mx-auto px-8 py-32">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-8 py-20 md:py-32">
           {/* Header */}
-          <div className="mb-24 flex flex-col md:flex-row justify-between items-baseline gap-8">
+          <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-baseline gap-8">
             <div>
               <span className="text-[11px] font-bold tracking-[0.4em] uppercase text-stone-400 mb-4 block">System Component 02</span>
-              <h2 className="text-5xl md:text-7xl font-serif text-slate-900 tracking-tighter">The Recruitment <br/><span className="italic">Engine.</span></h2>
+              <h2 className="text-4xl md:text-7xl font-serif text-slate-900 tracking-tighter leading-tight">The Recruitment <br className="hidden md:block" /><span className="italic">Engine.</span></h2>
             </div>
-            <p className="max-w-md text-slate-500 font-light leading-relaxed">
+            <p className="max-w-md text-slate-500 font-light leading-relaxed text-sm md:text-base">
               An aggressive, automated direct hire infrastructure designed to eliminate agency dependency and stabilize your workforce.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-32 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-32 items-start">
             {/* The Current State: The Vacancy Crisis */}
             <div className="lg:col-span-4 space-y-12">
-              <div className="bg-white border border-stone-200 p-8 rounded-sm shadow-sm">
-                <div className="flex items-center gap-3 mb-8">
+              <div className="bg-white border border-stone-200 p-6 md:p-8 rounded-sm shadow-sm">
+                <div className="flex items-center gap-3 mb-6 md:mb-8">
                   <div className="w-2 h-2 bg-red-400/50 rounded-full" />
                   <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-400 italic">Current State: The Vacancy Crisis</span>
                 </div>
                 
-                <h3 className="text-xl font-serif text-slate-900 mb-6">Fragmented Manual Process</h3>
+                <h3 className="text-lg md:text-xl font-serif text-slate-900 mb-4 md:mb-6">Fragmented Manual Process</h3>
                 
-                <div className="space-y-6">
+                <div className="space-y-5 md:space-y-6">
                   {[
                     { label: "The Post", text: "Standard Indeed ad placement. Passive waiting for CVs." },
                     { label: "The Delay", text: "CVs sit in inboxes for 3 to 5 days while managers cover clinical shifts." },
@@ -168,18 +172,18 @@ const Infrastructure: React.FC = () => {
                   ].map((item, i) => (
                     <div key={i} className="border-b border-stone-100 pb-4 last:border-0">
                       <span className="text-[9px] font-bold uppercase tracking-widest text-slate-400 block mb-1">{item.label}</span>
-                      <p className="text-sm text-slate-500 font-light leading-relaxed">{item.text}</p>
+                      <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">{item.text}</p>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-10 pt-8 border-t border-stone-200">
+                <div className="mt-8 md:mt-10 pt-6 md:pt-8 border-t border-stone-200">
                   <span className="text-[10px] font-bold text-red-900/50 uppercase tracking-widest block mb-4">Economic impact</span>
                   <div className="space-y-3">
-                    <p className="text-sm text-slate-500 font-light">
+                    <p className="text-xs md:text-sm text-slate-500 font-light">
                       <strong className="text-slate-900">Speed is Survival:</strong> Carer shelf life on Indeed is &lt; 24 hours.
                     </p>
-                    <p className="text-sm text-slate-500 font-light">
+                    <p className="text-xs md:text-sm text-slate-500 font-light">
                       <strong className="text-slate-900">Agency Markups:</strong> Each vacant role costs £150 to £300 extra daily.
                     </p>
                   </div>
@@ -189,11 +193,11 @@ const Infrastructure: React.FC = () => {
 
             {/* The Solution: Agency Assassin */}
             <div className="lg:col-span-8">
-              <div className="mb-20">
-                <h3 className="text-3xl md:text-4xl font-serif text-slate-900 mb-8 leading-tight">
-                  Stop paying the 40% <br/><span className="italic">"Impatience Tax"</span> to agencies.
+              <div className="mb-12 md:mb-20">
+                <h3 className="text-2xl md:text-4xl font-serif text-slate-900 mb-6 md:mb-8 leading-tight">
+                  Stop paying the 40% <br className="hidden md:block" /><span className="italic">"Impatience Tax"</span> to agencies.
                 </h3>
-                <p className="text-lg text-slate-500 font-light leading-relaxed max-w-2xl">
+                <p className="text-base md:text-lg text-slate-500 font-light leading-relaxed max-w-2xl">
                   We don't sell recruitment software. We install Agency Elimination. By contacting every applicant in 60 seconds, we build your own private Staff Bank, ensuring you hire the best talent before an agency even sees their application.
                 </p>
               </div>
@@ -226,10 +230,10 @@ const Infrastructure: React.FC = () => {
                     detail: "By operating in seconds rather than days, you 'buy' staff for the cost of an ad rather than a £5,000 agency fee." 
                   }
                 ].map((item, i) => (
-                  <div key={i} className="bg-white p-10 hover:bg-stone-50 transition-colors">
-                    <div className="mb-6"><GrowthNode /></div>
-                    <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-slate-900 mb-4">{item.title}</h4>
-                    <p className="text-sm text-slate-500 font-light leading-relaxed">{item.detail}</p>
+                  <div key={i} className="bg-white p-8 md:p-10 hover:bg-stone-50 transition-colors">
+                    <div className="mb-4 md:mb-6"><GrowthNode /></div>
+                    <h4 className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-slate-900 mb-3 md:mb-4">{item.title}</h4>
+                    <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">{item.detail}</p>
                   </div>
                 ))}
               </div>
@@ -240,30 +244,30 @@ const Infrastructure: React.FC = () => {
 
       {/* Pillar 03 Detail Section: Staff Oracle */}
       <section className="relative overflow-hidden bg-white border-b border-stone-200">
-        <div className="max-w-[1400px] mx-auto px-8 py-32">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-8 py-20 md:py-32">
           {/* Header */}
-          <div className="mb-24 flex flex-col md:flex-row justify-between items-baseline gap-8">
+          <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-baseline gap-8">
             <div>
               <span className="text-[11px] font-bold tracking-[0.4em] uppercase text-stone-400 mb-4 block">System Component 03</span>
-              <h2 className="text-5xl md:text-7xl font-serif text-slate-900 tracking-tighter">The Staff <br/><span className="italic">Oracle.</span></h2>
+              <h2 className="text-4xl md:text-7xl font-serif text-slate-900 tracking-tighter leading-tight">The Staff <br className="hidden md:block" /><span className="italic">Oracle.</span></h2>
             </div>
-            <p className="max-w-md text-slate-500 font-light leading-relaxed">
+            <p className="max-w-md text-slate-500 font-light leading-relaxed text-sm md:text-base">
               A private, automated support layer that protects your workforce stability and prevents the manager level bottleneck.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-32 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-32 items-start">
             {/* The Current State: The Support Vacuum */}
             <div className="lg:col-span-4 space-y-12">
-              <div className="bg-stone-50 border border-stone-200 p-8 rounded-sm">
-                <div className="flex items-center gap-3 mb-8">
+              <div className="bg-stone-50 border border-stone-200 p-6 md:p-8 rounded-sm">
+                <div className="flex items-center gap-3 mb-6 md:mb-8">
                   <div className="w-2 h-2 bg-stone-300 rounded-full" />
                   <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-400 italic">Current State: The Support Vacuum</span>
                 </div>
                 
-                <h3 className="text-xl font-serif text-slate-900 mb-6">Manager Dependent Friction</h3>
+                <h3 className="text-lg md:text-xl font-serif text-slate-900 mb-4 md:mb-6">Manager Dependent Friction</h3>
                 
-                <div className="space-y-6">
+                <div className="space-y-5 md:space-y-6">
                   {[
                     { label: "The Manual", text: "200 page paper handbooks provided at induction but never referenced again." },
                     { label: "The Interruption", text: "Carers leave the floor to find a manager for routine policy FAQs, wasting 20 mins." },
@@ -271,14 +275,14 @@ const Infrastructure: React.FC = () => {
                   ].map((item, i) => (
                     <div key={i} className="border-b border-stone-200 pb-4 last:border-0">
                       <span className="text-[9px] font-bold uppercase tracking-widest text-stone-400 block mb-1">{item.label}</span>
-                      <p className="text-sm text-slate-500 font-light leading-relaxed">{item.text}</p>
+                      <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">{item.text}</p>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-10 pt-8 border-t border-stone-200">
+                <div className="mt-8 md:mt-10 pt-6 md:pt-8 border-t border-stone-200">
                   <span className="text-[10px] font-bold text-red-900/50 uppercase tracking-widest block mb-4">The Churn Cost</span>
-                  <p className="text-sm text-slate-400 italic font-light">
+                  <p className="text-xs md:text-sm text-slate-400 italic font-light">
                     "Losing a single experienced carer costs £6,000. For a mid sized home, turnover at 30% creates a silent £90,000 annual loss."
                   </p>
                 </div>
@@ -287,11 +291,11 @@ const Infrastructure: React.FC = () => {
 
             {/* The Solution: Operational Peace */}
             <div className="lg:col-span-8">
-              <div className="mb-20">
-                <h3 className="text-3xl md:text-4xl font-serif text-slate-900 mb-8 leading-tight">
-                  Protect your <span className="italic">Managers</span> from the 40% <br/>"Repetitive FAQ" tax.
+              <div className="mb-12 md:mb-20">
+                <h3 className="text-2xl md:text-4xl font-serif text-slate-900 mb-6 md:mb-8 leading-tight">
+                  Protect your <span className="italic">Managers</span> from the 40% <br className="hidden md:block" />"Repetitive FAQ" tax.
                 </h3>
-                <p className="text-lg text-slate-500 font-light leading-relaxed max-w-2xl">
+                <p className="text-base md:text-lg text-slate-500 font-light leading-relaxed max-w-2xl">
                   We don't sell staff chatbots. We install Instant Support Infrastructure. The Oracle lives on every carer's phone, providing safe, instant policy answers 24/7 and acting as an Early Warning System for burnout.
                 </p>
               </div>
@@ -324,10 +328,10 @@ const Infrastructure: React.FC = () => {
                     detail: "Eliminates the First 90 Day Friction. Staff feel supported and capable from day one, reducing silent churn significantly." 
                   }
                 ].map((item, i) => (
-                  <div key={i} className="bg-white p-10 hover:bg-stone-50 transition-colors">
-                    <div className="mb-6"><GrowthNode /></div>
-                    <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-slate-900 mb-4">{item.title}</h4>
-                    <p className="text-sm text-slate-500 font-light leading-relaxed">{item.detail}</p>
+                  <div key={i} className="bg-white p-8 md:p-10 hover:bg-stone-50 transition-colors">
+                    <div className="mb-4 md:mb-6"><GrowthNode /></div>
+                    <h4 className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-slate-900 mb-3 md:mb-4">{item.title}</h4>
+                    <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">{item.detail}</p>
                   </div>
                 ))}
               </div>
@@ -337,19 +341,19 @@ const Infrastructure: React.FC = () => {
       </section>
 
       {/* Deep Technical Definition / Closing */}
-      <section className="bg-slate-900 text-white py-32 px-8">
+      <section className="bg-slate-900 text-white py-20 md:py-32 px-6 md:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-serif mb-12 text-center">Built for Stability.</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+          <h2 className="text-3xl md:text-5xl font-serif mb-12 text-center tracking-tight">Built for Stability.</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
             <div>
-              <h4 className="text-xs uppercase font-bold tracking-[0.3em] text-slate-500 mb-6">Structural Integrity</h4>
-              <p className="text-slate-400 font-light leading-relaxed">
+              <h4 className="text-[10px] md:text-xs uppercase font-bold tracking-[0.3em] text-slate-500 mb-4 md:mb-6">Structural Integrity</h4>
+              <p className="text-sm md:text-base text-slate-400 font-light leading-relaxed">
                 Unlike marketing funnels that leak, Effito is built with closed loop logic. Every input (an enquiry, an applicant, a staff query) has a predefined, automated outcome path.
               </p>
             </div>
             <div>
-              <h4 className="text-xs uppercase font-bold tracking-[0.3em] text-slate-500 mb-6">Bespoke Tailoring</h4>
-              <p className="text-slate-400 font-light leading-relaxed">
+              <h4 className="text-[10px] md:text-xs uppercase font-bold tracking-[0.3em] text-slate-500 mb-4 md:mb-6">Bespoke Tailoring</h4>
+              <p className="text-sm md:text-base text-slate-400 font-light leading-relaxed">
                 We don't use templates. We map your home's unique pricing, room availability, and care philosophy into the system's logic core.
               </p>
             </div>

@@ -19,34 +19,43 @@ const growthData = [
 ];
 
 const Performance: React.FC = () => {
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <div className="bg-[#FAF9F6] min-h-screen overflow-x-hidden">
       {/* Hero: Operational Certainty */}
-      <section className="px-8 pt-32 pb-24 max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+      <section className="px-6 md:px-8 pt-24 md:pt-32 pb-16 md:pb-24 max-w-[1400px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 items-start">
           <div className="lg:col-span-8">
-            <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center gap-3 mb-6 md:mb-8">
               <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-              <span className="text-[11px] font-bold tracking-[0.4em] uppercase text-slate-500">System Performance Monitor</span>
+              <span className="text-[10px] md:text-[11px] font-bold tracking-[0.3em] md:tracking-[0.4em] uppercase text-slate-500">System Performance Monitor</span>
             </div>
-            <h1 className="text-6xl md:text-[7rem] font-serif text-slate-900 mb-10 tracking-tighter leading-[0.9]">
-              Quantifying <br />
+            <h1 className="text-4xl md:text-[7rem] font-serif text-slate-900 mb-6 md:mb-10 tracking-tighter leading-[1.1] md:leading-[0.9]">
+              Quantifying <br className="hidden md:block" />
               <span className="italic">Certainty.</span>
             </h1>
-            <p className="text-xl md:text-2xl text-slate-600 max-w-2xl font-light leading-relaxed">
+            <p className="text-lg md:text-2xl text-slate-600 max-w-2xl font-light leading-relaxed">
               Performance is not a projection—it is the direct output of your infrastructure. We replace the volatility of manual processes with engineered consistency.
             </p>
           </div>
           <div className="lg:col-span-4 lg:pt-24">
-            <div className="p-8 bg-white border border-stone-200 rounded-sm shadow-sm relative overflow-hidden group">
+            <div className="p-6 md:p-8 bg-white border border-stone-200 rounded-sm shadow-sm relative overflow-hidden group">
                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
                   <path d="M12 2v20m10-10H2" />
                 </svg>
                </div>
-               <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-stone-400 block mb-4">Core Objective</span>
-               <div className="text-4xl font-serif text-slate-900 mb-2">98.4%</div>
-               <div className="text-[11px] font-bold uppercase tracking-widest text-slate-500 leading-tight">
+               <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-stone-400 block mb-3 md:mb-4">Core Objective</span>
+               <div className="text-3xl md:text-4xl font-serif text-slate-900 mb-2">98.4%</div>
+               <div className="text-[10px] md:text-[11px] font-bold uppercase tracking-widest text-slate-500 leading-tight">
                  Target Bed Occupancy <br /> Stabilization Rate
                </div>
             </div>
@@ -55,50 +64,50 @@ const Performance: React.FC = () => {
       </section>
 
       {/* Operational Diagnostic: The Yield Delta */}
-      <section className="bg-white border-y border-stone-200 py-32">
-        <div className="max-w-[1400px] mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
+      <section className="bg-white border-y border-stone-200 py-20 md:py-32">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-24 items-center">
             <div className="lg:col-span-5">
-              <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-stone-400 mb-6 block">Diagnostic 01: Response Velocity</span>
-              <h2 className="text-4xl font-serif text-slate-900 mb-8 leading-tight">Eliminating <br />Operational <span className="italic">Friction.</span></h2>
-              <p className="text-slate-500 font-light leading-relaxed mb-10">
+              <span className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-stone-400 mb-4 md:mb-6 block">Diagnostic 01: Response Velocity</span>
+              <h2 className="text-3xl md:text-4xl font-serif text-slate-900 mb-6 md:mb-8 leading-tight">Eliminating <br className="hidden md:block" />Operational <span className="italic">Friction.</span></h2>
+              <p className="text-sm md:text-base text-slate-500 font-light leading-relaxed mb-8 md:mb-10">
                 In the modern care market, the "Response Gap" is where profit goes to die. Manual legacy systems allow enquiries to drift for hours, resulting in an 85% loss of high intent private leads.
               </p>
               
-              <div className="grid grid-cols-2 gap-8 border-t border-stone-100 pt-10">
+              <div className="grid grid-cols-2 gap-6 md:gap-8 border-t border-stone-100 pt-8 md:pt-10">
                 <div>
-                  <span className="text-[10px] font-bold uppercase text-stone-400 block mb-2">Response Speed</span>
-                  <span className="text-2xl font-serif text-slate-900 tracking-tight">30 Seconds</span>
-                  <p className="text-[10px] text-stone-400 mt-1 uppercase font-bold tracking-tighter">Effito Average</p>
+                  <span className="text-[9px] md:text-[10px] font-bold uppercase text-stone-400 block mb-2">Response Speed</span>
+                  <span className="text-xl md:text-2xl font-serif text-slate-900 tracking-tight">30 Seconds</span>
+                  <p className="text-[9px] md:text-[10px] text-stone-400 mt-1 uppercase font-bold tracking-tighter">Effito Average</p>
                 </div>
                 <div>
-                  <span className="text-[10px] font-bold uppercase text-stone-400 block mb-2">Lead Retention</span>
-                  <span className="text-2xl font-serif text-slate-900 tracking-tight">+620%</span>
-                  <p className="text-[10px] text-stone-400 mt-1 uppercase font-bold tracking-tighter">Vs. Manual Handling</p>
+                  <span className="text-[9px] md:text-[10px] font-bold uppercase text-stone-400 block mb-2">Lead Retention</span>
+                  <span className="text-xl md:text-2xl font-serif text-slate-900 tracking-tight">+620%</span>
+                  <p className="text-[9px] md:text-[10px] text-stone-400 mt-1 uppercase font-bold tracking-tighter">Vs. Manual Handling</p>
                 </div>
               </div>
             </div>
 
-            <div className="lg:col-span-7 h-[450px] bg-stone-50 p-10 rounded-sm border border-stone-200 relative">
-              <div className="absolute top-6 left-6 flex items-center gap-2">
+            <div className="lg:col-span-7 h-[350px] md:h-[450px] bg-stone-50 p-6 md:p-10 rounded-sm border border-stone-200 relative">
+              <div className="absolute top-4 left-4 md:top-6 md:left-6 flex items-center gap-2">
                 <div className="w-1.5 h-1.5 bg-slate-900 rounded-full" />
-                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-900">Output Matrix: Lead Capture Efficiency</span>
+                <span className="text-[9px] md:text-[10px] font-mono font-bold uppercase tracking-widest text-slate-900">Output Matrix: Lead Capture Efficiency</span>
               </div>
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={responseData} layout="vertical" margin={{ left: 120, right: 40, top: 40 }}>
+                <BarChart data={responseData} layout="vertical" margin={{ left: isMobile ? 60 : 100, right: 20, top: 40 }}>
                   <XAxis type="number" domain={[0, 100]} hide />
                   <YAxis 
                     dataKey="name" 
                     type="category" 
                     axisLine={false} 
                     tickLine={false} 
-                    tick={{ fill: '#64748b', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.15em' }}
+                    tick={{ fill: '#64748b', fontSize: isMobile ? 8 : 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em' }}
                   />
                   <Tooltip 
                     cursor={{fill: 'rgba(0,0,0,0.02)'}}
-                    contentStyle={{ borderRadius: '0', border: '1px solid #e5e7eb', fontSize: '11px', fontFamily: 'monospace' }}
+                    contentStyle={{ borderRadius: '0', border: '1px solid #e5e7eb', fontSize: '10px', fontFamily: 'monospace' }}
                   />
-                  <Bar dataKey="value" radius={[0, 1, 1, 0]} barSize={32}>
+                  <Bar dataKey="value" radius={[0, 1, 1, 0]} barSize={24}>
                     {responseData.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={index === 0 ? '#E2E8F0' : '#0F172A'} />
                     ))}
@@ -111,18 +120,18 @@ const Performance: React.FC = () => {
       </section>
 
       {/* Stabilization Curve: Occupancy Optimization */}
-      <section className="py-32 px-8 max-w-[1400px] mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+      <section className="py-20 md:py-32 px-6 md:px-8 max-w-[1400px] mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 gap-6 md:gap-8">
           <div>
-             <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-stone-400 mb-4 block">Diagnostic 02: Bed Yield Optimization</span>
-             <h2 className="text-5xl font-serif text-slate-900 tracking-tighter">The Stabilization Curve.</h2>
+             <span className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-stone-400 mb-3 md:mb-4 block">Diagnostic 02: Bed Yield Optimization</span>
+             <h2 className="text-3xl md:text-5xl font-serif text-slate-900 tracking-tighter">The Stabilization Curve.</h2>
           </div>
           <p className="text-slate-500 max-w-md font-light leading-relaxed text-sm">
             Manual homes suffer from "Capacity Volatility"—a cycle of move ins followed by sudden vacancies and slow refills. Effito creates a continuous intake pressure that maintains peak occupancy.
           </p>
         </div>
 
-        <div className="h-[500px] w-full bg-white border border-stone-200 p-10 shadow-sm rounded-sm overflow-hidden">
+        <div className="h-[350px] md:h-[500px] w-full bg-white border border-stone-200 p-4 md:p-10 shadow-sm rounded-sm overflow-hidden">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={growthData}>
               <defs>
@@ -136,18 +145,18 @@ const Performance: React.FC = () => {
                 dataKey="month" 
                 axisLine={false} 
                 tickLine={false} 
-                tick={{ fill: '#94a3b8', fontSize: 10, fontWeight: 600, fontFamily: 'monospace' }}
-                dy={15}
+                tick={{ fill: '#94a3b8', fontSize: 8, md: 10, fontWeight: 600, fontFamily: 'monospace' }}
+                dy={10}
               />
               <YAxis 
                 domain={[75, 100]} 
                 axisLine={false} 
                 tickLine={false} 
-                tick={{ fill: '#94a3b8', fontSize: 10, fontFamily: 'monospace' }}
+                tick={{ fill: '#94a3b8', fontSize: 8, md: 10, fontFamily: 'monospace' }}
                 tickFormatter={(val) => `${val}%`}
               />
               <Tooltip 
-                contentStyle={{ borderRadius: '0', border: '1px solid #e5e7eb', fontFamily: 'monospace', fontSize: '11px' }}
+                contentStyle={{ borderRadius: '0', border: '1px solid #e5e7eb', fontFamily: 'monospace', fontSize: '10px' }}
               />
               <Area 
                 type="monotone" 
@@ -162,7 +171,7 @@ const Performance: React.FC = () => {
                 type="monotone" 
                 dataKey="effito" 
                 stroke="#0F172A" 
-                strokeWidth={3}
+                strokeWidth={2}
                 fillOpacity={1} 
                 fill="url(#colorEffito)" 
                 name="Engineered Stability"
@@ -171,7 +180,7 @@ const Performance: React.FC = () => {
           </ResponsiveContainer>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mt-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 mt-16 md:mt-24">
           {[
             { 
               title: "Institutional Flow", 
@@ -187,33 +196,33 @@ const Performance: React.FC = () => {
             }
           ].map((item, i) => (
             <div key={i}>
-              <div className="mb-6"><GrowthNode /></div>
-              <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-slate-900 mb-4">{item.title}</h4>
-              <p className="text-[13px] text-slate-500 font-light leading-relaxed">{item.desc}</p>
+              <div className="mb-4 md:mb-6"><GrowthNode /></div>
+              <h4 className="text-[11px] md:text-sm font-bold uppercase tracking-[0.2em] text-slate-900 mb-3 md:mb-4">{item.title}</h4>
+              <p className="text-[12px] md:text-[13px] text-slate-500 font-light leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* The Impact Matrix */}
-      <section className="bg-slate-900 py-32 px-8 text-white">
+      <section className="bg-slate-900 py-20 md:py-32 px-6 md:px-8 text-white">
         <div className="max-w-[1400px] mx-auto">
-          <div className="mb-24">
-            <span className="text-[10px] font-mono font-bold uppercase tracking-[0.4em] text-slate-500 mb-6 block">Output Benchmarking</span>
-            <h2 className="text-5xl font-serif tracking-tighter max-w-2xl">The geometry of <br />operational <span className="italic opacity-60">freedom.</span></h2>
+          <div className="mb-16 md:mb-24">
+            <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] md:tracking-[0.4em] text-slate-500 mb-4 md:mb-6 block">Output Benchmarking</span>
+            <h2 className="text-3xl md:text-5xl font-serif tracking-tighter max-w-2xl">The geometry of <br className="hidden md:block" />operational <span className="italic opacity-60">freedom.</span></h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-slate-800 border border-slate-800">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-slate-800 border border-slate-800">
             {[
               { label: "Occupancy Gain", value: "98%", sub: "Average stabilized bed capacity" },
               { label: "Agency Reduction", value: "40%", sub: "Quarter on quarter spend reduction" },
               { label: "Admin Recovery", value: "30h", sub: "Manager time recovered per week" },
               { label: "Response Time", value: "<1m", sub: "Across all digital and voice channels" }
             ].map((stat, i) => (
-              <div key={i} className="bg-slate-900 p-12 hover:bg-slate-800/50 transition-colors">
-                <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-slate-500 block mb-8">{stat.label}</span>
-                <span className="text-6xl font-serif mb-4 block tracking-tighter">{stat.value}</span>
-                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">{stat.sub}</p>
+              <div key={i} className="bg-slate-900 p-8 md:p-12 hover:bg-slate-800/50 transition-colors">
+                <span className="text-[9px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-slate-500 block mb-6 md:mb-8">{stat.label}</span>
+                <span className="text-4xl md:text-6xl font-serif mb-3 md:mb-4 block tracking-tighter">{stat.value}</span>
+                <p className="text-[9px] md:text-[10px] text-slate-400 font-bold uppercase tracking-widest">{stat.sub}</p>
               </div>
             ))}
           </div>
@@ -221,21 +230,21 @@ const Performance: React.FC = () => {
       </section>
 
       {/* Performance Audit CTA */}
-      <section className="py-40 px-8 text-center bg-white border-t border-stone-200">
+      <section className="py-24 md:py-40 px-6 md:px-8 text-center bg-white border-t border-stone-200">
         <div className="max-w-3xl mx-auto">
-           <div className="w-12 h-12 bg-stone-100 rounded-full flex items-center justify-center mx-auto mb-10">
+           <div className="w-10 h-10 md:w-12 md:h-12 bg-stone-100 rounded-full flex items-center justify-center mx-auto mb-8 md:mb-10">
               <div className="w-2 h-2 bg-slate-900 rounded-full" />
            </div>
-          <h2 className="text-4xl md:text-5xl font-serif text-slate-900 mb-8 tracking-tighter">
+          <h2 className="text-3xl md:text-5xl font-serif text-slate-900 mb-6 md:mb-8 tracking-tighter">
             Initiate a <span className="italic">Performance Audit.</span>
           </h2>
-          <p className="text-slate-500 mb-12 font-light leading-relaxed text-lg">
+          <p className="text-sm md:text-base text-slate-500 mb-10 md:mb-12 font-light leading-relaxed text-lg">
             We provide a granular breakdown of your current operational leakage and demonstrate the exact yield an Effito installation will produce for your home.
           </p>
           <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}>
             <a 
               href="#/contact" 
-              className="inline-block bg-slate-900 text-white px-12 py-6 text-[12px] uppercase tracking-[0.4em] font-bold shadow-2xl hover:bg-slate-800 transition-colors"
+              className="inline-block w-full md:w-auto bg-slate-900 text-white px-8 md:px-12 py-5 md:py-6 text-[11px] md:text-[12px] uppercase tracking-[0.3em] md:tracking-[0.4em] font-bold shadow-2xl hover:bg-slate-800 transition-colors"
             >
               Request Operational Diagnostic
             </a>
