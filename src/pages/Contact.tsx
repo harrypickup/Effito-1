@@ -25,13 +25,6 @@ const Contact: React.FC = () => {
           <p className="text-base md:text-lg text-slate-600 mb-8 md:mb-12 leading-relaxed font-light">
             This is a non obligation strategic discussion about your current infrastructure and how Effito can stabilize your operations.
           </p>
-
-          <div className="mb-8 md:mb-12 p-6 bg-stone-50 border border-stone-200 rounded-lg">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2 block">Direct Line</span>
-            <a href="tel:01615244023" className="text-xl md:text-2xl font-semibold text-slate-900 hover:opacity-70 transition-opacity">
-              0161 524 4023
-            </a>
-          </div>
           
           <div className="space-y-4 md:space-y-6 text-sm text-slate-500 font-light">
             <div className="flex gap-4 items-center">
