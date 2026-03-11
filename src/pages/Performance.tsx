@@ -127,10 +127,9 @@ const Performance: React.FC = () => {
              <h2 className="text-3xl md:text-5xl font-serif text-slate-900 tracking-tighter">The Stabilization Curve.</h2>
           </div>
           <p className="text-slate-500 max-w-md font-light leading-relaxed text-sm">
-            Manual homes suffer from "Capacity Volatility"—a cycle of move ins followed by sudden vacancies and slow refills. Effito creates a continuous intake pressure that maintains peak occupancy.
+            Manual homes suffer from "Capacity Volatility" - a cycle of move ins followed by sudden vacancies and slow refills. Effito creates a continuous intake pressure that maintains peak occupancy.
           </p>
         </div>
-
         <div className="h-[350px] md:h-[500px] w-full bg-white border border-stone-200 p-4 md:p-10 shadow-sm rounded-sm overflow-hidden">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={growthData}>
@@ -192,7 +191,7 @@ const Performance: React.FC = () => {
             },
             { 
               title: "Operational Peace", 
-              desc: "Automating 90% of routine staff and family communications allows your clinical team to focus purely on care standards and CQC compliance." 
+              desc: "Automating 90% of routine staff communications allows your clinical team to focus purely on care standards and CQC compliance." 
             }
           ].map((item, i) => (
             <div key={i}>
@@ -215,7 +214,7 @@ const Performance: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-slate-800 border border-slate-800">
             {[
               { label: "Occupancy Gain", value: "98%", sub: "Average stabilized bed capacity" },
-              { label: "Agency Reduction", value: "40%", sub: "Quarter on quarter spend reduction" },
+              { label: "Agency Reduction", value: "30%", sub: "Quarter on quarter spend reduction" },
               { label: "Admin Recovery", value: "30h", sub: "Manager time recovered per week" },
               { label: "Response Time", value: "<1m", sub: "Across all digital and voice channels" }
             ].map((stat, i) => (

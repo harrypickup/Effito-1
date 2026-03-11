@@ -27,14 +27,14 @@ const WhoItsFor: React.FC = () => {
               <li className="flex gap-4">
                 <span className="text-slate-900 font-bold">✓</span>
                 <div>
-                  <h4 className="font-semibold text-slate-800">Growth-Focused Operators</h4>
+                  <h4 className="font-semibold text-slate-800">Growth Focused Operators</h4>
                   <p className="text-sm text-slate-500">Homes looking to increase occupancy and reduce agency reliance permanently.</p>
                 </div>
               </li>
               <li className="flex gap-4">
                 <span className="text-slate-900 font-bold">✓</span>
                 <div>
-                  <h4 className="font-semibold text-slate-800">Quality-Driven Directors</h4>
+                  <h4 className="font-semibold text-slate-800">Quality Driven Directors</h4>
                   <p className="text-sm text-slate-500">Leaders who value professional, institutional-grade systems.</p>
                 </div>
               </li>

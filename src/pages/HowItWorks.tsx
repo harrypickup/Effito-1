@@ -3,9 +3,9 @@ import React from 'react';
 
 const HowItWorks: React.FC = () => {
   const steps = [
-    { title: "Understanding", detail: "We conduct a deep dive into your home's current enquiry volume, recruitment needs, and staff workflow." },
+    { title: "Understanding", detail: "We conduct a deep dive into your home's current enquiry volume, recruitment needs and staff workflow." },
     { title: "Installation", detail: "Our engineers build your custom growth infrastructure. No complex IT integration is required." },
-    { title: "Tailoring", detail: "The system is refined with your specific inputs: room types, pricing models, and home culture." },
+    { title: "Tailoring", detail: "The system is refined with your specific inputs: room types, pricing models and home culture." },
     { title: "Testing", detail: "Rigorous testing ensures that the tone and accuracy of responses meet our institutional standards." },
     { title: "Go Live", detail: "A controlled rollout where we monitor every interaction to ensure seamless operation." },
     { title: "Improvement", detail: "We stay as a partner, fine-tuning the infrastructure as your home reaches peak occupancy." }
