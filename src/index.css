@@ -2,20 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-  letter-spacing: inherit;
-  color: inherit;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  vertical-align: baseline;
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-inherit font-inherit leading-inherit tracking-inherit m-0 p-0;
+  }
 }
