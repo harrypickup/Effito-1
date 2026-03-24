@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, AreaChart, Area } from 'recharts';
@@ -38,6 +37,7 @@ const Performance: React.FC = () => {
               <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
               <span className="text-[10px] md:text-[11px] font-bold tracking-[0.3em] md:tracking-[0.4em] uppercase text-slate-500">System Performance Monitor</span>
             </div>
+            {/* H1: Main Page Title */}
             <h1 className="text-4xl md:text-[7rem] font-serif text-slate-900 mb-6 md:mb-10 tracking-tighter leading-[1.1] md:leading-[0.9]">
               Quantifying <br className="hidden md:block" />
               <span className="italic">Certainty.</span>
@@ -55,9 +55,10 @@ const Performance: React.FC = () => {
                </div>
                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-stone-400 block mb-3 md:mb-4">Core Objective</span>
                <div className="text-3xl md:text-4xl font-serif text-slate-900 mb-2">98.4%</div>
-               <div className="text-[10px] md:text-[11px] font-bold uppercase tracking-widest text-slate-500 leading-tight">
+               {/* H2: Secondary important metric for SEO visibility */}
+               <h2 className="text-[10px] md:text-[11px] font-bold uppercase tracking-widest text-slate-500 leading-tight">
                  Target Bed Occupancy <br /> Stabilization Rate
-               </div>
+               </h2>
             </div>
           </div>
         </div>
@@ -69,7 +70,10 @@ const Performance: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-24 items-center">
             <div className="lg:col-span-5">
               <span className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-stone-400 mb-4 md:mb-6 block">Diagnostic 01: Response Velocity</span>
-              <h2 className="text-3xl md:text-4xl font-serif text-slate-900 mb-6 md:mb-8 leading-tight">Eliminating <br className="hidden md:block" />Operational <span className="italic">Friction.</span></h2>
+              {/* H2: Nested under H1 */}
+              <h2 className="text-3xl md:text-4xl font-serif text-slate-900 mb-6 md:mb-8 leading-tight">
+                Eliminating <br className="hidden md:block" />Operational <span className="italic">Friction.</span>
+              </h2>
               <p className="text-sm md:text-base text-slate-500 font-light leading-relaxed mb-8 md:mb-10">
                 In the modern care market, the "Response Gap" is where profit goes to die. Manual legacy systems allow enquiries to drift for hours, resulting in an 85% loss of high intent private leads.
               </p>
@@ -91,7 +95,8 @@ const Performance: React.FC = () => {
             <div className="lg:col-span-7 h-[350px] md:h-[450px] bg-stone-50 p-6 md:p-10 rounded-sm border border-stone-200 relative">
               <div className="absolute top-4 left-4 md:top-6 md:left-6 flex items-center gap-2">
                 <div className="w-1.5 h-1.5 bg-slate-900 rounded-full" />
-                <span className="text-[9px] md:text-[10px] font-mono font-bold uppercase tracking-widest text-slate-900">Output Matrix: Lead Capture Efficiency</span>
+                {/* H3: Specific chart context */}
+                <h3 className="text-[9px] md:text-[10px] font-mono font-bold uppercase tracking-widest text-slate-900">Output Matrix: Lead Capture Efficiency</h3>
               </div>
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={responseData} layout="vertical" margin={{ left: isMobile ? 60 : 100, right: 20, top: 40 }}>
@@ -124,6 +129,7 @@ const Performance: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 gap-6 md:gap-8">
           <div>
              <span className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-stone-400 mb-3 md:mb-4 block">Diagnostic 02: Bed Yield Optimization</span>
+             {/* H2: Secondary Heading */}
              <h2 className="text-3xl md:text-5xl font-serif text-slate-900 tracking-tighter">The Stabilization Curve.</h2>
           </div>
           <p className="text-slate-500 max-w-md font-light leading-relaxed text-sm">
@@ -196,6 +202,7 @@ const Performance: React.FC = () => {
           ].map((item, i) => (
             <div key={i}>
               <div className="mb-4 md:mb-6"><GrowthNode /></div>
+              {/* H4: Feature breakdown titles */}
               <h4 className="text-[11px] md:text-sm font-bold uppercase tracking-[0.2em] text-slate-900 mb-3 md:mb-4">{item.title}</h4>
               <p className="text-[12px] md:text-[13px] text-slate-500 font-light leading-relaxed">{item.desc}</p>
             </div>
@@ -208,7 +215,10 @@ const Performance: React.FC = () => {
         <div className="max-w-[1400px] mx-auto">
           <div className="mb-16 md:mb-24">
             <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] md:tracking-[0.4em] text-slate-500 mb-4 md:mb-6 block">Output Benchmarking</span>
-            <h2 className="text-3xl md:text-5xl font-serif tracking-tighter max-w-2xl">The geometry of <br className="hidden md:block" />operational <span className="italic opacity-60">freedom.</span></h2>
+            {/* H2: Summary Section Heading */}
+            <h2 className="text-3xl md:text-5xl font-serif tracking-tighter max-w-2xl">
+              The geometry of <br className="hidden md:block" />operational <span className="italic opacity-60">freedom.</span>
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-slate-800 border border-slate-800">
@@ -219,7 +229,8 @@ const Performance: React.FC = () => {
               { label: "Response Time", value: "<1m", sub: "Across all digital and voice channels" }
             ].map((stat, i) => (
               <div key={i} className="bg-slate-900 p-8 md:p-12 hover:bg-slate-800/50 transition-colors">
-                <span className="text-[9px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-slate-500 block mb-6 md:mb-8">{stat.label}</span>
+                {/* H3: Metric Label */}
+                <h3 className="text-[9px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-slate-500 block mb-6 md:mb-8">{stat.label}</h3>
                 <span className="text-4xl md:text-6xl font-serif mb-3 md:mb-4 block tracking-tighter">{stat.value}</span>
                 <p className="text-[9px] md:text-[10px] text-slate-400 font-bold uppercase tracking-widest">{stat.sub}</p>
               </div>
@@ -234,6 +245,7 @@ const Performance: React.FC = () => {
            <div className="w-10 h-10 md:w-12 md:h-12 bg-stone-100 rounded-full flex items-center justify-center mx-auto mb-8 md:mb-10">
               <div className="w-2 h-2 bg-slate-900 rounded-full" />
            </div>
+          {/* H2: Call to Action */}
           <h2 className="text-3xl md:text-5xl font-serif text-slate-900 mb-6 md:mb-8 tracking-tighter">
             Initiate a <span className="italic">Performance Audit.</span>
           </h2>
