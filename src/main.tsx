@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.tsx';
+import App from './App';
 
 // This finds the "root" div in your index.html
 const rootElement = document.getElementById('root');
