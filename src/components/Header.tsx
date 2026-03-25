@@ -26,7 +26,6 @@ const Header: React.FC = () => {
           Effito
         </Link>
 
-        
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-10 items-center">
           {navItems.map((item) => (
