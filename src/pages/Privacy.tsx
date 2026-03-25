@@ -213,7 +213,7 @@ const Privacy: React.FC = () => {
               </div>
             </section>
 
-           {/* 8 */}
+     {/* 8 */}
 <section id="s8" className="scroll-mt-32">
   <div className="flex items-center gap-4 mb-6">
     <span className="w-8 h-8 flex items-center justify-center text-xs font-bold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-lg">8</span>
@@ -224,20 +224,18 @@ const Privacy: React.FC = () => {
       <thead className="bg-slate-50 border-b border-slate-200">
         <tr>
           <th className="px-6 py-4 font-semibold text-slate-900">Processor Type</th>
-          <th className="px-6 py-4 font-semibold text-slate-900">Location</th>
           <th className="px-6 py-4 font-semibold text-slate-900">Purpose</th>
         </tr>
       </thead>
       <tbody className="divide-y divide-slate-200">
         {[
-          { name: "CRM & Automation Platform", loc: "USA", purp: "Contact management, pipeline tracking, and workflow automation" },
-          { name: "AI Voice Infrastructure", loc: "USA", purp: "Automated voice agent calls, call recording, and transcription" },
-          { name: "Telephony Provider", loc: "USA", purp: "Call routing and phone number provisioning" },
-          { name: "Data Storage Provider", loc: "USA", purp: "Secure structured data and transcript storage" },
+          { name: "CRM & Automation Platform", purp: "Contact management, pipeline tracking, and workflow automation" },
+          { name: "AI Voice Infrastructure", purp: "Automated voice agent calls, call recording, and transcription" },
+          { name: "Telephony Provider", purp: "Call routing and phone number provisioning" },
+          { name: "Data Storage Provider", purp: "Secure structured data and transcript storage" },
         ].map((row, i) => (
           <tr key={i}>
             <td className="px-6 py-4 font-semibold text-slate-900">{row.name}</td>
-            <td className="px-6 py-4">{row.loc}</td>
             <td className="px-6 py-4">{row.purp}</td>
           </tr>
         ))}
