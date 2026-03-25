@@ -262,36 +262,130 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* The Reality */}
+           {/* The Reality */}
       <section className="bg-white py-20 md:py-32 border-b border-stone-200 relative z-10">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16">
-          <div className="lg:col-span-5">
-            <h2 className="text-4xl md:text-5xl font-serif text-slate-900 mb-8 leading-tight">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-8">
+
+          {/* Header */}
+          <div className="mb-16 md:mb-20">
+            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-4">The Problem</span>
+            <h2 className="text-4xl md:text-6xl font-serif text-slate-900 leading-tight">
               Chaos is the silent <br className="hidden md:block" />cost of care.
             </h2>
-            <p className="text-slate-500 text-base md:text-lg leading-relaxed mb-10 md:mb-12 font-light">
-              Most care homes struggle not with a lack of demand, but with a lack of structure. Every missed enquiry is a lost resident; every slow recruitment cycle is an agency expense.
-            </p>
-            <div className="grid grid-cols-1 gap-6 md:gap-8">
-              {[
-                { label: "Delayed Lead Handling", desc: "Response times exceeding 4 hours result in 60% drop off rates." },
-                { label: "Recruitment Friction", desc: "Competitors move faster, securing quality staff before you follow up." },
-                { label: "Staff Overload", desc: "Senior management bogged down in manual enquiry logging." }
-              ].map((item, i) => (
-                <div key={i} className="group border-l border-stone-200 pl-6 md:pl-8 py-2">
-                  <h4 className="text-xs md:text-sm font-bold uppercase tracking-widest text-slate-900 mb-2">{item.label}</h4>
-                  <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">{item.desc}</p>
-                </div>
-              ))}
-            </div>
           </div>
-          <div className="lg:col-span-7 flex items-center">
-            <div className="w-full">
-              <ChaosComparison />
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 items-start">
+
+            {/* LEFT: Pain points */}
+            <div className="lg:col-span-4">
+              <p className="text-slate-500 text-base md:text-lg leading-relaxed mb-12 font-light">
+                Most care homes struggle not with a lack of demand, but with a lack of structure. Every missed enquiry is a lost resident; every slow recruitment cycle is an agency expense.
+              </p>
+              <div className="space-y-0 border border-stone-200">
+                {[
+                  {
+                    label: "Delayed Lead Handling",
+                    desc: "Response times exceeding 4 hours result in 60% drop off rates.",
+                    cost: "−£75k/yr"
+                  },
+                  {
+                    label: "Recruitment Friction",
+                    desc: "Competitors move faster, securing quality staff before you follow up.",
+                    cost: "−£5k/hire"
+                  },
+                  {
+                    label: "Staff Overload",
+                    desc: "Senior management bogged down in manual enquiry logging.",
+                    cost: "−30 hrs/wk"
+                  }
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: i * 0.1 }}
+                    viewport={{ once: true }}
+                    className="p-6 md:p-8 border-b border-stone-200 last:border-0 group hover:bg-stone-50 transition-colors"
+                  >
+                    <div className="flex justify-between items-start mb-2">
+                      <h4 className="text-xs font-bold uppercase tracking-widest text-slate-900">{item.label}</h4>
+                      <span className="text-[10px] font-mono font-bold text-red-400/80 ml-4 shrink-0">{item.cost}</span>
+                    </div>
+                    <p className="text-sm text-slate-500 font-light leading-relaxed">{item.desc}</p>
+                  </motion.div>
+                ))}
+              </div>
             </div>
+
+            {/* RIGHT: Before / After contrast */}
+            <div className="lg:col-span-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 h-full">
+
+                {/* BEFORE column */}
+                <div className="bg-stone-50 border border-stone-200 md:border-r-0 p-8 md:p-10">
+                  <div className="flex items-center gap-2 mb-8">
+                    <div className="w-1.5 h-1.5 rounded-full bg-red-400/60" />
+                    <span className="text-[9px] font-bold uppercase tracking-[0.35em] text-stone-400">Without Effito</span>
+                  </div>
+                  <div className="space-y-8">
+                    {[
+                      { metric: "4–24 hrs", label: "Average enquiry response", bad: true },
+                      { metric: "85%", label: "Of private leads lost to slow response", bad: true },
+                      { metric: "3–5 days", label: "To contact a new job applicant", bad: true },
+                      { metric: "40%", label: "Agency markup on every hire", bad: true },
+                      { metric: "30 hrs", label: "Per week lost to admin tasks", bad: true },
+                    ].map((item, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 8 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.35, delay: 0.1 + i * 0.08 }}
+                        viewport={{ once: true }}
+                        className="border-b border-stone-200 pb-6 last:border-0"
+                      >
+                        <div className="text-3xl md:text-4xl font-serif text-red-400/70 tracking-tight mb-1">{item.metric}</div>
+                        <div className="text-xs text-stone-400 font-light leading-relaxed">{item.label}</div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* AFTER column */}
+                <div className="bg-slate-900 border border-slate-900 p-8 md:p-10">
+                  <div className="flex items-center gap-2 mb-8">
+                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                    <span className="text-[9px] font-bold uppercase tracking-[0.35em] text-slate-500">With Effito</span>
+                  </div>
+                  <div className="space-y-8">
+                    {[
+                      { metric: "< 30 sec", label: "Guaranteed enquiry response" },
+                      { metric: "98%", label: "Lead capture and qualification rate" },
+                      { metric: "< 2 min", label: "Applicant engagement from submission" },
+                      { metric: "£0", label: "Agency markup — direct hire only" },
+                      { metric: "30 hrs", label: "Per week returned to clinical focus" },
+                    ].map((item, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 8 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.35, delay: 0.3 + i * 0.08 }}
+                        viewport={{ once: true }}
+                        className="border-b border-slate-800 pb-6 last:border-0"
+                      >
+                        <div className="text-3xl md:text-4xl font-serif text-white tracking-tight mb-1">{item.metric}</div>
+                        <div className="text-xs text-slate-400 font-light leading-relaxed">{item.label}</div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
+
 
       {/* Three Pillars */}
       <section className="py-20 md:py-32 px-6 md:px-8 max-w-[1400px] mx-auto relative z-10">
