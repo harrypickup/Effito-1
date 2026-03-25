@@ -61,7 +61,7 @@ const Contact: React.FC = () => {
             <h2 className="sr-only">Schedule Your Session</h2>
             <iframe 
               src="https://api.leadconnectorhq.com/widget/booking/BvkBGQnTXwD06WQTZbJh" 
-              style={{ width: '100%', border: 'none', overflow: 'hidden', height: '450px' }} 
+              style={{ width: '100%', border: 'none', overflow: 'hidden', height: '300px' }} 
               scrolling="no" 
               id="BvkBGQnTXwD06WQTZbJh_1773148818067"
               title="Booking Widget"
