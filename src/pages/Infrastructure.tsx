@@ -1,10 +1,17 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { InfrastructureArch, GrowthNode } from '../components/Diagrams';
 
 const Infrastructure: React.FC = () => {
   return (
-    <div className="bg-[#FAF9F6] min-h-screen">
+    <>
+      <Helmet>
+        <title>Infrastructure | Effito Care Home Automation Systems</title>
+        <meta name="description" content="Discover Effito's three pillar infrastructure: occupancy automation, recruitment engine, and staff oracle. Purpose built for residential care operations." />
+      </Helmet>
+      
+      <div className="bg-[#FAF9F6] min-h-screen">
       {/* Hero / Introduction Section */}
       <section className="px-6 md:px-8 py-16 md:py-32 max-w-[1400px] mx-auto border-b border-stone-200">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
@@ -263,7 +270,7 @@ const Infrastructure: React.FC = () => {
                     { label: "The Silent Exit", text: "Stressed staff don't complain; they ghost or resign when it's already too late." }
                   ].map((item, i) => (
                     <div key={i} className="border-b border-stone-200 pb-4 last:border-0">
-                      <span className="text-[9px] font-bold uppercase tracking-widest text-stone-400 block mb-1">{item.label}</span>
+                      <span className="text-[9px] font-bold uppercase tracking-widest text-slate-400 block mb-1">{item.label}</span>
                       <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">{item.text}</p>
                     </div>
                   ))}
@@ -335,6 +342,7 @@ const Infrastructure: React.FC = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 
