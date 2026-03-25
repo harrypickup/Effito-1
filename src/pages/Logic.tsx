@@ -4,38 +4,38 @@ import { motion } from 'framer-motion';
 
 const Logic: React.FC = () => {
   const steps = [
-    { 
-      title: "Understanding", 
+    {
+      title: "Understanding",
       detail: "We conduct a deep dive into your home's current enquiry volume, recruitment needs and staff workflow.",
       duration: "Day 1",
       deliverable: "Operational audit report with bottleneck analysis"
     },
-    { 
-      title: "Installation", 
+    {
+      title: "Installation",
       detail: "Our engineers build your custom growth infrastructure. No complex IT integration is required.",
-      duration: "Day 2-5",
+      duration: "Day 2–5",
       deliverable: "Voice systems, CRM workflows, and handbook assistant configured"
     },
-    { 
-      title: "Tailoring", 
+    {
+      title: "Tailoring",
       detail: "The system is refined with your specific inputs: room types, pricing models and home culture.",
-      duration: "Day 5-6",
+      duration: "Day 5–6",
       deliverable: "Custom response scripts and qualification criteria"
     },
-    { 
-      title: "Testing", 
+    {
+      title: "Testing",
       detail: "Rigorous testing ensures that the tone and accuracy of responses meet our institutional standards.",
       duration: "Day 7",
       deliverable: "Quality assurance report and final adjustments"
     },
-    { 
-      title: "Go Live", 
+    {
+      title: "Go Live",
       detail: "A controlled rollout where we monitor every interaction to ensure seamless operation.",
-      duration: "Day 7-8",
+      duration: "Day 7–8",
       deliverable: "Live infrastructure with real-time monitoring"
     },
-    { 
-      title: "Improvement", 
+    {
+      title: "Improvement",
       detail: "We stay as a partner, fine-tuning the infrastructure as your home reaches peak occupancy.",
       duration: "Ongoing",
       deliverable: "Monthly performance reports and optimization"
@@ -77,10 +77,11 @@ const Logic: React.FC = () => {
       </Helmet>
 
       <div className="bg-[#FAF9F6] min-h-screen">
+
         {/* Hero */}
         <section className="px-6 md:px-8 py-20 md:py-32 max-w-[1400px] mx-auto border-b border-stone-200">
           <div className="max-w-4xl">
-            <motion.span 
+            <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -88,18 +89,18 @@ const Logic: React.FC = () => {
             >
               The Process
             </motion.span>
-            
-            <motion.h1 
+
+            <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-5xl md:text-7xl font-serif text-slate-900 mb-10 md:mb-14 tracking-tight leading-[1.1]"
             >
-              Proven. Repeatable. <br className="hidden md:block"/>
+              Proven. Repeatable. <br className="hidden md:block" />
               <span className="italic">Minimal Disruption.</span>
             </motion.h1>
-            
-            <motion.p 
+
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -111,8 +112,8 @@ const Logic: React.FC = () => {
         </section>
 
         {/* Timeline Section */}
-        <section className="py-24 md:py-40 px-6 md:px-8 max-w-[1400px] mx-auto bg-white">
-          <div className="mb-20 md:mb-28">
+        <section className="py-16 md:py-24 px-6 md:px-8 max-w-[1400px] mx-auto">
+          <div className="mb-12 md:mb-16">
             <h2 className="text-4xl md:text-5xl font-serif text-slate-900 mb-6 tracking-tight">
               Your Installation <span className="italic">Roadmap.</span>
             </h2>
@@ -121,48 +122,69 @@ const Logic: React.FC = () => {
             </p>
           </div>
 
-          <div className="space-y-0">
-            {steps.map((step, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                viewport={{ once: true }}
-                className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 py-10 md:py-12 border-b border-stone-200 last:border-0"
-              >
-                {/* Step Number & Duration */}
-                <div className="md:col-span-3">
-                  <div className="flex items-center gap-4 md:block">
-                    <div className="flex items-center gap-3 mb-0 md:mb-3">
-                      <div className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-white font-bold text-sm">
-                        {i + 1}
+          {/* Premium roadmap container */}
+          <div className="border border-stone-200 rounded-2xl overflow-hidden bg-white shadow-sm">
+
+            {/* Progress bar header */}
+            <div className="bg-slate-900 px-8 md:px-12 py-5 flex items-center justify-between">
+              <span className="text-[9px] font-bold uppercase tracking-[0.35em] text-slate-500">Installation Timeline</span>
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">8 Days to Live</span>
+              </div>
+            </div>
+
+            {/* Step rows */}
+            <div className="divide-y divide-stone-100">
+              {steps.map((step, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.45, delay: i * 0.08 }}
+                  viewport={{ once: true }}
+                  className="grid grid-cols-1 md:grid-cols-12 group hover:bg-stone-50 transition-colors duration-200"
+                >
+                  {/* Left: number + duration */}
+                  <div className="md:col-span-3 px-8 md:px-12 py-7 flex md:flex-col items-center md:items-start gap-4 md:gap-2 border-b md:border-b-0 md:border-r border-stone-100">
+                    <div className="w-9 h-9 rounded-full bg-slate-900 flex items-center justify-center text-white font-bold text-xs shrink-0">
+                      {i + 1}
+                    </div>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-stone-400">{step.duration}</span>
+                  </div>
+
+                  {/* Right: content */}
+                  <div className="md:col-span-9 px-8 md:px-12 py-7 flex flex-col md:flex-row md:items-start gap-6 md:gap-10">
+                    <div className="flex-1">
+                      <h3 className="text-xl md:text-2xl font-serif text-slate-900 mb-2 leading-tight">{step.title}</h3>
+                      <p className="text-sm text-slate-500 font-light leading-relaxed">{step.detail}</p>
+                    </div>
+
+                    {/* Deliverable badge */}
+                    <div className="shrink-0 md:w-72">
+                      <div className="bg-stone-50 border border-stone-200 rounded-lg px-5 py-4 group-hover:bg-white group-hover:border-stone-300 transition-colors">
+                        <span className="text-[8px] font-bold uppercase tracking-[0.3em] text-stone-400 block mb-1.5">Deliverable</span>
+                        <p className="text-sm text-slate-900 font-medium leading-snug">{step.deliverable}</p>
                       </div>
-                      <span className="text-xs font-bold uppercase tracking-wider text-stone-400">{step.duration}</span>
                     </div>
                   </div>
-                </div>
+                </motion.div>
+              ))}
+            </div>
 
-                {/* Content */}
-                <div className="md:col-span-9">
-                  <h3 className="text-2xl md:text-3xl font-serif text-slate-900 mb-4 leading-tight">{step.title}</h3>
-                  <p className="text-base text-slate-600 font-light leading-relaxed mb-4">
-                    {step.detail}
-                  </p>
-                  <div className="bg-stone-50 p-4 rounded-lg border border-stone-200 inline-block">
-                    <span className="text-[9px] font-bold uppercase tracking-widest text-stone-400 block mb-1">Deliverable</span>
-                    <p className="text-sm text-slate-900 font-medium">{step.deliverable}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+            {/* Footer strip */}
+            <div className="bg-stone-50 border-t border-stone-200 px-8 md:px-12 py-4 flex items-center justify-between">
+              <span className="text-[9px] text-stone-400 font-light uppercase tracking-widest">Effito Infrastructure Protocol v3.1</span>
+              <span className="text-[9px] text-stone-400 font-light uppercase tracking-widest">Ongoing optimisation included</span>
+            </div>
+
           </div>
         </section>
 
         {/* Before & After Comparison */}
-        <section className="py-24 md:py-40 px-6 md:px-8 bg-slate-900 text-white">
+        <section className="py-16 md:py-24 px-6 md:px-8 bg-slate-900 text-white">
           <div className="max-w-[1400px] mx-auto">
-            <div className="mb-20 md:mb-28">
+            <div className="mb-14 md:mb-20">
               <h2 className="text-4xl md:text-5xl font-serif mb-6 tracking-tight">
                 Before versus <span className="italic opacity-60">After.</span>
               </h2>
@@ -171,30 +193,43 @@ const Logic: React.FC = () => {
               </p>
             </div>
 
-            <div className="space-y-8">
+            <div className="border border-slate-800 divide-y divide-slate-800">
+              {/* Table header */}
+              <div className="grid grid-cols-12 bg-slate-800/50">
+                <div className="col-span-3 px-6 md:px-8 py-4">
+                  <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-slate-500">Metric</span>
+                </div>
+                <div className="col-span-3 px-6 md:px-8 py-4 border-l border-slate-700">
+                  <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-slate-500">Before</span>
+                </div>
+                <div className="col-span-3 px-6 md:px-8 py-4 border-l border-slate-700">
+                  <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-emerald-500/70">After Effito</span>
+                </div>
+                <div className="col-span-3 px-6 md:px-8 py-4 border-l border-slate-700">
+                  <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-slate-500">Impact</span>
+                </div>
+              </div>
+
               {beforeAfter.map((item, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
                   viewport={{ once: true }}
-                  className="bg-slate-800/60 p-8 md:p-10 border border-slate-700/50 rounded-xl"
+                  className="grid grid-cols-12 group hover:bg-slate-800/30 transition-colors"
                 >
-                  <h3 className="text-xl md:text-2xl font-serif mb-8">{item.metric}</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div>
-                      <span className="text-[9px] font-bold uppercase tracking-widest text-slate-500 block mb-2">Before Effito</span>
-                      <p className="text-lg text-slate-300 font-light">{item.before}</p>
-                    </div>
-                    <div>
-                      <span className="text-[9px] font-bold uppercase tracking-widest text-emerald-400 block mb-2">After Effito</span>
-                      <p className="text-lg text-white font-semibold">{item.after}</p>
-                    </div>
-                    <div>
-                      <span className="text-[9px] font-bold uppercase tracking-widest text-slate-500 block mb-2">Impact</span>
-                      <p className="text-base text-slate-400 font-light">{item.impact}</p>
-                    </div>
+                  <div className="col-span-3 px-6 md:px-8 py-6 flex items-center">
+                    <h3 className="text-xs font-bold uppercase tracking-wide text-slate-300">{item.metric}</h3>
+                  </div>
+                  <div className="col-span-3 px-6 md:px-8 py-6 flex items-center border-l border-slate-800">
+                    <p className="text-sm text-slate-500 font-light line-through decoration-slate-700">{item.before}</p>
+                  </div>
+                  <div className="col-span-3 px-6 md:px-8 py-6 flex items-center border-l border-slate-800">
+                    <p className="text-sm text-white font-semibold">{item.after}</p>
+                  </div>
+                  <div className="col-span-3 px-6 md:px-8 py-6 flex items-center border-l border-slate-800">
+                    <p className="text-sm text-emerald-400/80 font-light">{item.impact}</p>
                   </div>
                 </motion.div>
               ))}
@@ -203,7 +238,7 @@ const Logic: React.FC = () => {
         </section>
 
         {/* Closing CTA */}
-        <section className="py-24 md:py-40 px-6 md:px-8 max-w-4xl mx-auto text-center">
+        <section className="py-20 md:py-32 px-6 md:px-8 max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -216,7 +251,7 @@ const Logic: React.FC = () => {
             <p className="text-lg md:text-xl text-slate-600 mb-12 font-light leading-relaxed max-w-2xl mx-auto">
               Unlike marketing services, once Effito is installed, it is yours. It works every day, month after month. Built once. Permanent infrastructure.
             </p>
-            <motion.a 
+            <motion.a
               href="/contact"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
