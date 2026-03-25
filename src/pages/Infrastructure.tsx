@@ -309,80 +309,106 @@ const Infrastructure: React.FC = () => {
         </section>
 
 
-
         {/* Pillar 02: Recruitment Engine */}
         <section className="relative overflow-hidden bg-[#FAF9F6] border-b border-stone-200">
           <div className="max-w-[1400px] mx-auto px-6 md:px-8 py-20 md:py-32">
+
+            {/* Section header */}
             <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-baseline gap-8">
               <div>
                 <span className="text-[11px] font-bold tracking-[0.4em] uppercase text-stone-400 mb-4 block">System Component 02</span>
-                <h2 className="text-4xl md:text-7xl font-serif text-slate-900 tracking-tighter leading-tight">The Recruitment <br className="hidden md:block" /><span className="italic">Engine.</span></h2>
+                <h2 className="text-4xl md:text-7xl font-serif text-slate-900 tracking-tighter leading-tight">
+                  The Recruitment <br className="hidden md:block" /><span className="italic">Engine.</span>
+                </h2>
               </div>
               <p className="max-w-md text-slate-500 font-light leading-relaxed text-sm md:text-base">
                 An aggressive, automated direct hire infrastructure designed to reduce agency dependency and stabilize your workforce.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-32 items-start">
-              <div className="lg:col-span-4 space-y-12">
-                <div className="bg-white border border-stone-200 p-6 md:p-8 rounded-sm shadow-sm">
-                  <div className="flex items-center gap-3 mb-6 md:mb-8">
-                    <div className="w-2 h-2 bg-red-400/50 rounded-full" />
-                    <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-400 italic">Current State: The Vacancy Crisis</span>
+            {/* Main content grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
+
+              {/* LEFT: Problem card */}
+              <div className="lg:col-span-4">
+                <div className="bg-slate-900 h-full p-8 md:p-10 flex flex-col">
+                  <div className="flex items-center gap-3 mb-8">
+                    <div className="w-1.5 h-1.5 bg-red-400/70 rounded-full" />
+                    <span className="text-[9px] font-bold uppercase tracking-[0.35em] text-slate-500">Current State: The Vacancy Crisis</span>
                   </div>
-                  <h3 className="text-lg md:text-xl font-serif text-slate-900 mb-4 md:mb-6">Fragmented Manual Process</h3>
-                  <div className="space-y-5 md:space-y-6">
+
+                  <h3 className="text-xl md:text-2xl font-serif text-white mb-8 leading-snug">Fragmented Manual Process</h3>
+
+                  <div className="space-y-6 flex-1">
                     {[
                       { label: "The Post", text: "Standard Indeed ad placement. Passive waiting for CVs." },
                       { label: "The Delay", text: "CVs sit in inboxes for 3 to 5 days while managers cover clinical shifts." },
                       { label: "The Ghosting", text: "Good candidates are hired by faster competitors before you call." },
                       { label: "Compliance Gap", text: "DBS and Right to Work checks take weeks of manual email tag." }
                     ].map((item, i) => (
-                      <div key={i} className="border-b border-stone-100 pb-4 last:border-0">
-                        <span className="text-[9px] font-bold uppercase tracking-widest text-slate-400 block mb-1">{item.label}</span>
-                        <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">{item.text}</p>
+                      <div key={i} className="border-b border-slate-800 pb-6 last:border-0">
+                        <span className="text-[9px] font-bold uppercase tracking-widest text-slate-600 block mb-2">{item.label}</span>
+                        <p className="text-sm text-slate-400 font-light leading-relaxed">{item.text}</p>
                       </div>
                     ))}
                   </div>
-                  <div className="mt-8 md:mt-10 pt-6 md:pt-8 border-t border-stone-200">
-                    <span className="text-[10px] font-bold text-red-900/50 uppercase tracking-widest block mb-4">Economic impact</span>
+
+                  <div className="mt-10 pt-8 border-t border-slate-800">
+                    <span className="text-[9px] font-bold text-red-400/60 uppercase tracking-widest block mb-3">Economic Impact</span>
                     <div className="space-y-3">
-                      <p className="text-xs md:text-sm text-slate-500 font-light">
-                        <strong className="text-slate-900">Speed is Survival:</strong> Carer shelf life on Indeed is &lt; 24 hours.
+                      <p className="text-sm text-slate-500 font-light">
+                        <strong className="text-slate-400">Speed is Survival:</strong> Carer shelf life on Indeed is &lt; 24 hours.
                       </p>
-                      <p className="text-xs md:text-sm text-slate-500 font-light">
-                        <strong className="text-slate-900">Agency Markups:</strong> Each vacant role costs £150 to £300 extra daily.
+                      <p className="text-sm text-slate-500 font-light">
+                        <strong className="text-slate-400">Agency Markups:</strong> Each vacant role costs £150 to £300 extra daily.
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="lg:col-span-8">
-                <div className="mb-12 md:mb-20">
-                  <h3 className="text-2xl md:text-4xl font-serif text-slate-900 mb-6 md:mb-8 leading-tight">
+              {/* RIGHT: Solution */}
+              <div className="lg:col-span-8 border-l border-stone-200 flex flex-col">
+
+                {/* Solution headline strip */}
+                <div className="px-8 md:px-12 py-10 border-b border-stone-200">
+                  <h3 className="text-2xl md:text-4xl font-serif text-slate-900 mb-5 leading-tight">
                     Stop paying the 40% <br className="hidden md:block" /><span className="italic">"Impatience Tax"</span> to agencies.
                   </h3>
-                  <p className="text-base md:text-lg text-slate-500 font-light leading-relaxed max-w-2xl">
+                  <p className="text-base text-slate-500 font-light leading-relaxed max-w-2xl">
                     By engaging every applicant within 60 seconds, we build your private staff bank, ensuring you secure the best talent before an agency even sees the application.
                   </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-stone-200 border border-stone-200">
+
+                {/* Feature grid — 2 columns, ruled */}
+                <div className="grid grid-cols-1 md:grid-cols-2 flex-1">
                   {[
-                    { title: "The Indeed Magnet", detail: "Real time sync with Indeed and LinkedIn. The second a Carer applies, the engine intercepts the data instantly." },
-                    { title: "Instant Candidate Engagement", detail: "Our voice engine contacts every applicant within 2 minutes of their submission. By eliminating manual delays, the system secures top tier talent before they are engaged by competing homes or agencies." },
-                    { title: "Compliance Triage", detail: "Secure your workforce without the manual sift. Our engine confirms mandatory deal breakers: Certification levels, RTW and shift availability before a manager ever spends time reviewing a CV." },
-                    { title: "Candidate Scoring", detail: "Every screening call is scored against role requirements automatically. No more sifting through applications." },
-                    { title: "Manager Dashboard", detail: "Every applicant, their score and their full screening transcript in one place. You decide who moves forward." },
-                    { title: "Direct Hire Velocity", detail: "By operating in seconds rather than days, you 'buy' staff for the cost of an ad rather than a £5,000 agency fee." }
+                    { num: "01", title: "The Indeed Magnet", detail: "Real time sync with Indeed and LinkedIn. The second a Carer applies, the engine intercepts the data instantly." },
+                    { num: "02", title: "Instant Candidate Engagement", detail: "Our voice engine contacts every applicant within 2 minutes of their submission. By eliminating manual delays, the system secures top tier talent before they are engaged by competing homes or agencies." },
+                    { num: "03", title: "Compliance Triage", detail: "Secure your workforce without the manual sift. Our engine confirms mandatory deal breakers: Certification levels, RTW and shift availability before a manager ever spends time reviewing a CV." },
+                    { num: "04", title: "Candidate Scoring", detail: "Every screening call is scored against role requirements automatically. No more sifting through applications." },
+                    { num: "05", title: "Manager Dashboard", detail: "Every applicant, their score and their full screening transcript in one place. You decide who moves forward." },
+                    { num: "06", title: "Direct Hire Velocity", detail: "By operating in seconds rather than days, you 'buy' staff for the cost of an ad rather than a £5,000 agency fee." }
                   ].map((item, i) => (
-                    <div key={i} className="bg-white p-8 md:p-10 hover:bg-stone-50 transition-colors">
-                      <div className="mb-4 md:mb-6"><GrowthNode /></div>
-                      <h4 className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-slate-900 mb-3 md:mb-4">{item.title}</h4>
-                      <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">{item.detail}</p>
-                    </div>
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 12 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: i * 0.07 }}
+                      viewport={{ once: true }}
+                      className={`group relative p-8 md:p-10 hover:bg-stone-100/60 transition-colors duration-200
+                        ${i % 2 === 0 ? 'md:border-r border-stone-100' : ''}
+                        ${i < 4 ? 'border-b border-stone-100' : ''}
+                      `}
+                    >
+                      <span className="text-[10px] font-mono text-stone-300 group-hover:text-stone-400 transition-colors mb-5 block">{item.num}</span>
+                      <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-900 mb-3">{item.title}</h4>
+                      <p className="text-sm text-slate-500 font-light leading-relaxed">{item.detail}</p>
+                      <div className="absolute bottom-0 left-8 right-8 h-px bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                    </motion.div>
                   ))}
                 </div>
+
               </div>
             </div>
           </div>
@@ -391,70 +417,97 @@ const Infrastructure: React.FC = () => {
         {/* Pillar 03: Staff Oracle */}
         <section className="relative overflow-hidden bg-white border-b border-stone-200">
           <div className="max-w-[1400px] mx-auto px-6 md:px-8 py-20 md:py-32">
+
+            {/* Section header */}
             <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-baseline gap-8">
               <div>
                 <span className="text-[11px] font-bold tracking-[0.4em] uppercase text-stone-400 mb-4 block">System Component 03</span>
-                <h2 className="text-4xl md:text-7xl font-serif text-slate-900 tracking-tighter leading-tight">The Staff <br className="hidden md:block" /><span className="italic">Oracle.</span></h2>
+                <h2 className="text-4xl md:text-7xl font-serif text-slate-900 tracking-tighter leading-tight">
+                  The Staff <br className="hidden md:block" /><span className="italic">Oracle.</span>
+                </h2>
               </div>
               <p className="max-w-md text-slate-500 font-light leading-relaxed text-sm md:text-base">
                 A private, automated support layer that protects your workforce stability and prevents the manager level bottleneck.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-32 items-start">
-              <div className="lg:col-span-4 space-y-12">
-                <div className="bg-stone-50 border border-stone-200 p-6 md:p-8 rounded-sm">
-                  <div className="flex items-center gap-3 mb-6 md:mb-8">
-                    <div className="w-2 h-2 bg-stone-300 rounded-full" />
-                    <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-400 italic">Current State: The Support Vacuum</span>
+            {/* Main content grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
+
+              {/* LEFT: Problem card */}
+              <div className="lg:col-span-4">
+                <div className="bg-slate-900 h-full p-8 md:p-10 flex flex-col">
+                  <div className="flex items-center gap-3 mb-8">
+                    <div className="w-1.5 h-1.5 bg-red-400/70 rounded-full" />
+                    <span className="text-[9px] font-bold uppercase tracking-[0.35em] text-slate-500">Current State: The Support Vacuum</span>
                   </div>
-                  <h3 className="text-lg md:text-xl font-serif text-slate-900 mb-4 md:mb-6">Manager Dependent Friction</h3>
-                  <div className="space-y-5 md:space-y-6">
+
+                  <h3 className="text-xl md:text-2xl font-serif text-white mb-8 leading-snug">Manager Dependent Friction</h3>
+
+                  <div className="space-y-6 flex-1">
                     {[
                       { label: "The Manual", text: "200 page paper handbooks provided at induction but never referenced again." },
                       { label: "The Interruption", text: "Carers leave the floor to find a manager for routine policy FAQs, wasting 20 mins." },
                       { label: "The Silent Exit", text: "Stressed staff don't complain; they ghost or resign when it's already too late." }
                     ].map((item, i) => (
-                      <div key={i} className="border-b border-stone-200 pb-4 last:border-0">
-                        <span className="text-[9px] font-bold uppercase tracking-widest text-slate-400 block mb-1">{item.label}</span>
-                        <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">{item.text}</p>
+                      <div key={i} className="border-b border-slate-800 pb-6 last:border-0">
+                        <span className="text-[9px] font-bold uppercase tracking-widest text-slate-600 block mb-2">{item.label}</span>
+                        <p className="text-sm text-slate-400 font-light leading-relaxed">{item.text}</p>
                       </div>
                     ))}
                   </div>
-                  <div className="mt-8 md:mt-10 pt-6 md:pt-8 border-t border-stone-200">
-                    <span className="text-[10px] font-bold text-red-900/50 uppercase tracking-widest block mb-4">The Churn Cost</span>
-                    <p className="text-xs md:text-sm text-slate-400 italic font-light">
+
+                  <div className="mt-10 pt-8 border-t border-slate-800">
+                    <span className="text-[9px] font-bold text-red-400/60 uppercase tracking-widest block mb-3">The Churn Cost</span>
+                    <p className="text-sm text-slate-500 italic font-light leading-relaxed">
                       "Losing a single experienced carer costs £6,000. For a mid sized home, turnover at 30% creates a silent £90,000 annual loss."
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="lg:col-span-8">
-                <div className="mb-12 md:mb-20">
-                  <h3 className="text-2xl md:text-4xl font-serif text-slate-900 mb-6 md:mb-8 leading-tight">
+              {/* RIGHT: Solution */}
+              <div className="lg:col-span-8 border-l border-stone-200 flex flex-col">
+
+                {/* Solution headline strip */}
+                <div className="px-8 md:px-12 py-10 border-b border-stone-200">
+                  <h3 className="text-2xl md:text-4xl font-serif text-slate-900 mb-5 leading-tight">
                     Protect your <span className="italic">Managers</span> from administrative saturation.
                   </h3>
-                  <p className="text-base md:text-lg text-slate-500 font-light leading-relaxed max-w-2xl">
+                  <p className="text-base text-slate-500 font-light leading-relaxed max-w-2xl">
                     Replace manual policy lookups with systemic intelligence. The Oracle provides your workforce with instant, compliant answers to routine questions, allowing your leadership to stay focused on high level care.
                   </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-stone-200 border border-stone-200">
+
+                {/* Feature grid — 2 columns, ruled */}
+                <div className="grid grid-cols-1 md:grid-cols-2 flex-1">
                   {[
-                    { title: "Digital Knowledge Core", detail: "Your 200 page handbook, CQC policies and SOPs are indexed into a high precision database for instant, compliant recall." },
-                    { title: "WhatsApp Oracle Interface", detail: "Carers text the system directly for help with reporting, maintenance or procedures without leaving the floor." },
-                    { title: "3s Compliant Support", detail: "Eliminate guesswork on the floor. The system provides immediate, policy backed guidance for any staff query, ensuring every action taken is compliant with your latest SOPs and safety protocols." },
-                    { title: "Manager Escalation Logic", detail: "If the Oracle doesn't know, it pings the manager directly to update the core, turning one question into a system wide upgrade." },
-                    { title: "Moral Sentiment Tracking", detail: "The system identifies clusters of questions (e.g., 'payroll' or 'exhaustion') and alerts owners to potential morale issues." },
-                    { title: "Retention Infrastructure", detail: "Eliminates the First 90 Day Friction. Staff feel supported and capable from day one, reducing silent churn significantly." }
+                    { num: "01", title: "Digital Knowledge Core", detail: "Your 200 page handbook, CQC policies and SOPs are indexed into a high precision database for instant, compliant recall." },
+                    { num: "02", title: "WhatsApp Oracle Interface", detail: "Carers text the system directly for help with reporting, maintenance or procedures without leaving the floor." },
+                    { num: "03", title: "3s Compliant Support", detail: "Eliminate guesswork on the floor. The system provides immediate, policy backed guidance for any staff query, ensuring every action taken is compliant with your latest SOPs and safety protocols." },
+                    { num: "04", title: "Manager Escalation Logic", detail: "If the Oracle doesn't know, it pings the manager directly to update the core, turning one question into a system wide upgrade." },
+                    { num: "05", title: "Moral Sentiment Tracking", detail: "The system identifies clusters of questions (e.g., 'payroll' or 'exhaustion') and alerts owners to potential morale issues." },
+                    { num: "06", title: "Retention Infrastructure", detail: "Eliminates the First 90 Day Friction. Staff feel supported and capable from day one, reducing silent churn significantly." }
                   ].map((item, i) => (
-                    <div key={i} className="bg-white p-8 md:p-10 hover:bg-stone-50 transition-colors">
-                      <div className="mb-4 md:mb-6"><GrowthNode /></div>
-                      <h4 className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-slate-900 mb-3 md:mb-4">{item.title}</h4>
-                      <p className="text-xs md:text-sm text-slate-500 font-light leading-relaxed">{item.detail}</p>
-                    </div>
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 12 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: i * 0.07 }}
+                      viewport={{ once: true }}
+                      className={`group relative p-8 md:p-10 hover:bg-stone-50 transition-colors duration-200
+                        ${i % 2 === 0 ? 'md:border-r border-stone-100' : ''}
+                        ${i < 4 ? 'border-b border-stone-100' : ''}
+                      `}
+                    >
+                      <span className="text-[10px] font-mono text-stone-300 group-hover:text-stone-400 transition-colors mb-5 block">{item.num}</span>
+                      <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-900 mb-3">{item.title}</h4>
+                      <p className="text-sm text-slate-500 font-light leading-relaxed">{item.detail}</p>
+                      <div className="absolute bottom-0 left-8 right-8 h-px bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                    </motion.div>
                   ))}
                 </div>
+
               </div>
             </div>
           </div>
