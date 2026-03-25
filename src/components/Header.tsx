@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -7,7 +6,7 @@ import { Menu, X } from 'lucide-react';
 const Header: React.FC = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+
   const navItems = [
     { label: 'Infrastructure', path: '/infrastructure' },
     { label: 'Performance', path: '/performance' },
@@ -16,12 +15,13 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <motion.header 
+    <motion.header
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       className="sticky top-0 z-50 bg-[#FAF9F6]/90 backdrop-blur-xl border-b border-stone-200/50 px-6 md:px-8 py-4 md:py-5"
     >
-           <Link to="/" className="text-xl md:text-2xl font-serif italic tracking-tighter text-slate-900 flex items-center gap-2">
+      <div className="max-w-[1400px] mx-auto flex justify-between items-center">
+        <Link to="/" className="text-xl md:text-2xl font-serif italic tracking-tighter text-slate-900 flex items-center gap-2">
           <div className="w-2 md:w-2.5 h-2 md:h-2.5 bg-slate-900 rounded-full" />
           Effito
         </Link>
@@ -48,7 +48,7 @@ const Header: React.FC = () => {
         </nav>
 
         {/* Mobile Menu Toggle */}
-        <button 
+        <button
           className="md:hidden text-slate-900 p-1"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
