@@ -1,275 +1,350 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import { motion } from 'framer-motion';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, AreaChart, Area } from 'recharts';
-import { GrowthNode } from '../components/Diagrams';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const responseData = [
-  { name: 'Legacy (Manual)', value: 15, label: '15% Success' },
-  { name: 'Effito Infrastructure', value: 98, label: '98% Success' },
-];
+// Animated Core Objective Component
+const CoreObjective: React.FC = () => {
+  const metrics = [
+    { value: "98.4%", label: "Target bed occupancy stabilization rate" },
+    { value: "< 60s", label: "Average enquiry response time" },
+    { value: "620%", label: "Lead retention increase vs manual" },
+    { value: "30 hrs", label: "Weekly admin time recovered" }
+  ];
 
-const growthData = [
-  { month: 'Wk 1', organic: 82, effito: 82 },
-  { month: 'Wk 4', organic: 80, effito: 85 },
-  { month: 'Wk 8', organic: 83, effito: 90 },
-  { month: 'Wk 12', organic: 81, effito: 94 },
-  { month: 'Wk 16', organic: 84, effito: 97 },
-  { month: 'Wk 20', organic: 82, effito: 98 },
-];
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-const Performance: React.FC = () => {
-  const [isMobile, setIsMobile] = React.useState(false);
-
-  React.useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % metrics.length);
+    }, 3500);
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <>
-      <Helmet>
-        <title>Performance | Effito Operational Excellence</title>
-        <meta name="description" content="See how Effito reduces inquiry response times to under 60 seconds, eliminates lead decay and recovers 30 hours of admin time weekly for care homes." />
-      </Helmet>
-      
-      <div className="bg-[#FAF9F6] min-h-screen overflow-x-hidden">
-      {/* Hero: Operational Certainty */}
-      <section className="px-6 md:px-8 pt-24 md:pt-32 pb-16 md:pb-24 max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 items-start">
-          <div className="lg:col-span-8">
-            <div className="flex items-center gap-3 mb-6 md:mb-8">
-              <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-              <span className="text-[10px] md:text-[11px] font-bold tracking-[0.3em] md:tracking-[0.4em] uppercase text-slate-500">System Performance Monitor</span>
+    <div className="relative w-full">
+      <div className="bg-white p-10 md:p-12 rounded-2xl border-2 border-stone-200 shadow-xl">
+        <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-8">
+          Core Objective
+        </span>
+        
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.6 }}
+            className="mb-8"
+          >
+            <div className="text-6xl md:text-7xl font-serif text-slate-900 mb-6 tracking-tight">
+              {metrics[currentIndex].value}
             </div>
-            {/* H1: Main Page Title */}
-            <h1 className="text-4xl md:text-[7rem] font-serif text-slate-900 mb-6 md:mb-10 tracking-tighter leading-[1.1] md:leading-[0.9]">
-              Quantifying <br className="hidden md:block" />
-              <span className="italic">Certainty.</span>
-            </h1>
-            <p className="text-lg md:text-2xl text-slate-600 max-w-2xl font-light leading-relaxed">
-              Performance is not a projection - it is the direct output of your infrastructure. We replace the volatility of manual processes with engineered consistency.
-            </p>
-          </div>
-          <div className="lg:col-span-4 lg:pt-24">
-            <div className="p-6 md:p-8 bg-white border border-stone-200 rounded-sm shadow-sm relative overflow-hidden group">
-               <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                  <path d="M12 2v20m10-10H2" />
-                </svg>
-               </div>
-               <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-stone-400 block mb-3 md:mb-4">Core Objective</span>
-               <div className="text-3xl md:text-4xl font-serif text-slate-900 mb-2">98.4%</div>
-               {/* H2: Secondary important metric for SEO visibility */}
-               <h2 className="text-[10px] md:text-[11px] font-bold uppercase tracking-widest text-slate-500 leading-tight">
-                 Target Bed Occupancy <br /> Stabilization Rate
-               </h2>
+            <div className="text-sm md:text-base text-slate-600 font-light leading-relaxed min-h-[3rem] flex items-center">
+              {metrics[currentIndex].label}
             </div>
-          </div>
-        </div>
-      </section>
+          </motion.div>
+        </AnimatePresence>
 
-      {/* Operational Diagnostic: The Yield Delta */}
-      <section className="bg-white border-y border-stone-200 py-20 md:py-32">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-24 items-center">
-            <div className="lg:col-span-5">
-              <span className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-stone-400 mb-4 md:mb-6 block">Diagnostic 01: Response Velocity</span>
-              {/* H2: Nested under H1 */}
-              <h2 className="text-3xl md:text-4xl font-serif text-slate-900 mb-6 md:mb-8 leading-tight">
-                Eliminating <br className="hidden md:block" />Operational <span className="italic">Friction.</span>
-              </h2>
-              <p className="text-sm md:text-base text-slate-500 font-light leading-relaxed mb-8 md:mb-10">
-                In the modern care market, the "Response Gap" is where profit goes to die. Manual legacy systems allow enquiries to drift for hours, resulting in an 85% loss of high intent private leads.
-              </p>
-              
-              <div className="grid grid-cols-2 gap-6 md:gap-8 border-t border-stone-100 pt-8 md:pt-10">
-                <div>
-                  <span className="text-[9px] md:text-[10px] font-bold uppercase text-stone-400 block mb-2">Response Speed</span>
-                  <span className="text-xl md:text-2xl font-serif text-slate-900 tracking-tight">30 Seconds</span>
-                  <p className="text-[9px] md:text-[10px] text-stone-400 mt-1 uppercase font-bold tracking-tighter">Effito Average</p>
-                </div>
-                <div>
-                  <span className="text-[9px] md:text-[10px] font-bold uppercase text-stone-400 block mb-2">Lead Retention</span>
-                  <span className="text-xl md:text-2xl font-serif text-slate-900 tracking-tight">+620%</span>
-                  <p className="text-[9px] md:text-[10px] text-stone-400 mt-1 uppercase font-bold tracking-tighter">Vs. Manual Handling</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-7 h-[350px] md:h-[450px] bg-stone-50 p-6 md:p-10 rounded-sm border border-stone-200 relative">
-              <div className="absolute top-4 left-4 md:top-6 md:left-6 flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-slate-900 rounded-full" />
-                {/* H3: Specific chart context */}
-                <h3 className="text-[9px] md:text-[10px] font-mono font-bold uppercase tracking-widest text-slate-900">Output Matrix: Lead Capture Efficiency</h3>
-              </div>
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={responseData} layout="vertical" margin={{ left: isMobile ? 60 : 100, right: 20, top: 40 }}>
-                  <XAxis type="number" domain={[0, 100]} hide />
-                  <YAxis 
-                    dataKey="name" 
-                    type="category" 
-                    axisLine={false} 
-                    tickLine={false} 
-                    tick={{ fill: '#64748b', fontSize: isMobile ? 8 : 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em' }}
-                  />
-                  <Tooltip 
-                    cursor={{fill: 'rgba(0,0,0,0.02)'}}
-                    contentStyle={{ borderRadius: '0', border: '1px solid #e5e7eb', fontSize: '10px', fontFamily: 'monospace' }}
-                  />
-                  <Bar dataKey="value" radius={[0, 1, 1, 0]} barSize={24}>
-                    {responseData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={index === 0 ? '#E2E8F0' : '#0F172A'} />
-                    ))}
-                  </Bar>
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stabilization Curve: Occupancy Optimization */}
-      <section className="py-20 md:py-32 px-6 md:px-8 max-w-[1400px] mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 gap-6 md:gap-8">
-          <div>
-             <span className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-stone-400 mb-3 md:mb-4 block">Diagnostic 02: Bed Yield Optimization</span>
-             {/* H2: Secondary Heading */}
-             <h2 className="text-3xl md:text-5xl font-serif text-slate-900 tracking-tighter">The Stabilization Curve.</h2>
-          </div>
-          <p className="text-slate-500 max-w-md font-light leading-relaxed text-sm">
-            Manual homes suffer from "Capacity Volatility" - a cycle of move ins followed by sudden vacancies and slow refills. Effito creates a continuous intake pressure that maintains peak occupancy.
-          </p>
-        </div>
-        <div className="h-[350px] md:h-[500px] w-full bg-white border border-stone-200 p-4 md:p-10 shadow-sm rounded-sm overflow-hidden">
-          <ResponsiveContainer width="100%" height="100%">
-            <AreaChart data={growthData}>
-              <defs>
-                <linearGradient id="colorEffito" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#0F172A" stopOpacity={0.15}/>
-                  <stop offset="95%" stopColor="#0F172A" stopOpacity={0}/>
-                </linearGradient>
-              </defs>
-              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
-              <XAxis 
-                dataKey="month" 
-                axisLine={false} 
-                tickLine={false} 
-                tick={{ fill: '#94a3b8', fontSize: 8, md: 10, fontWeight: 600, fontFamily: 'monospace' }}
-                dy={10}
-              />
-              <YAxis 
-                domain={[75, 100]} 
-                axisLine={false} 
-                tickLine={false} 
-                tick={{ fill: '#94a3b8', fontSize: 8, md: 10, fontFamily: 'monospace' }}
-                tickFormatter={(val) => `${val}%`}
-              />
-              <Tooltip 
-                contentStyle={{ borderRadius: '0', border: '1px solid #e5e7eb', fontFamily: 'monospace', fontSize: '10px' }}
-              />
-              <Area 
-                type="monotone" 
-                dataKey="organic" 
-                stroke="#CBD5E1" 
-                strokeWidth={1.5}
-                strokeDasharray="5 5"
-                fill="transparent" 
-                name="Legacy Volatility"
-              />
-              <Area 
-                type="monotone" 
-                dataKey="effito" 
-                stroke="#0F172A" 
-                strokeWidth={2}
-                fillOpacity={1} 
-                fill="url(#colorEffito)" 
-                name="Engineered Stability"
-              />
-            </AreaChart>
-          </ResponsiveContainer>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 mt-16 md:mt-24">
-          {[
-            { 
-              title: "Institutional Flow", 
-              desc: "By treating the intake process as a high speed pipeline, we remove the reliance on the 'availability' of a human manager to secure a booking." 
-            },
-            { 
-              title: "Agency Elimination", 
-              desc: "The speed of the recruitment engine captures top tier talent before they drift to agencies, slashing your monthly markup expenditure by up to 40%." 
-            },
-            { 
-              title: "Operational Peace", 
-              desc: "Automating 90% of routine staff communications allows your clinical team to focus purely on care standards and CQC compliance." 
-            }
-          ].map((item, i) => (
-            <div key={i}>
-              <div className="mb-4 md:mb-6"><GrowthNode /></div>
-              {/* H4: Feature breakdown titles */}
-              <h4 className="text-[11px] md:text-sm font-bold uppercase tracking-[0.2em] text-slate-900 mb-3 md:mb-4">{item.title}</h4>
-              <p className="text-[12px] md:text-[13px] text-slate-500 font-light leading-relaxed">{item.desc}</p>
-            </div>
+        <div className="flex justify-center gap-2 mt-6">
+          {metrics.map((_, i) => (
+            <div
+              key={i}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                i === currentIndex ? 'bg-slate-900 w-8' : 'bg-stone-300 w-1.5'
+              }`}
+            />
           ))}
         </div>
-      </section>
-
-      {/* The Impact Matrix */}
-      <section className="bg-slate-900 py-20 md:py-32 px-6 md:px-8 text-white">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="mb-16 md:mb-24">
-            <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] md:tracking-[0.4em] text-slate-500 mb-4 md:mb-6 block">Output Benchmarking</span>
-            {/* H2: Summary Section Heading */}
-            <h2 className="text-3xl md:text-5xl font-serif tracking-tighter max-w-2xl">
-              The geometry of <br className="hidden md:block" />operational <span className="italic opacity-60">freedom.</span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-slate-800 border border-slate-800">
-            {[
-              { label: "Occupancy Gain", value: "98%", sub: "Average stabilized bed capacity" },
-              { label: "Agency Reduction", value: "30%", sub: "Quarter on quarter spend reduction" },
-              { label: "Admin Recovery", value: "30h", sub: "Manager time recovered per week" },
-              { label: "Response Time", value: "<1m", sub: "Across all digital and voice channels" }
-            ].map((stat, i) => (
-              <div key={i} className="bg-slate-900 p-8 md:p-12 hover:bg-slate-800/50 transition-colors">
-                {/* H3: Metric Label */}
-                <h3 className="text-[9px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-slate-500 block mb-6 md:mb-8">{stat.label}</h3>
-                <span className="text-4xl md:text-6xl font-serif mb-3 md:mb-4 block tracking-tighter">{stat.value}</span>
-                <p className="text-[9px] md:text-[10px] text-slate-400 font-bold uppercase tracking-widest">{stat.sub}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Performance Audit CTA */}
-      <section className="py-24 md:py-40 px-6 md:px-8 text-center bg-white border-t border-stone-200">
-        <div className="max-w-3xl mx-auto">
-           <div className="w-10 h-10 md:w-12 md:h-12 bg-stone-100 rounded-full flex items-center justify-center mx-auto mb-8 md:mb-10">
-              <div className="w-2 h-2 bg-slate-900 rounded-full" />
-           </div>
-          {/* H2: Call to Action */}
-          <h2 className="text-3xl md:text-5xl font-serif text-slate-900 mb-6 md:mb-8 tracking-tighter">
-            Initiate a <span className="italic">Performance Audit.</span>
-          </h2>
-          <p className="text-sm md:text-base text-slate-500 mb-10 md:mb-12 font-light leading-relaxed text-lg">
-            We provide a granular breakdown of your current operational leakage and demonstrate the exact yield an Effito installation will produce for your home.
-          </p>
-          <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}>
-            <a 
-              href="/contact" 
-              className="inline-block w-full md:w-auto bg-slate-900 text-white px-8 md:px-12 py-5 md:py-6 text-[11px] md:text-[12px] uppercase tracking-[0.3em] md:tracking-[0.4em] font-bold shadow-2xl hover:bg-slate-800 transition-colors"
-            >
-              Request Operational Diagnostic
-            </a>
-          </motion.div>
-        </div>
-      </section>
+      </div>
     </div>
+  );
+};
+
+const Performance: React.FC = () => {
+  return (
+    <>
+      <Helmet>
+        <title>Performance Metrics | Effito Operational Excellence</title>
+        <meta name="description" content="See how Effito reduces inquiry response times to under 60 seconds, eliminates lead decay, and recovers 30 hours of admin time weekly for care homes." />
+      </Helmet>
+
+      <div className="bg-[#FAF9F6] min-h-screen">
+        {/* Hero Section */}
+        <section className="px-6 md:px-8 py-20 md:py-40 max-w-[1400px] mx-auto border-b border-stone-200">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-20">
+            
+            {/* Left Column - Text */}
+            <div className="lg:col-span-7">
+              <motion.span 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-[10px] md:text-[11px] font-bold tracking-[0.4em] uppercase text-stone-400 mb-8 md:mb-12 block"
+              >
+                System Performance Monitor
+              </motion.span>
+              
+              <motion.h1 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-5xl md:text-[7rem] font-serif text-slate-900 mb-10 md:mb-16 tracking-tighter leading-[1.05] md:leading-[0.9]"
+              >
+                Quantifying <br className="hidden md:block" />
+                <span className="italic">Certainty.</span>
+              </motion.h1>
+              
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="text-xl md:text-2xl text-slate-600 leading-[1.6] font-light max-w-3xl"
+              >
+                Performance is not a projection. It is the direct output of your infrastructure. We replace the volatility of manual processes with engineered consistency.
+              </motion.p>
+            </div>
+
+            {/* Right Column - Animated Core Objective */}
+            <div className="lg:col-span-5 flex items-center justify-center">
+              <CoreObjective />
+            </div>
+
+          </div>
+        </section>
+
+        {/* Output Matrix Section */}
+        <section className="py-24 md:py-40 px-6 md:px-8 bg-white">
+          <div className="max-w-[1400px] mx-auto">
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-start mb-20">
+              
+              {/* Left - Title Block */}
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-6">
+                  Dashboards №1: Response Velocity
+                </span>
+                <h2 className="text-4xl md:text-6xl font-serif text-slate-900 mb-8 tracking-tight leading-tight">
+                  Eliminating Operational <span className="italic">Friction.</span>
+                </h2>
+                <p className="text-lg text-slate-600 font-light leading-relaxed mb-12">
+                  In the modern care market, the "Response Gap" is where profit goes to die. Manual legacy systems allow enquiries to drift for hours, resulting in an 85% loss of high intent private leads.
+                </p>
+
+                {/* Stats Cards */}
+                <div className="space-y-6">
+                  <div className="bg-stone-50 p-6 md:p-8 rounded-xl border border-stone-200">
+                    <span className="text-[9px] font-bold uppercase tracking-[0.35em] text-stone-400 block mb-3">Response Speed</span>
+                    <div className="text-5xl md:text-6xl font-serif text-slate-900 mb-2 tracking-tight">30 Seconds</div>
+                    <span className="text-sm text-slate-500 font-light">Effito Average</span>
+                  </div>
+
+                  <div className="bg-stone-50 p-6 md:p-8 rounded-xl border border-stone-200">
+                    <span className="text-[9px] font-bold uppercase tracking-[0.35em] text-stone-400 block mb-3">Lead Retention</span>
+                    <div className="text-5xl md:text-6xl font-serif text-emerald-900 mb-2 tracking-tight">+620%</div>
+                    <span className="text-sm text-slate-500 font-light">Vs. Manual Handling</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right - Visual Matrix */}
+              <div className="bg-white p-8 md:p-10 rounded-2xl border-2 border-stone-200 shadow-xl">
+                <div className="mb-8">
+                  <span className="text-[9px] font-bold uppercase tracking-[0.35em] text-stone-400 block mb-6">
+                    ● Output Matrix: Lead Capture Efficiency
+                  </span>
+                </div>
+
+                {/* Legacy Infrastructure Bar */}
+                <div className="mb-8">
+                  <div className="flex justify-between items-center mb-3">
+                    <span className="text-sm font-medium text-slate-900">Legacy<br/>(Manual)</span>
+                    <span className="text-xs text-slate-400">15% conversion</span>
+                  </div>
+                  <div className="h-12 bg-stone-100 rounded-lg overflow-hidden border border-stone-200">
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      whileInView={{ width: "15%" }}
+                      transition={{ duration: 1, delay: 0.3 }}
+                      viewport={{ once: true }}
+                      className="h-full bg-stone-300 flex items-center justify-end pr-3"
+                    >
+                      <span className="text-xs font-mono text-slate-700">15%</span>
+                    </motion.div>
+                  </div>
+                </div>
+
+                {/* Effito Infrastructure Bar */}
+                <div>
+                  <div className="flex justify-between items-center mb-3">
+                    <span className="text-sm font-medium text-slate-900">Effito<br/>(Infrastructure)</span>
+                    <span className="text-xs text-emerald-700">98% conversion</span>
+                  </div>
+                  <div className="h-12 bg-stone-100 rounded-lg overflow-hidden border border-stone-200">
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      whileInView={{ width: "98%" }}
+                      transition={{ duration: 1.2, delay: 0.5 }}
+                      viewport={{ once: true }}
+                      className="h-full bg-slate-900 flex items-center justify-end pr-3"
+                    >
+                      <span className="text-xs font-mono text-white">98%</span>
+                    </motion.div>
+                  </div>
+                </div>
+
+                <p className="text-xs text-slate-500 mt-6 font-light italic">
+                  Based on typical 40-bed home receiving 20 monthly enquiries
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        {/* Stabilization Curve Section */}
+        <section className="py-24 md:py-40 px-6 md:px-8 bg-[#FAF9F6]">
+          <div className="max-w-[1400px] mx-auto">
+            
+            <div className="mb-16 md:mb-20">
+              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-6">
+                Dashboards №2: Bed Fill Optimization
+              </span>
+              <h2 className="text-4xl md:text-6xl font-serif text-slate-900 mb-8 tracking-tight leading-tight">
+                The Stabilization <span className="italic">Curve.</span>
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16">
+              
+              {/* Graph */}
+              <div className="lg:col-span-8">
+                <div className="bg-white p-8 md:p-12 rounded-2xl border border-stone-200 shadow-lg">
+                  <p className="text-sm text-slate-600 mb-8 font-light">
+                    Manual homes suffer from "Capacity Volatility" — a cycle of move ins followed by sudden vacancies and slow refills. Effito creates a continuous intake pressure that maintains peak occupancy.
+                  </p>
+                  {/* SVG Graph */}
+                  <div className="relative h-[400px] md:h-[500px]">
+                    <svg viewBox="0 0 800 400" className="w-full h-full">
+                      {/* Grid lines */}
+                      <line x1="60" y1="50" x2="60" y2="350" stroke="#e5e7eb" strokeWidth="2"/>
+                      <line x1="60" y1="350" x2="750" y2="350" stroke="#e5e7eb" strokeWidth="2"/>
+                      
+                      {/* Y-axis labels */}
+                      <text x="30" y="60" fontSize="12" fill="#94a3b8">100%</text>
+                      <text x="35" y="140" fontSize="12" fill="#94a3b8">95%</text>
+                      <text x="35" y="220" fontSize="12" fill="#94a3b8">90%</text>
+                      <text x="35" y="300" fontSize="12" fill="#94a3b8">85%</text>
+                      <text x="35" y="355" fontSize="12" fill="#94a3b8">80%</text>
+                      
+                      {/* X-axis labels */}
+                      <text x="80" y="375" fontSize="12" fill="#94a3b8">M 1</text>
+                      <text x="220" y="375" fontSize="12" fill="#94a3b8">M 3</text>
+                      <text x="360" y="375" fontSize="12" fill="#94a3b8">M 6</text>
+                      <text x="500" y="375" fontSize="12" fill="#94a3b8">M 9</text>
+                      <text x="640" y="375" fontSize="12" fill="#94a3b8">M 12</text>
+                      
+                      {/* Manual (dashed line - volatile) */}
+                      <motion.path
+                        initial={{ pathLength: 0 }}
+                        whileInView={{ pathLength: 1 }}
+                        transition={{ duration: 2, delay: 0.3 }}
+                        viewport={{ once: true }}
+                        d="M 80,280 Q 150,260 220,270 T 360,250 T 500,270 T 640,260 T 720,250"
+                        stroke="#cbd5e1"
+                        strokeWidth="3"
+                        strokeDasharray="8,8"
+                        fill="none"
+                      />
+                      
+                      {/* Effito (solid line - stable climb to 97%) */}
+                      <motion.path
+                        initial={{ pathLength: 0 }}
+                        whileInView={{ pathLength: 1 }}
+                        transition={{ duration: 2, delay: 0.5 }}
+                        viewport={{ once: true }}
+                        d="M 80,280 Q 220,200 360,120 T 640,70 L 720,60"
+                        stroke="#0f172a"
+                        strokeWidth="4"
+                        fill="none"
+                      />
+                      
+                      {/* Legend */}
+                      <line x1="600" y1="30" x2="640" y2="30" stroke="#cbd5e1" strokeWidth="3" strokeDasharray="8,8"/>
+                      <text x="650" y="35" fontSize="14" fill="#64748b">Manual Volatility</text>
+                      
+                      <line x1="600" y1="50" x2="640" y2="50" stroke="#0f172a" strokeWidth="4"/>
+                      <text x="650" y="55" fontSize="14" fill="#0f172a">Effito Trajectory</text>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right - Explanation Cards */}
+              <div className="lg:col-span-4 space-y-8">
+                <div className="bg-white p-8 rounded-xl border border-stone-200">
+                  <div className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center mb-4">
+                    <span className="text-white text-sm">●</span>
+                  </div>
+                  <h3 className="text-xl font-serif text-slate-900 mb-3">Institutional Flow</h3>
+                  <p className="text-sm text-slate-600 font-light leading-relaxed">
+                    By treating the intake process as a high speed pipeline, we remove the reliance on the "availability" of a human manager to secure a booking.
+                  </p>
+                </div>
+
+                <div className="bg-white p-8 rounded-xl border border-stone-200">
+                  <div className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center mb-4">
+                    <span className="text-white text-sm">●</span>
+                  </div>
+                  <h3 className="text-xl font-serif text-slate-900 mb-3">Agency Elimination</h3>
+                  <p className="text-sm text-slate-600 font-light leading-relaxed">
+                    The speed of the recruitment engine captures top tier talent before they drift to agencies, slashing your monthly markup expenditure by up to 85%.
+                  </p>
+                </div>
+
+                <div className="bg-white p-8 rounded-xl border border-stone-200">
+                  <div className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center mb-4">
+                    <span className="text-white text-sm">●</span>
+                  </div>
+                  <h3 className="text-xl font-serif text-slate-900 mb-3">Operational Peace</h3>
+                  <p className="text-sm text-slate-600 font-light leading-relaxed">
+                    Automating 96% of routine staff communications allows your clinical team to focus purely on care standards and CQC compliance.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        {/* Closing CTA */}
+        <section className="py-32 md:py-48 px-6 md:px-8 text-center max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-6xl font-serif text-slate-900 mb-10 tracking-tight leading-tight">
+              Certainty is not a forecast. <br className="hidden md:block" />
+              It is <span className="italic">infrastructure.</span>
+            </h2>
+            <p className="text-lg md:text-xl text-slate-500 mb-14 font-light leading-[1.7] max-w-2xl mx-auto">
+              These metrics are not aspirational targets. They are the measured, repeatable output of systematic infrastructure working exactly as designed.
+            </p>
+            <motion.a 
+              href="/contact"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-block bg-slate-900 text-white px-14 py-7 text-[11px] uppercase tracking-[0.45em] font-bold shadow-2xl hover:bg-slate-800 transition-all duration-300"
+            >
+              Book Strategy Call
+            </motion.a>
+          </motion.div>
+        </section>
+
+      </div>
     </>
   );
 };
