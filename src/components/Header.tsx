@@ -21,7 +21,7 @@ const Header: React.FC = () => {
       className="sticky top-0 z-50 bg-[#FAF9F6]/90 backdrop-blur-xl border-b border-stone-200/50 px-6 md:px-8 py-4 md:py-5"
     >
       <div className="max-w-[1400px] mx-auto flex justify-between items-center">
-        <Link to="/" className="text-xl md:text-2xl font-serif italic tracking-tighter text-slate-900 flex items-center gap-2">
+        <Link to="/" className="text-2xl md:text-3xl font-serif tracking-tighter text-slate-900 flex items-center gap-2">
           <div className="w-2 md:w-2.5 h-2 md:h-2.5 bg-slate-900 rounded-full" />
           Effito
         </Link>
