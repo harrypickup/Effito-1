@@ -19,7 +19,7 @@ const Infrastructure: React.FC = () => {
             <span className="text-[11px] md:text-[12px] font-bold tracking-[0.3em] uppercase text-stone-400 mb-6 md:mb-8 block">The Architecture</span>
             
             {/* H1: Original Text Restored */}
-            <h1 className="text-4xl md:text-7xl font-serif text-slate-900 mb-8 md:mb-10 leading-[1.1] tracking-tighter">
+            <h1 className="text-4xl md:text-[7rem] font-serif text-slate-900 mb-8 md:mb-10 leading-[1.1] tracking-tighter">
               A Permanent <br className="hidden md:block" />Operational <span className="italic">Upgrade.</span>
             </h1>
             
