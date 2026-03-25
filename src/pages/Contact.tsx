@@ -62,7 +62,7 @@ const Contact: React.FC = () => {
             <div style={{ maxHeight: '500px', overflow: 'auto' }}>
               <iframe 
                 src="https://api.leadconnectorhq.com/widget/booking/BvkBGQnTXwD06WQTZbJh" 
-                style={{ width: '100%', border: 'none', overflow: 'hidden', height: '300px', maxHeight: '300px' }} 
+                style={{ width: '100%', border: 'none', overflow: 'hidden', height: '300px', maxHeight: '600px' }} 
                 scrolling="yes" 
                 id="BvkBGQnTXwD06WQTZbJh_1773148818067"
                 title="Booking Widget"
