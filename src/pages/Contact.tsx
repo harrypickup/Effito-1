@@ -39,8 +39,8 @@ const Contact: React.FC = () => {
             {/* Key Stats */}
             <div className="grid grid-cols-3 gap-6 md:gap-10 max-w-3xl mx-auto">
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-serif text-slate-900 mb-2">£450K+</div>
-                <div className="text-xs md:text-sm text-slate-500 font-light">Average annual operational savings</div>
+                <div className="text-3xl md:text-4xl font-serif text-slate-900 mb-2">30+ hrs</div>
+                <div className="text-xs md:text-sm text-slate-500 font-light">Admin time recovered weekly</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-serif text-slate-900 mb-2">97%</div>
