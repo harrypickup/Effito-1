@@ -6,8 +6,6 @@ import { motion } from 'framer-motion';
 const LiveDashboard: React.FC = () => {
   const [responseTime, setResponseTime] = useState(60);
   const [occupancy, setOccupancy] = useState(85.0);
-  const [leadsRetained, setLeadsRetained] = useState(0);
-  const [adminHours, setAdminHours] = useState(0);
 
   useEffect(() => {
     // Response Time: Count down from 60 to 30
