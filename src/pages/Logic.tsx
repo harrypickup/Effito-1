@@ -7,31 +7,31 @@ const Logic: React.FC = () => {
     { 
       title: "Understanding", 
       detail: "We conduct a deep dive into your home's current enquiry volume, recruitment needs and staff workflow.",
-      duration: "Week 1",
+      duration: "Day 1",
       deliverable: "Operational audit report with bottleneck analysis"
     },
     { 
       title: "Installation", 
       detail: "Our engineers build your custom growth infrastructure. No complex IT integration is required.",
-      duration: "Week 2-3",
+      duration: "Day 2-5",
       deliverable: "Voice systems, CRM workflows, and handbook assistant configured"
     },
     { 
       title: "Tailoring", 
       detail: "The system is refined with your specific inputs: room types, pricing models and home culture.",
-      duration: "Week 3-4",
+      duration: "Day 5-6",
       deliverable: "Custom response scripts and qualification criteria"
     },
     { 
       title: "Testing", 
       detail: "Rigorous testing ensures that the tone and accuracy of responses meet our institutional standards.",
-      duration: "Week 4",
+      duration: "Day 7",
       deliverable: "Quality assurance report and final adjustments"
     },
     { 
       title: "Go Live", 
       detail: "A controlled rollout where we monitor every interaction to ensure seamless operation.",
-      duration: "Week 5",
+      duration: "Day 7-8",
       deliverable: "Live infrastructure with real-time monitoring"
     },
     { 
