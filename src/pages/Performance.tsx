@@ -26,22 +26,6 @@ const LiveDashboard: React.FC = () => {
       });
     }, 60);
 
-    // Leads Retained: Count up to 620
-    const leadsInterval = setInterval(() => {
-      setLeadsRetained(prev => {
-        if (prev < 620) return prev + 10;
-        return 620;
-      });
-    }, 40);
-
-    // Admin Hours: Count up to 30
-    const hoursInterval = setInterval(() => {
-      setAdminHours(prev => {
-        if (prev < 30) return prev + 1;
-        return 30;
-      });
-    }, 80);
-
     return () => {
       clearInterval(responseInterval);
       clearInterval(occupancyInterval);
