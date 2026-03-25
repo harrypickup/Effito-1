@@ -43,9 +43,7 @@ const Privacy: React.FC = () => {
             <h1 className="text-3xl md:text-5xl font-semibold text-slate-900 mb-6 tracking-tight">Privacy Policy</h1>
             <div className="flex flex-wrap gap-x-4 gap-y-2 text-[11px] md:text-sm text-slate-500">
               <span className="font-semibold text-slate-700">Effito Ltd</span>
-              <span>Version 1.0</span>
               <span>Last updated: March 2026</span>
-              <span>Covering all three Effito service pillars</span>
             </div>
           </div>
 
