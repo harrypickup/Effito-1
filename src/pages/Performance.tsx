@@ -31,8 +31,8 @@ const Performance: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Performance Metrics | Effito Operational Excellence</title>
-        <meta name="description" content="See how Effito reduces inquiry response times to under 60 seconds, eliminates lead decay, and recovers 30 hours of admin time weekly for care homes." />
+        <title>Performance | Effito Operational Excellence</title>
+        <meta name="description" content="See how Effito reduces inquiry response times to under 60 seconds, eliminates lead decay and recovers 30 hours of admin time weekly for care homes." />
       </Helmet>
       
       <div className="bg-[#FAF9F6] min-h-screen overflow-x-hidden">
