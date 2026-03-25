@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, AreaChart, Area } from 'recharts';
 import { GrowthNode } from '../components/Diagrams';
@@ -28,7 +29,13 @@ const Performance: React.FC = () => {
   }, []);
 
   return (
-    <div className="bg-[#FAF9F6] min-h-screen overflow-x-hidden">
+    <>
+      <Helmet>
+        <title>Performance Metrics | Effito Operational Excellence</title>
+        <meta name="description" content="See how Effito reduces inquiry response times to under 60 seconds, eliminates lead decay, and recovers 30 hours of admin time weekly for care homes." />
+      </Helmet>
+      
+      <div className="bg-[#FAF9F6] min-h-screen overflow-x-hidden">
       {/* Hero: Operational Certainty */}
       <section className="px-6 md:px-8 pt-24 md:pt-32 pb-16 md:pb-24 max-w-[1400px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 items-start">
@@ -263,6 +270,7 @@ const Performance: React.FC = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 
