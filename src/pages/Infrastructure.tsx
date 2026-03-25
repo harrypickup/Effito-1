@@ -137,3 +137,5 @@ export const GrowthNode: React.FC = () => (
     <div className="w-2 h-2 rounded-full bg-slate-400" />
   </div>
 );
+
+export default Infrastructure;
