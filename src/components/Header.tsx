@@ -11,7 +11,7 @@ const Header: React.FC = () => {
   const navItems = [
     { label: 'Infrastructure', path: '/infrastructure' },
     { label: 'Performance', path: '/performance' },
-    { label: 'The Logic', path: '/how-it-works' },
+    { label: 'The Logic', path: '/logic' },
   ];
 
   return (
