@@ -386,7 +386,6 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-
             {/* Three Pillars */}
       <section className="py-20 md:py-32 px-6 md:px-8 max-w-[1400px] mx-auto relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-24 gap-8">
@@ -542,10 +541,9 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-
-      {/* Operational Alignment */}
+            {/* Operational Alignment */}
       <section className="py-20 md:py-32 px-6 md:px-8 max-w-[1400px] mx-auto relative z-10">
-        <div className="text-center mb-16 md:mb-24">
+        <div className="text-center mb-16 md:mb-20">
           <span className="text-[10px] font-mono font-bold tracking-[0.4em] uppercase text-stone-400 mb-4 block">System Compatibility</span>
           <h2 className="text-4xl md:text-7xl font-serif text-slate-900 mb-6 tracking-tighter">Operational Alignment.</h2>
           <p className="text-base md:text-lg text-slate-500 max-w-2xl mx-auto font-light leading-relaxed">
@@ -553,50 +551,86 @@ const Home: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-stone-200 border border-stone-200">
-          <div className="bg-white p-8 md:p-20">
-            <div className="flex items-center gap-4 mb-8 md:mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border border-stone-200">
+
+          {/* LEFT: Institutional Fit — white */}
+          <div className="bg-white p-8 md:p-14 border-b md:border-b-0 md:border-r border-stone-200">
+            <div className="flex items-center gap-3 mb-10 pb-8 border-b border-stone-100">
               <div className="w-2 h-2 bg-slate-900 rounded-full" />
-              <h3 className="text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-slate-900">Institutional Fit</h3>
+              <h3 className="text-xs font-bold uppercase tracking-[0.35em] text-slate-900">Institutional Fit</h3>
             </div>
-            <ul className="space-y-8 md:space-y-10">
+            <ul className="space-y-0">
               {[
-                { label: "Independent Groups", sub: "Owners needing the infrastructure of a large corporate without the overhead." },
-                { label: "Growth Focused Operators", sub: "Homes looking to increase occupancy and reduce agency reliance permanently." },
-                { label: "Quality Driven Directors", sub: "Leaders who value professional, institutional grade systems." }
+                {
+                  label: "Independent Groups",
+                  sub: "Owners needing the infrastructure of a large corporate without the overhead."
+                },
+                {
+                  label: "Growth Focused Operators",
+                  sub: "Homes looking to increase occupancy and reduce agency reliance permanently."
+                },
+                {
+                  label: "Quality Driven Directors",
+                  sub: "Leaders who value professional, institutional grade systems."
+                }
               ].map((item, i) => (
-                <li key={i} className="flex gap-4 md:gap-6">
-                  <span className="text-slate-300 font-mono text-xs mt-1">0{i + 1}</span>
+                <motion.li
+                  key={i}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex gap-6 py-7 border-b border-stone-100 last:border-0 last:pb-0 group"
+                >
+                  <span className="text-[10px] font-mono text-stone-300 mt-1 shrink-0 group-hover:text-slate-400 transition-colors">0{i + 1}</span>
                   <div>
-                    <h4 className="font-bold text-slate-900 text-sm uppercase tracking-tight mb-2">{item.label}</h4>
+                    <h4 className="font-bold text-slate-900 text-sm uppercase tracking-wide mb-2">{item.label}</h4>
                     <p className="text-sm text-slate-500 font-light leading-relaxed">{item.sub}</p>
                   </div>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </div>
 
-          <div className="bg-stone-50 p-8 md:p-20">
-            <div className="flex items-center gap-4 mb-8 md:mb-12">
-              <div className="w-2 h-2 bg-stone-300 rounded-full" />
-              <h3 className="text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-stone-400">Non Target Profiles</h3>
+          {/* RIGHT: Non Target — dark */}
+          <div className="bg-slate-900 p-8 md:p-14">
+            <div className="flex items-center gap-3 mb-10 pb-8 border-b border-slate-800">
+              <div className="w-2 h-2 bg-slate-600 rounded-full" />
+              <h3 className="text-xs font-bold uppercase tracking-[0.35em] text-slate-500">Non Target Profiles</h3>
             </div>
-            <ul className="space-y-8 md:space-y-10">
+            <ul className="space-y-0">
               {[
-                { label: "DIY Operators", sub: "Homes looking for low cost manual tools to manage themselves." },
-                { label: "Marketing Only Fixes", sub: "We provide infrastructure for the next decade, not just leads for the next week." },
-                { label: "Budget Solutions", sub: "Effito is a premium operational investment for serious businesses." }
+                {
+                  label: "DIY Operators",
+                  sub: "Homes looking for low cost manual tools to manage themselves."
+                },
+                {
+                  label: "Marketing Only Fixes",
+                  sub: "We provide infrastructure for the next decade, not just leads for the next week."
+                },
+                {
+                  label: "Budget Solutions",
+                  sub: "Effito is a premium operational investment for serious businesses."
+                }
               ].map((item, i) => (
-                <li key={i} className="flex gap-4 md:gap-6 opacity-60">
-                  <span className="text-stone-300 font-mono text-xs mt-1">✕</span>
+                <motion.li
+                  key={i}
+                  initial={{ opacity: 0, x: 10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex gap-6 py-7 border-b border-slate-800 last:border-0 last:pb-0 opacity-50"
+                >
+                  <span className="text-[10px] font-mono text-slate-600 mt-1 shrink-0">✕</span>
                   <div>
-                    <h4 className="font-bold text-stone-400 text-sm uppercase tracking-tight mb-2">{item.label}</h4>
-                    <p className="text-sm text-stone-400 font-light leading-relaxed">{item.sub}</p>
+                    <h4 className="font-bold text-slate-400 text-sm uppercase tracking-wide mb-2">{item.label}</h4>
+                    <p className="text-sm text-slate-500 font-light leading-relaxed">{item.sub}</p>
                   </div>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </div>
+
         </div>
       </section>
 
