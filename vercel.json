@@ -1,6 +1,7 @@
 {
   "redirects": [
-    { "source": "/how-it-works", "destination": "/logic", "permanent": true }
+    { "source": "/how-it-works", "destination": "/logic", "permanent": true },
+    { "source": "https://effito.com/:path*", "destination": "https://www.effito.com/:path*", "permanent": true }
   ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
