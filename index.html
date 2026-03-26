@@ -8,18 +8,27 @@
     <link rel="canonical" href="https://www.effito.com/" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta property="og:title" content="Effito | Growth Infrastructure for Modern Care Homes" />
-    <meta property="og:description" content="Growth infrastructure for modern healthcare organizations specializing in care home automation." />
+    <meta property="og:description" content="Effito delivers automation infrastructure for modern care home operators — streamlining enquiry response, staff screening, and handbook management." />
     <meta property="og:url" content="https://www.effito.com/" />
     <meta property="og:type" content="website" />
-    
+    <meta property="og:image" content="https://www.effito.com/og-image.png" />
+    <meta property="og:site_name" content="Effito" />
+
     <!-- JSON-LD Organization Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Effito",
-      "url": "https://effito.com",
-      "description": "Growth infrastructure platform for modern healthcare organizations.",
+      "url": "https://www.effito.com",
+      "description": "Growth infrastructure platform for modern care home operators.",
+      "telephone": "0161 524 4023",
+      "email": "harry@effito.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Manchester",
+        "addressCountry": "GB"
+      },
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "customer support",
@@ -27,20 +36,52 @@
       }
     }
     </script>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    
+
     <style>
         :root { --color-bg: #FAF9F6; --color-text: #1C1C1C; }
         body { font-family: 'Inter', sans-serif; background-color: var(--color-bg); color: var(--color-text); -webkit-font-smoothing: antialiased; margin: 0; }
         .font-serif { font-family: 'Instrument Serif', serif; }
         ::selection { background-color: #1C1C1C; color: #FFFFFF; }
+        #static-fallback { display: none; }
     </style>
 </head>
 <body>
-    <div id="root"></div>
+    <div id="root">
+        <!-- Static fallback for crawlers. Hidden from visitors, React replaces on load. -->
+        <div id="static-fallback">
+            <header>
+                <nav>
+                    <a href="/">Effito</a>
+                    <a href="/infrastructure">Infrastructure</a>
+                    <a href="/performance">Performance</a>
+                    <a href="/challenges">Challenges</a>
+                    <a href="/logic">The Logic</a>
+                    <a href="/contact">Consultation</a>
+                </nav>
+            </header>
+            <main>
+                <h1>The architecture of care.</h1>
+                <p>Capture every high intent enquiry, automate your recruitment pipeline and eliminate manual chaos with a coordinated system designed specifically for residential care.</p>
+                <h2>The Pillars of Stability</h2>
+                <h3>Pillar One: Occupancy and Reputation Engine</h3>
+                <p>Ensures every enquiry is met with an immediate, professional response. By qualifying needs and booking tours into the manager's calendar within seconds, it secures your occupancy. Response time under 30 seconds.</p>
+                <h3>Pillar Two: Recruitment Engine</h3>
+                <p>A high velocity pipeline for human capital. Every applicant is engaged instantly, screened, and booked for interview, slashing agency dependency by 85%.</p>
+                <h3>Pillar Three: Retention and Oracle</h3>
+                <p>The digital knowledge base for your staff, providing instant access to policies, handovers, and SOPs. Recovers 30 hours per week of management time.</p>
+                <h2>The Problem: Chaos is the silent cost of care.</h2>
+                <p>Most care homes struggle not with a lack of demand, but with a lack of structure. Every missed enquiry is a lost resident; every slow recruitment cycle is an agency expense.</p>
+                <h2>Why Care Home Owners Switch to Effito</h2>
+                <p>Inquiry handling: manual callbacks taking 8 to 24 hours replaced by instant automated triage. Staffing: reactive agency hiring replaced by an always-on talent pipeline. Occupancy: 10% to 15% monthly fluctuation replaced by 97% sustained occupancy.</p>
+                <h2>Growth Infrastructure for Modern Care Homes</h2>
+                <p>Effito delivers automation infrastructure for modern care home operators. Based in Manchester, UK. Phone: 0161 524 4023. Email: harry@effito.com.</p>
+            </main>
+        </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>
