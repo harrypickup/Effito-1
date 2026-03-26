@@ -1,8 +1,8 @@
 {
+  "redirects": [
+    { "source": "/how-it-works", "destination": "/logic", "permanent": true }
+  ],
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
