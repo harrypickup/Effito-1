@@ -1136,7 +1136,7 @@ footer {
         <ul>
           <li><a href="https://www.effito.com/contact">Strategy Call</a></li>
           <li><a href="tel:01615244023">0161 524 4023</a></li>
-          <li><a href="mailto:harry@effito.com">harry@effito.com</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#b8d0d9cacac1f8dddeded1ccd796dbd7d5"><span class="__cf_email__" data-cfemail="422a2330303b022724242b362d6c212d2f">[email&#160;protected]</span></a></li>
           <li><span class="location">Based in Manchester, UK.</span></li>
         </ul>
       </div>
@@ -1154,9 +1154,9 @@ footer {
   </div>
 </footer>
 
-<script>
-  // ── GHL WEBHOOK ──
-  const GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/hgw2JzcXX6asD0xVabr4/webhook-trigger/f6d898c2-606b-441c-a88f-6e77f188c33e';
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // ── N8N WEBHOOK ──
+  const N8N_WEBHOOK = 'https://effito1.app.n8n.cloud/webhook-test/219ae284-be51-48b8-a594-2d0b2e880d93';
 
   // ── STATE ──
   let currentResults = {};
@@ -1388,23 +1388,20 @@ footer {
     doc.save('effito-revenue-report.pdf');
   }
 
-  // ── SEND TO GHL ──
-  async function sendToGHL(name, email) {
+  // ── SEND TO N8N ──
+  async function sendToN8N(name, email) {
     const r = currentResults;
     try {
-      await fetch(GHL_WEBHOOK, {
+      await fetch(N8N_WEBHOOK, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        mode: 'no-cors',
         body: JSON.stringify({
-          mapping_reference: 'effito-calculator',
           email: email,
           name: name,
-          source: 'Missed Enquiry Calculator',
+          source: 'Effito Calculator',
           annual_loss: fmt(r.annualLoss),
           recoverable: fmt(r.recoverable),
           monthly_loss: fmt(r.monthlyLoss),
-          months_to_roi: r.monthsToROI,
           inputs: {
             monthly_enquiries: r.enquiries,
             missed_rate_pct: Math.round(r.missedPct * 100),
@@ -1415,8 +1412,7 @@ footer {
         })
       });
     } catch(e) {
-      // Silent fail — PDF still downloads even if webhook fails
-      console.warn('GHL webhook failed:', e);
+      console.warn('n8n webhook failed:', e);
     }
   }
 
@@ -1439,8 +1435,8 @@ footer {
     // Generate PDF
     generatePDF(name, email);
 
-    // Send to GHL
-    await sendToGHL(name, email);
+    // Send to n8n
+    await sendToN8N(name, email);
 
     // Show success
     document.getElementById('gate-form').style.display = 'none';
@@ -1466,14 +1462,4 @@ footer {
     const isOpen = menu.classList.contains('open');
     if (isOpen) {
       menu.classList.remove('open');
-      iconMenu.style.display = 'block';
-      iconClose.style.display = 'none';
-    } else {
-      menu.classList.add('open');
-      iconMenu.style.display = 'none';
-      iconClose.style.display = 'block';
-    }
-  }
-</script>
-</body>
-</html>
+      
