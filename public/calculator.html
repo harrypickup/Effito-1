@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Missed Enquiry Calculator | Effito</title>
+<meta name="description" content="Calculate exactly how much revenue your care home is losing to missed or slow enquiry responses. Free tool by Effito." />
+<meta property="og:title" content="Missed Enquiry Calculator | Effito" />
+<meta property="og:description" content="Calculate exactly how much revenue your care home is losing to missed or slow enquiry responses." />
+<meta property="og:image" content="https://www.effito.com/og-image.png" />
+<link rel="icon" type="image/png" href="https://www.effito.com/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #FAF9F6;
+  --text: #1C1C1C;
+  --slate-900: #0f172a;
+  --slate-800: #1e293b;
+  --slate-600: #475569;
+  --slate-400: #94a3b8;
+  --slate-200: #e2e8f0;
+  --stone-200: #e7e5e4;
+  --stone-400: #a8a29e;
+  --emerald: #059669;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* ── NAV ── */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 73px;
+  border-bottom: 1px solid var(--stone-200);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+}
+
+.nav-logo-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--text);
+  border-radius: 50%;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--slate-600);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--text); }
+
+.nav-cta {
+  border: 1.5px solid var(--text) !important;
+  color: var(--text) !important;
+  padding: 10px 20px;
+}
+
+.nav-cta:hover {
+  background: var(--text) !important;
+  color: var(--bg) !important;
+}
+
+/* ── HERO ── */
+.hero {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 40px 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+  border-bottom: 1px solid var(--stone-200);
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--stone-400);
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: var(--slate-900);
+  margin-bottom: 28px;
+}
+
+.hero h1 em { font-style: italic; }
+
+.hero-desc {
+  font-size: 17px;
+  color: var(--slate-600);
+  line-height: 1.7;
+  font-weight: 300;
+  max-width: 420px;
+  margin-bottom: 40px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+}
+
+.hero-stat-value {
+  font-family: 'Instrument Serif', serif;
+  font-size: 2.5rem;
+  color: var(--slate-900);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.hero-stat-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--stone-400);
+}
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 8px;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--slate-900);
+  color: rgba(250,249,246,0.5);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  margin-bottom: 20px;
+  align-self: flex-start;
+}
+
+.hero-tag-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--emerald);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.4); }
+}
+
+.hero-note {
+  font-size: 13px;
+  color: var(--stone-400);
+  line-height: 1.6;
+  font-weight: 300;
+  border-left: 2px solid var(--stone-200);
+  padding-left: 20px;
+}
+
+/* ── CALCULATOR ── */
+.calc-outer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.calc-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--stone-200);
+  border: 1px solid var(--stone-200);
+  border-top: none;
+}
+
+.calc-inputs {
+  background: white;
+  padding: 60px 56px;
+}
+
+.calc-results {
+  background: var(--slate-900);
+  padding: 60px 56px;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--stone-400);
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--stone-200);
+}
+
+.section-label-dark { color: rgba(250,249,246,0.25); }
+.section-label-dark::after { background: rgba(250,249,246,0.08); }
+
+/* ── SLIDERS ── */
+.slider-group { margin-bottom: 44px; }
+.slider-group:last-child { margin-bottom: 0; }
+
+.slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 16px;
+}
+
+.slider-name {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate-600);
+}
+
+.slider-val {
+  font-family: 'Instrument Serif', serif;
+  font-size: 2rem;
+  color: var(--slate-900);
+  line-height: 1;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 2px;
+  background: var(--stone-200);
+  outline: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--slate-900);
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--slate-900);
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+
+.slider-range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--stone-400);
+  font-weight: 500;
+}
+
+/* ── RESULTS ── */
+.result-primary { margin-bottom: 48px; }
+
+.result-eyebrow {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(250,249,246,0.3);
+  margin-bottom: 12px;
+}
+
+.result-figure {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  color: rgba(248,113,113,0.9);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+}
+
+.result-caption {
+  font-size: 12px;
+  color: rgba(250,249,246,0.35);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.result-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(250,249,246,0.07);
+  margin: 36px 0;
+}
+
+.result-rows { display: flex; flex-direction: column; }
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(250,249,246,0.05);
+}
+
+.result-row:last-child { border-bottom: none; }
+
+.result-row-label {
+  font-size: 11px;
+  color: rgba(250,249,246,0.35);
+  font-weight: 300;
+}
+
+.result-row-value {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.4rem;
+  color: rgba(250,249,246,0.7);
+  transition: all 0.3s ease;
+}
+
+.result-row-value.highlight { color: white; }
+
+.recoverable-block {
+  margin-top: auto;
+  padding-top: 36px;
+  border-top: 1px solid rgba(250,249,246,0.07);
+}
+
+.recoverable-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--emerald);
+  margin-bottom: 10px;
+}
+
+.recoverable-figure {
+  font-family: 'Instrument Serif', serif;
+  font-size: 2.5rem;
+  color: white;
+  line-height: 1;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+}
+
+.recoverable-caption {
+  font-size: 11px;
+  color: rgba(250,249,246,0.3);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* ── INSIGHT ── */
+.insight-outer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.insight-inner {
+  border: 1px solid var(--stone-200);
+  border-top: none;
+  padding: 32px 48px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 32px;
+  align-items: start;
+  background: white;
+}
+
+.insight-number {
+  font-family: 'Instrument Serif', serif;
+  font-size: 3rem;
+  color: var(--stone-200);
+  line-height: 1;
+  user-select: none;
+}
+
+.insight-text {
+  font-size: 14px;
+  color: var(--slate-600);
+  line-height: 1.8;
+  font-weight: 300;
+  padding-top: 8px;
+}
+
+.insight-text strong {
+  font-weight: 600;
+  color: var(--slate-900);
+}
+
+/* ── EMAIL GATE ── */
+.gate-outer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.gate-inner {
+  border: 1px solid var(--stone-200);
+  border-top: none;
+  background: var(--slate-900);
+  padding: 48px 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.gate-left {}
+
+.gate-eyebrow {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--emerald);
+  margin-bottom: 16px;
+}
+
+.gate-heading {
+  font-family: 'Instrument Serif', serif;
+  font-size: 2.2rem;
+  color: white;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.gate-heading em { font-style: italic; opacity: 0.6; }
+
+.gate-desc {
+  font-size: 13px;
+  color: rgba(250,249,246,0.4);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.gate-right {}
+
+.gate-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gate-input-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.gate-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(250,249,246,0.3);
+}
+
+.gate-input {
+  background: rgba(250,249,246,0.06);
+  border: 1px solid rgba(250,249,246,0.12);
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  padding: 14px 18px;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+
+.gate-input::placeholder { color: rgba(250,249,246,0.2); }
+.gate-input:focus { border-color: rgba(250,249,246,0.3); }
+
+.gate-btn {
+  background: var(--bg);
+  color: var(--slate-900);
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 16px 32px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.gate-btn:hover {
+  background: white;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+
+.gate-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.gate-btn svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.gate-privacy {
+  font-size: 10px;
+  color: rgba(250,249,246,0.2);
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+/* Success state */
+.gate-success {
+  display: none;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  background: rgba(5,150,105,0.1);
+  border: 1px solid rgba(5,150,105,0.25);
+}
+
+.gate-success.visible { display: flex; }
+
+.gate-success-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--emerald);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.gate-success-text {
+  font-size: 13px;
+  color: rgba(250,249,246,0.7);
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+.gate-success-text strong {
+  color: white;
+  font-weight: 600;
+}
+
+/* ── CTA ── */
+.cta-section {
+  background: var(--slate-900);
+  padding: 80px 40px;
+  text-align: center;
+  margin-top: 80px;
+  border-top: 1px solid rgba(250,249,246,0.06);
+}
+
+.cta-inner { max-width: 640px; margin: 0 auto; }
+
+.cta-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(250,249,246,0.3);
+  margin-bottom: 24px;
+}
+
+.cta-heading {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  color: white;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.cta-heading em { font-style: italic; opacity: 0.6; }
+
+.cta-desc {
+  font-size: 15px;
+  color: rgba(250,249,246,0.45);
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 40px;
+}
+
+.cta-btn {
+  display: inline-block;
+  background: var(--bg);
+  color: var(--slate-900);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 20px 52px;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.cta-btn:hover {
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+}
+
+.cta-note {
+  display: block;
+  font-size: 11px;
+  color: rgba(250,249,246,0.25);
+  margin-top: 16px;
+  letter-spacing: 0.05em;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--slate-900);
+  border-top: 1px solid rgba(250,249,246,0.06);
+  padding: 32px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo {
+  font-size: 13px;
+  color: rgba(250,249,246,0.3);
+  letter-spacing: 0.1em;
+}
+
+.footer-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.footer-links a {
+  font-size: 11px;
+  color: rgba(250,249,246,0.25);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: rgba(250,249,246,0.6); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero { animation: fadeUp 0.7s ease both; }
+.calc-outer { animation: fadeUp 0.7s 0.15s ease both; }
+.insight-outer { animation: fadeUp 0.7s 0.25s ease both; }
+.gate-outer { animation: fadeUp 0.7s 0.35s ease both; }
+
+@keyframes flash {
+  0% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+.flashing { animation: flash 0.3s ease; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; padding: 60px 24px 40px; gap: 40px; }
+  .calc-outer, .insight-outer, .gate-outer { padding: 0; }
+  .calc-section { grid-template-columns: 1fr; }
+  .calc-inputs, .calc-results { padding: 40px 28px; }
+  .insight-inner { padding: 24px 28px; grid-template-columns: 1fr; }
+  .insight-number { display: none; }
+  .gate-inner { grid-template-columns: 1fr; padding: 40px 28px; gap: 32px; }
+  .cta-section { padding: 60px 24px; }
+  footer { flex-direction: column; gap: 20px; text-align: center; padding: 32px 24px; }
+}
+
+@media (max-width: 640px) {
+  .hero-stats { flex-direction: column; gap: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://www.effito.com" class="nav-logo">
+    <span class="nav-logo-dot"></span>
+    Effito
+  </a>
+  <ul class="nav-links">
+    <li><a href="https://www.effito.com/infrastructure">Infrastructure</a></li>
+    <li><a href="https://www.effito.com/performance">Performance</a></li>
+    <li><a href="https://www.effito.com/challenges">Challenges</a></li>
+    <li><a href="https://www.effito.com/logic">The Logic</a></li>
+    <li><a href="https://www.effito.com/contact" class="nav-cta">Consultation</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-eyebrow">Free Diagnostic Tool</div>
+    <h1>The cost of<br><em>slow response.</em></h1>
+    <p class="hero-desc">Most care homes have no idea how much revenue leaves through their enquiry process every year. This calculator makes it visible.</p>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-value">85%</div>
+        <div class="hero-stat-label">Leads lost to<br>slow response</div>
+      </div>
+      <div>
+        <div class="hero-stat-value">£78k</div>
+        <div class="hero-stat-label">Annual value per<br>private resident</div>
+      </div>
+      <div>
+        <div class="hero-stat-value">&lt;30s</div>
+        <div class="hero-stat-label">Effito enquiry<br>response time</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-tag">
+      <span class="hero-tag-dot"></span>
+      Occupancy Engine — Active
+    </div>
+    <p class="hero-note">Adjust the sliders to model your care home's specific situation. All figures are calculated in real time based on industry data and your inputs.</p>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<div class="calc-outer">
+  <div class="calc-section">
+    <div class="calc-inputs">
+      <div class="section-label">Your inputs</div>
+
+      <div class="slider-group">
+        <div class="slider-header">
+          <span class="slider-name">Monthly enquiries received</span>
+          <span class="slider-val" id="val-enquiries">40</span>
+        </div>
+        <input type="range" id="enquiries" min="5" max="150" value="40" step="5">
+        <div class="slider-range-labels"><span>5</span><span>150</span></div>
+      </div>
+
+      <div class="slider-group">
+        <div class="slider-header">
+          <span class="slider-name">Enquiries never responded to</span>
+          <span class="slider-val" id="val-missed">30%</span>
+        </div>
+        <input type="range" id="missed" min="5" max="70" value="30" step="5">
+        <div class="slider-range-labels"><span>5%</span><span>70%</span></div>
+      </div>
+
+      <div class="slider-group">
+        <div class="slider-header">
+          <span class="slider-name">Enquiry-to-admission rate</span>
+          <span class="slider-val" id="val-conversion">15%</span>
+        </div>
+        <input type="range" id="conversion" min="5" max="40" value="15" step="1">
+        <div class="slider-range-labels"><span>5%</span><span>40%</span></div>
+      </div>
+
+      <div class="slider-group">
+        <div class="slider-header">
+          <span class="slider-name">Weekly fee per resident</span>
+          <span class="slider-val" id="val-fee">£1,100</span>
+        </div>
+        <input type="range" id="fee" min="600" max="2500" value="1100" step="50">
+        <div class="slider-range-labels"><span>£600</span><span>£2,500</span></div>
+      </div>
+
+      <div class="slider-group">
+        <div class="slider-header">
+          <span class="slider-name">Average length of stay</span>
+          <span class="slider-val" id="val-stay">24 mo</span>
+        </div>
+        <input type="range" id="stay" min="3" max="60" value="24" step="3">
+        <div class="slider-range-labels"><span>3 mo</span><span>60 mo</span></div>
+      </div>
+    </div>
+
+    <div class="calc-results">
+      <div class="section-label section-label-dark">Your diagnosis</div>
+
+      <div class="result-primary">
+        <div class="result-eyebrow">Annual revenue lost</div>
+        <div class="result-figure" id="annual-loss">£0</div>
+        <div class="result-caption">leaving your home every year<br>through unanswered enquiries</div>
+      </div>
+
+      <div class="result-divider"></div>
+
+      <div class="result-rows">
+        <div class="result-row">
+          <span class="result-row-label">Enquiries lost per month</span>
+          <span class="result-row-value" id="lost-month">0</span>
+        </div>
+        <div class="result-row">
+          <span class="result-row-label">Admissions missed per year</span>
+          <span class="result-row-value" id="missed-admissions">0</span>
+        </div>
+        <div class="result-row">
+          <span class="result-row-label">Revenue per missed admission</span>
+          <span class="result-row-value" id="rev-per-admission">£0</span>
+        </div>
+        <div class="result-row">
+          <span class="result-row-label">Monthly revenue leakage</span>
+          <span class="result-row-value highlight" id="monthly-loss">£0</span>
+        </div>
+      </div>
+
+      <div class="result-divider"></div>
+
+      <div class="recoverable-block">
+        <div class="recoverable-label">Recoverable with Effito</div>
+        <div class="recoverable-figure" id="recoverable">£0</div>
+        <div class="recoverable-caption">estimated annual revenue recovered<br>with 24/7 automated enquiry response</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INSIGHT -->
+<div class="insight-outer">
+  <div class="insight-inner">
+    <div class="insight-number">01</div>
+    <p class="insight-text" id="insight-text">
+      Adjust the sliders above to generate your personalised revenue diagnosis.
+    </p>
+  </div>
+</div>
+
+<!-- EMAIL GATE / PDF DOWNLOAD -->
+<div class="gate-outer">
+  <div class="gate-inner">
+    <div class="gate-left">
+      <div class="gate-eyebrow">Free Report</div>
+      <h3 class="gate-heading">Download your<br><em>personalised report.</em></h3>
+      <p class="gate-desc">Get a PDF of your diagnosis — formatted for sharing with your team, board, or business partners. Enter your email and we'll also send you Effito's full operational benchmarking guide.</p>
+    </div>
+    <div class="gate-right">
+      <div class="gate-form" id="gate-form">
+        <div class="gate-input-wrap">
+          <label class="gate-label" for="user-email">Email address</label>
+          <input class="gate-input" type="email" id="user-email" placeholder="your@carehome.com" autocomplete="email" />
+        </div>
+        <div class="gate-input-wrap">
+          <label class="gate-label" for="user-name">Your name</label>
+          <input class="gate-input" type="text" id="user-name" placeholder="Your name" autocomplete="name" />
+        </div>
+        <button class="gate-btn" id="download-btn" onclick="handleDownload()">
+          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 1v9M4 7l4 4 4-4M2 13h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Download PDF Report
+        </button>
+        <p class="gate-privacy">Your details are handled in accordance with our <a href="https://www.effito.com/privacy" style="color:inherit;text-decoration:underline;">privacy policy</a>. No spam, ever.</p>
+      </div>
+      <div class="gate-success" id="gate-success">
+        <div class="gate-success-icon">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8l3.5 3.5L13 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="gate-success-text">
+          <strong>Your report is downloading.</strong><br>
+          We'll also be in touch with Effito's full benchmarking guide.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-eyebrow">Infrastructure Installation</div>
+    <h2 class="cta-heading">Stop the <em>leak.</em></h2>
+    <p class="cta-desc">Effito's Occupancy Engine responds to every enquiry within 30 seconds — 24 hours a day, 7 days a week. Without adding a single person to your team.</p>
+    <a class="cta-btn" href="https://www.effito.com/contact">Book a Strategy Call</a>
+    <span class="cta-note">45 minute session · UK based team · No sales pressure</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">© 2026 Effito Ltd · Company No. 17074094</div>
+  <ul class="footer-links">
+    <li><a href="https://www.effito.com/infrastructure">Infrastructure</a></li>
+    <li><a href="https://www.effito.com/contact">Strategy Call</a></li>
+    <li><a href="https://www.effito.com/privacy">Privacy</a></li>
+    <li><a href="https://www.effito.com/terms">Terms</a></li>
+  </ul>
+</footer>
+
+<script>
+  // ── GHL WEBHOOK ──
+  const GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/hgw2JzcXX6asD0xVabr4/webhook-trigger/d7eae7b2-13ee-4138-92a5-e7e790d76afb';
+
+  // ── STATE ──
+  let currentResults = {};
+
+  // ── FORMATTING ──
+  function fmt(n) { return '£' + Math.round(n).toLocaleString('en-GB'); }
+
+  function flash(id) {
+    const el = document.getElementById(id);
+    el.classList.remove('flashing');
+    void el.offsetWidth;
+    el.classList.add('flashing');
+  }
+
+  // ── CALC ──
+  function calc() {
+    const enquiries     = +document.getElementById('enquiries').value;
+    const missedPct     = +document.getElementById('missed').value / 100;
+    const conversionPct = +document.getElementById('conversion').value / 100;
+    const fee           = +document.getElementById('fee').value;
+    const stay          = +document.getElementById('stay').value;
+
+    document.getElementById('val-enquiries').textContent  = enquiries;
+    document.getElementById('val-missed').textContent     = document.getElementById('missed').value + '%';
+    document.getElementById('val-conversion').textContent = document.getElementById('conversion').value + '%';
+    document.getElementById('val-fee').textContent        = '£' + fee.toLocaleString('en-GB');
+    document.getElementById('val-stay').textContent       = stay + ' mo';
+
+    const lostPerMonth            = enquiries * missedPct;
+    const missedAdmissionsPerYear = lostPerMonth * 12 * conversionPct;
+    const revenuePerAdmission     = fee * 4.33 * stay;
+    const annualLoss              = missedAdmissionsPerYear * revenuePerAdmission;
+    const monthlyLoss             = annualLoss / 12;
+    const recoverable             = annualLoss * 0.85;
+    const effitoCost              = 5000;
+    const monthsToROI             = monthlyLoss > 0 ? (effitoCost / monthlyLoss).toFixed(1) : '—';
+
+    document.getElementById('lost-month').textContent        = lostPerMonth.toFixed(1);
+    document.getElementById('missed-admissions').textContent = missedAdmissionsPerYear.toFixed(1);
+    document.getElementById('rev-per-admission').textContent = fmt(revenuePerAdmission);
+    document.getElementById('monthly-loss').textContent      = fmt(monthlyLoss);
+    document.getElementById('annual-loss').textContent       = fmt(annualLoss);
+    document.getElementById('recoverable').textContent       = fmt(recoverable);
+
+    ['annual-loss','monthly-loss','recoverable','lost-month','missed-admissions'].forEach(flash);
+
+    document.getElementById('insight-text').innerHTML =
+      `Based on your inputs, your care home is losing an estimated <strong>${fmt(annualLoss)}</strong> per year to missed or slow enquiries. ` +
+      `At Effito's one-time investment of <strong>£5,000</strong>, your infrastructure pays for itself in approximately <strong>${monthsToROI} months</strong> — ` +
+      `recovering an estimated <strong>${fmt(recoverable)}</strong> annually with every enquiry answered in under 30 seconds, around the clock.`;
+
+    currentResults = {
+      enquiries, missedPct, conversionPct, fee, stay,
+      lostPerMonth, missedAdmissionsPerYear, revenuePerAdmission,
+      annualLoss, monthlyLoss, recoverable, monthsToROI
+    };
+  }
+
+  // ── PDF GENERATION ──
+  function generatePDF(name, email) {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+    const r = currentResults;
+    const pageW = 210;
+    const pageH = 297;
+
+    // Background
+    doc.setFillColor(15, 23, 42);
+    doc.rect(0, 0, pageW, pageH, 'F');
+
+    // Top accent bar
+    doc.setFillColor(5, 150, 105);
+    doc.rect(0, 0, pageW, 2, 'F');
+
+    // Header area
+    doc.setFillColor(30, 41, 59);
+    doc.rect(0, 2, pageW, 48, 'F');
+
+    // Logo text
+    doc.setTextColor(250, 249, 246);
+    doc.setFontSize(22);
+    doc.setFont('helvetica', 'bold');
+    doc.text('EFFITO', 20, 22);
+
+    // Header label
+    doc.setFontSize(8);
+    doc.setTextColor(148, 163, 184);
+    doc.setFont('helvetica', 'normal');
+    doc.text('MISSED ENQUIRY REVENUE REPORT', 20, 30);
+    doc.text('effito.com/calculator', 20, 37);
+
+    // Date + recipient
+    const today = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    doc.setTextColor(100, 116, 139);
+    doc.setFontSize(8);
+    doc.text('Generated: ' + today, pageW - 20, 30, { align: 'right' });
+    if (name) doc.text('Prepared for: ' + name, pageW - 20, 37, { align: 'right' });
+
+    // Divider
+    doc.setDrawColor(255, 255, 255, 0.1);
+    doc.setLineWidth(0.3);
+    doc.line(20, 50, pageW - 20, 50);
+
+    // Main headline
+    doc.setTextColor(248, 113, 113);
+    doc.setFontSize(42);
+    doc.setFont('helvetica', 'bold');
+    doc.text(fmt(r.annualLoss), 20, 78);
+
+    doc.setTextColor(100, 116, 139);
+    doc.setFontSize(9);
+    doc.setFont('helvetica', 'normal');
+    doc.text('ESTIMATED ANNUAL REVENUE LOST TO MISSED ENQUIRIES', 20, 86);
+
+    // Divider
+    doc.setDrawColor(50, 65, 85);
+    doc.setLineWidth(0.3);
+    doc.line(20, 92, pageW - 20, 92);
+
+    // Metrics grid — 2 columns
+    const metrics = [
+      ['Enquiries Lost / Month',     r.lostPerMonth.toFixed(1)],
+      ['Admissions Missed / Year',   r.missedAdmissionsPerYear.toFixed(1)],
+      ['Revenue Per Missed Admission', fmt(r.revenuePerAdmission)],
+      ['Monthly Revenue Leakage',    fmt(r.monthlyLoss)],
+    ];
+
+    let mx = 20;
+    let my = 106;
+    metrics.forEach(([label, value], i) => {
+      const col = i % 2;
+      const row = Math.floor(i / 2);
+      const x = 20 + col * 90;
+      const y = my + row * 28;
+
+      doc.setFillColor(30, 41, 59);
+      doc.roundedRect(x, y - 6, 82, 22, 1, 1, 'F');
+
+      doc.setTextColor(250, 249, 246);
+      doc.setFontSize(16);
+      doc.setFont('helvetica', 'bold');
+      doc.text(value, x + 8, y + 7);
+
+      doc.setTextColor(100, 116, 139);
+      doc.setFontSize(7);
+      doc.setFont('helvetica', 'normal');
+      doc.text(label.toUpperCase(), x + 8, y + 13);
+    });
+
+    // Recoverable block
+    doc.setFillColor(5, 150, 105, 0.15);
+    doc.setFillColor(10, 60, 40);
+    doc.roundedRect(20, 165, 170, 28, 1, 1, 'F');
+
+    doc.setTextColor(5, 150, 105);
+    doc.setFontSize(8);
+    doc.setFont('helvetica', 'bold');
+    doc.text('RECOVERABLE WITH EFFITO', 28, 174);
+
+    doc.setTextColor(250, 249, 246);
+    doc.setFontSize(22);
+    doc.text(fmt(r.recoverable), 28, 185);
+
+    doc.setTextColor(100, 116, 139);
+    doc.setFontSize(8);
+    doc.setFont('helvetica', 'normal');
+    doc.text('estimated annual revenue recovered with 24/7 automated enquiry response', 28, 191);
+
+    // ROI line
+    doc.setDrawColor(50, 65, 85);
+    doc.line(20, 200, pageW - 20, 200);
+
+    doc.setTextColor(148, 163, 184);
+    doc.setFontSize(9);
+    doc.text(`At Effito's one-time investment of £5,000, your infrastructure pays for itself in`, 20, 210);
+    doc.setTextColor(250, 249, 246);
+    doc.setFont('helvetica', 'bold');
+    doc.text(`approximately ${r.monthsToROI} months.`, 20, 218);
+
+    // Your inputs section
+    doc.setDrawColor(50, 65, 85);
+    doc.line(20, 226, pageW - 20, 226);
+
+    doc.setTextColor(100, 116, 139);
+    doc.setFontSize(7);
+    doc.setFont('helvetica', 'normal');
+    doc.text('YOUR INPUTS', 20, 234);
+
+    const inputs = [
+      `Monthly enquiries: ${r.enquiries}`,
+      `Missed rate: ${Math.round(r.missedPct * 100)}%`,
+      `Conversion rate: ${Math.round(r.conversionPct * 100)}%`,
+      `Weekly fee: £${r.fee.toLocaleString('en-GB')}`,
+      `Length of stay: ${r.stay} months`,
+    ];
+
+    doc.setTextColor(148, 163, 184);
+    doc.setFontSize(8);
+    inputs.forEach((input, i) => {
+      doc.text(input, 20 + (i % 3) * 60, 241 + Math.floor(i / 3) * 7);
+    });
+
+    // Footer
+    doc.setFillColor(10, 16, 30);
+    doc.rect(0, 268, pageW, 29, 'F');
+
+    doc.setTextColor(100, 116, 139);
+    doc.setFontSize(8);
+    doc.text('Effito — Growth Infrastructure for Modern Care Homes', 20, 278);
+    doc.text('www.effito.com  ·  0161 524 4023  ·  harry@effito.com', 20, 285);
+    doc.text('Manchester, UK  ·  Company No. 17074094', 20, 292);
+
+    doc.setTextColor(50, 65, 85);
+    doc.setFontSize(7);
+    doc.text('This report is based on user-provided inputs and industry averages. Figures are estimates only.', pageW - 20, 292, { align: 'right' });
+
+    doc.save('effito-revenue-report.pdf');
+  }
+
+  // ── SEND TO GHL ──
+  async function sendToGHL(name, email) {
+    const r = currentResults;
+    try {
+      await fetch(GHL_WEBHOOK, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        mode: 'no-cors',
+        body: JSON.stringify({
+          mapping_reference: 'effito-calculator',
+          email: email,
+          name: name,
+          source: 'Missed Enquiry Calculator',
+          annual_loss: fmt(r.annualLoss),
+          recoverable: fmt(r.recoverable),
+          monthly_loss: fmt(r.monthlyLoss),
+          months_to_roi: r.monthsToROI,
+          inputs: {
+            monthly_enquiries: r.enquiries,
+            missed_rate_pct: Math.round(r.missedPct * 100),
+            conversion_rate_pct: Math.round(r.conversionPct * 100),
+            weekly_fee: r.fee,
+            length_of_stay_months: r.stay
+          }
+        })
+      });
+    } catch(e) {
+      // Silent fail — PDF still downloads even if webhook fails
+      console.warn('GHL webhook failed:', e);
+    }
+  }
+
+  // ── HANDLE DOWNLOAD ──
+  async function handleDownload() {
+    const email = document.getElementById('user-email').value.trim();
+    const name  = document.getElementById('user-name').value.trim();
+
+    if (!email || !email.includes('@')) {
+      document.getElementById('user-email').style.borderColor = 'rgba(248,113,113,0.6)';
+      document.getElementById('user-email').focus();
+      return;
+    }
+
+    document.getElementById('user-email').style.borderColor = '';
+    const btn = document.getElementById('download-btn');
+    btn.disabled = true;
+    btn.innerHTML = '<svg viewBox="0 0 16 16" width="14" height="14" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5" stroke-dasharray="10 28" stroke-linecap="round"><animateTransform attributeName="transform" type="rotate" from="0 8 8" to="360 8 8" dur="0.8s" repeatCount="indefinite"/></circle></svg> Generating...';
+
+    // Generate PDF
+    generatePDF(name, email);
+
+    // Send to GHL
+    await sendToGHL(name, email);
+
+    // Show success
+    document.getElementById('gate-form').style.display = 'none';
+    document.getElementById('gate-success').classList.add('visible');
+  }
+
+  // ── INIT ──
+  ['enquiries','missed','conversion','fee','stay'].forEach(id => {
+    document.getElementById(id).addEventListener('input', calc);
+  });
+
+  document.getElementById('user-email').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') handleDownload();
+  });
+
+  calc();
+</script>
+</body>
+</html>
