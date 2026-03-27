@@ -1154,7 +1154,7 @@ footer {
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // ── N8N WEBHOOK ──
   const N8N_WEBHOOK = 'https://effito1.app.n8n.cloud/webhook-test/219ae284-be51-48b8-a594-2d0b2e880d93';
 
@@ -1462,4 +1462,14 @@ footer {
     const isOpen = menu.classList.contains('open');
     if (isOpen) {
       menu.classList.remove('open');
-      
+            iconMenu.style.display = 'block';
+      iconClose.style.display = 'none';
+    } else {
+      menu.classList.add('open');
+      iconMenu.style.display = 'none';
+      iconClose.style.display = 'block';
+    }
+  }
+</script>
+</body>
+</html>
