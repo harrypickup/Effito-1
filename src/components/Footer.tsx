@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-2 text-sm opacity-70 font-light">
               <li><Link to="/contact" className="hover:text-white transition-colors">Strategy Call</Link></li>
               <li><a href="tel:01615244023" className="hover:text-white transition-colors">0161 524 4023</a></li>
-              <li><a href="mailto:info@effito.com" className="hover:text-white transition-colors">harry@effito.com</a></li>
+              <li><a href="mailto:info@effito.com" className="hover:text-white transition-colors">info@effito.com</a></li>
               <li><span className="block mt-4 text-[10px] uppercase tracking-widest opacity-50">Based in Manchester, UK.</span></li>
             </ul>
           </div>
