@@ -137,7 +137,7 @@ const WhyCareHomesLoseResidents: React.FC = () => {
                 transition={{ duration: 0.7, delay: 0.25 }}
                 className="text-lg md:text-xl text-slate-500 font-light leading-relaxed max-w-2xl"
               >
-                The average care home takes 6–24 hours to respond to an enquiry. By then, the family has already toured three competitors. Here is the operational fix.
+                The average care home takes 6 - 24 hours to respond to an enquiry. By then, the family has already toured three competitors. Here is the operational fix.
               </motion.p>
             </div>
 
