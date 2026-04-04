@@ -24,29 +24,29 @@ const articles: Article[] = [
     excerpt:
       'The average care home takes 6–24 hours to respond to an enquiry. By then, the family has already toured three competitors. Here is the operational fix.',
     readTime: '6 min read',
-    date: 'March 2025',
+    date: 'April 2026',
     featured: true,
     tag: 'Most Read',
   },
   {
     slug: 'agency-nursing-costs-how-to-eliminate-them',
     category: 'Recruitment',
-    title: 'Agency Nursing Fees Are Destroying Your Margin — Here Is How to Stop It',
+    title: 'Agency Nursing Fees Are Destroying Your Margin. Here Is How to Stop It.',
     excerpt:
       'UK care homes spent over £2.5 billion on agency staff in 2024. The homes breaking this cycle share one thing in common: a permanent, automated talent pipeline.',
     readTime: '8 min read',
-    date: 'March 2025',
+    date: 'April 2026',
     featured: true,
     tag: 'Editor\'s Pick',
   },
   {
     slug: 'care-home-automation-guide-2025',
     category: 'Operations',
-    title: 'The Complete Guide to Care Home Automation in 2025',
+    title: 'Care Home Operations in 2026: What the Best Homes Are Doing Differently',
     excerpt:
-      'From enquiry handling to staff onboarding — a structured breakdown of every process care home operators can automate today without adding headcount.',
+      'From enquiry handling to staff onboarding, a structured breakdown of every process care home operators can automate today without adding headcount.',
     readTime: '12 min read',
-    date: 'February 2025',
+    date: 'April 2026',
     featured: true,
   },
   {
@@ -54,27 +54,27 @@ const articles: Article[] = [
     category: 'Compliance',
     title: 'How Automated Policy Access Keeps Your CQC Rating Intact',
     excerpt:
-      'When staff can access the right SOP in under 10 seconds — without interrupting the manager — compliance incidents drop significantly. Here is the architecture.',
+      'When staff can access the right SOP in under 10 seconds, without interrupting the manager, compliance incidents drop significantly. Here is the architecture.',
     readTime: '5 min read',
-    date: 'February 2025',
+    date: 'March 2026',
   },
   {
     slug: 'care-home-occupancy-optimisation',
     category: 'Occupancy',
     title: 'The Occupancy Optimisation Playbook for Independent Care Homes',
     excerpt:
-      'Full occupancy is not luck — it is a system. This playbook outlines the exact infrastructure independent operators use to maintain 97%+ bed fill consistently.',
+      'Full occupancy is not luck. It is a system. This playbook outlines the exact infrastructure independent operators use to maintain 97%+ bed fill consistently.',
     readTime: '9 min read',
-    date: 'January 2025',
+    date: 'March 2026',
   },
   {
     slug: 'staff-retention-care-homes-2025',
     category: 'Retention',
-    title: 'Why Your Best Care Staff Are Leaving — And the Infrastructure to Keep Them',
+    title: 'Why Your Best Care Staff Are Leaving and How to Keep Them',
     excerpt:
-      'Turnover in residential care averages 34% annually. The cost is catastrophic. The solution is not pay rises — it is removing the friction that burns them out.',
+      'Turnover in residential care averages 34% annually. The cost is catastrophic. The solution is not pay rises. It is removing the friction that burns them out.',
     readTime: '7 min read',
-    date: 'January 2025',
+    date: 'February 2026',
   },
   {
     slug: 'enquiry-response-time-care-home-benchmark',
@@ -83,25 +83,25 @@ const articles: Article[] = [
     excerpt:
       'Speed-to-respond is now the single biggest determinant of bed conversion. We analysed 400+ enquiries to build the definitive benchmark for UK residential care.',
     readTime: '6 min read',
-    date: 'December 2024',
+    date: 'February 2026',
   },
   {
     slug: 'care-home-recruitment-pipeline-build',
     category: 'Recruitment',
     title: 'Build a Recruitment Pipeline That Runs Without You',
     excerpt:
-      'A permanent talent pipeline means you never call an agency in a crisis again. Here is exactly how to architect one — and what most operators get wrong.',
+      'A permanent talent pipeline means you never call an agency in a crisis again. Here is exactly how to architect one and what most operators get wrong.',
     readTime: '10 min read',
-    date: 'December 2024',
+    date: 'January 2026',
   },
   {
     slug: 'operational-admin-time-care-home-directors',
     category: 'Operations',
     title: '30 Hours a Week: The Hidden Admin Tax on Care Home Directors',
     excerpt:
-      'Most senior managers spend 70% of their time on tasks that could be automated. This is what that time looks like — and what happens when you get it back.',
+      'Most senior managers spend the majority of their time on tasks that could be automated. This is what that time looks like and what happens when you get it back.',
     readTime: '5 min read',
-    date: 'November 2024',
+    date: 'January 2026',
   },
 ];
 
@@ -121,26 +121,29 @@ const FeaturedCard: React.FC<{ article: Article; index: number }> = ({ article, 
     initial={{ opacity: 0, y: 24 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6, delay: index * 0.12, ease: [0.16, 1, 0.3, 1] }}
+    className="h-full"
   >
     <Link
       to={`/blog/${article.slug}`}
-      className="group block h-full bg-white border border-stone-200 hover:border-slate-400 transition-all duration-300 hover:shadow-xl"
+      className="group flex flex-col h-full bg-white border-0 hover:border-slate-400 transition-all duration-300 hover:shadow-xl"
     >
       {/* Top accent bar */}
       <div className="h-[3px] bg-slate-900 w-0 group-hover:w-full transition-all duration-500" />
 
       <div className="p-8 md:p-10 flex flex-col h-full">
         {/* Meta row */}
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-6 min-h-[26px]">
           <span
             className={`text-[9px] font-bold uppercase tracking-[0.35em] px-2.5 py-1 border rounded-sm ${categoryColors[article.category] ?? 'text-stone-500 bg-stone-50 border-stone-200'}`}
           >
             {article.category}
           </span>
-          {article.tag && (
+          {article.tag ? (
             <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-slate-400 bg-slate-50 border border-slate-200 px-2.5 py-1 rounded-sm">
               {article.tag}
             </span>
+          ) : (
+            <span className="invisible text-[9px] px-2.5 py-1">placeholder</span>
           )}
         </div>
 
@@ -150,7 +153,7 @@ const FeaturedCard: React.FC<{ article: Article; index: number }> = ({ article, 
         </h3>
 
         {/* Excerpt */}
-        <p className="text-sm text-slate-500 font-light leading-relaxed mb-8">
+        <p className="text-sm text-slate-500 font-light leading-relaxed mb-8 min-h-[72px]">
           {article.excerpt}
         </p>
 
@@ -222,7 +225,7 @@ const Blog: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Blog | Effito — Care Home Automation & Operations Insights</title>
+        <title>Blog | Effito Insights for Care Home Owners &amp; Operators</title>
         <meta
           name="description"
           content="Expert insights on care home automation, occupancy optimisation, recruitment, staff retention, and CQC compliance. Helping UK care home owners run smarter operations."
@@ -343,9 +346,9 @@ const Blog: React.FC = () => {
             <div className="hidden md:block h-px bg-stone-200 flex-1 ml-8" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border border-stone-200">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border border-stone-200 items-stretch">
             {featuredArticles.map((article, i) => (
-              <div key={article.slug} className={`${i > 0 ? 'border-l border-stone-200' : ''}`}>
+              <div key={article.slug} className={`flex flex-col ${i > 0 ? 'border-l border-stone-200' : ''}`}>
                 <FeaturedCard article={article} index={i} />
               </div>
             ))}
