@@ -57,9 +57,13 @@ const WhyCareHomesLoseResidents: React.FC = () => {
             "datePublished": "2025-03-01",
             "dateModified": "2025-03-01",
             "author": {
-              "@type": "Organization",
-              "name": "Effito",
-              "url": "https://www.effito.com"
+              "@type": "Person",
+              "name": "Harry Pickup",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Effito",
+                "url": "https://www.effito.com"
+              }
             },
             "publisher": {
               "@type": "Organization",
@@ -98,7 +102,7 @@ const WhyCareHomesLoseResidents: React.FC = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 border-b border-stone-200 pb-12 md:pb-20">
 
-            {/* Left — headline block */}
+            {/* Left headline block */}
             <div className="lg:col-span-8 lg:pr-16 lg:border-r lg:border-stone-200">
 
               {/* Category + Tag */}
@@ -137,7 +141,7 @@ const WhyCareHomesLoseResidents: React.FC = () => {
               </motion.p>
             </div>
 
-            {/* Right — meta block */}
+            {/* Right meta block */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -155,7 +159,7 @@ const WhyCareHomesLoseResidents: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-1.5">Written by</span>
-                  <span className="text-sm font-light text-slate-600">Effito Editorial</span>
+                  <span className="text-sm font-light text-slate-600">Harry Pickup</span>
                 </div>
                 <div>
                   <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-1.5">Topic</span>
@@ -194,7 +198,7 @@ const WhyCareHomesLoseResidents: React.FC = () => {
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-8">
-                  The home that calls back first — not the best home, not the most affordable home, not the home with the highest CQC rating — gets the tour. And the home that gets the tour is, statistically, the home that gets the resident.
+                  The home that calls back first not the best home, not the most affordable home, not the home with the highest CQC rating gets the tour. And the home that gets the tour is, statistically, the home that gets the resident.
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-14">
@@ -218,11 +222,11 @@ const WhyCareHomesLoseResidents: React.FC = () => {
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-8">
-                  The reason is straightforward: care placement is an emotionally charged, time-sensitive decision. Families are not casually browsing — they are in crisis mode. A parent has had a fall. A GP has issued an urgent recommendation. The family home is no longer safe. When someone is in that state, they do not wait patiently for a callback. They move.
+                  The reason is straightforward: care placement is an emotionally charged, time-sensitive decision. Families are not casually browsing they are in crisis mode. A parent has had a fall. A GP has issued an urgent recommendation. The family home is no longer safe. When someone is in that state, they do not wait patiently for a callback. They move.
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-14">
-                  Yet the average care home in the UK takes between 6 and 24 hours to respond to a new enquiry. Many never respond at all — industry data suggests that up to 27% of care home enquiries receive no reply within 48 hours.
+                  Yet the average care home in the UK takes between 6 and 24 hours to respond to a new enquiry. Many never respond at all industry data suggests that up to 27% of care home enquiries receive no reply within 48 hours.
                 </p>
 
                 {/* Stat callout box */}
@@ -247,15 +251,15 @@ const WhyCareHomesLoseResidents: React.FC = () => {
                 </h2>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-8">
-                  It is tempting to frame this as a staffing problem. If you only had more admin time, more people answering phones, a dedicated enquiries coordinator — then you would respond faster. But this misdiagnoses the issue entirely.
+                  It is tempting to frame this as a staffing problem. If you only had more admin time, more people answering phones, a dedicated enquiries coordinator then you would respond faster. But this misdiagnoses the issue entirely.
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-8">
-                  The real problem is structural. Enquiries arrive through multiple channels — phone, email, website forms, social media — and land in different places, owned by different people, with no unified system for tracking, prioritising, or acting on them. A manager who is on the floor during a medication round cannot simultaneously respond to a web enquiry. A receptionist covering two jobs cannot action a 6pm email submission before the following morning.
+                  The real problem is structural. Enquiries arrive through multiple channels phone, email, website forms, social media and land in different places, owned by different people, with no unified system for tracking, prioritising, or acting on them. A manager who is on the floor during a medication round cannot simultaneously respond to a web enquiry. A receptionist covering two jobs cannot action a 6pm email submission before the following morning.
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-8">
-                  The result is what operators often call "lead decay" — enquiries that were warm when they arrived, that cooled while sitting in an inbox, and that were stone cold by the time anyone got to them. This is not a performance failure. It is a systems failure.
+                  The result is what operators often call "lead decay" enquiries that were warm when they arrived, that cooled while sitting in an inbox, and that were stone cold by the time anyone got to them. This is not a performance failure. It is a systems failure.
                 </p>
 
                 {/* Numbered list section */}
@@ -267,7 +271,7 @@ const WhyCareHomesLoseResidents: React.FC = () => {
                     {
                       num: '01',
                       title: 'Fragmented channels',
-                      body: 'Enquiries arrive by phone, email, website form, and social media — with no single system collecting them.',
+                      body: 'Enquiries arrive by phone, email, website form, and social media with no single system collecting them.',
                     },
                     {
                       num: '02',
@@ -301,15 +305,15 @@ const WhyCareHomesLoseResidents: React.FC = () => {
                 </h2>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-8">
-                  Care home owners often frame this as a conversion problem — a lost lead here and there. But the numbers tell a more serious story when aggregated across a year.
+                  Care home owners often frame this as a conversion problem a lost lead here and there. But the numbers tell a more serious story when aggregated across a year.
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-8">
-                  A 40-bed residential care home receiving 20 enquiries per month with an average private-pay rate of £1,200 per week is managing roughly £3.1 million of annual revenue potential through its enquiry pipeline. If 30% of those enquiries are lost to slow response — a conservative estimate — that is over £900,000 in annual revenue that never materialised. Not because the home was the wrong fit. Simply because nobody called back quickly enough.
+                  A 40-bed residential care home receiving 20 enquiries per month with an average private-pay rate of £1,200 per week is managing roughly £3.1 million of annual revenue potential through its enquiry pipeline. If 30% of those enquiries are lost to slow response a conservative estimate that is over £900,000 in annual revenue that never materialised. Not because the home was the wrong fit. Simply because nobody called back quickly enough.
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-14">
-                  This compounds further when you consider that an empty bed does not just mean lost income — it means ongoing fixed costs (staffing ratios, utilities, insurance) with no revenue to offset them. Every vacant day costs money twice: once in lost income, once in continued overhead.
+                  This compounds further when you consider that an empty bed does not just mean lost income it means ongoing fixed costs (staffing ratios, utilities, insurance) with no revenue to offset them. Every vacant day costs money twice: once in lost income, once in continued overhead.
                 </p>
 
                 {/* Pull quote 2 */}
@@ -329,7 +333,7 @@ const WhyCareHomesLoseResidents: React.FC = () => {
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-8">
-                  The highest-performing care homes — those consistently operating above 95% occupancy — have installed automated enquiry systems that respond within 30 seconds of submission, 24 hours a day, seven days a week. The response is not a generic autoresponder. It is a structured, warm, personalised message that acknowledges the family's situation, provides relevant information about the home, and — critically — books a tour directly into the manager's calendar without requiring a human to be involved.
+                  The highest-performing care homes those consistently operating above 95% occupancy have installed automated enquiry systems that respond within 30 seconds of submission, 24 hours a day, seven days a week. The response is not a generic autoresponder. It is a structured, warm, personalised message that acknowledges the family's situation, provides relevant information about the home, and critically books a tour directly into the manager's calendar without requiring a human to be involved.
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-8">
@@ -338,10 +342,10 @@ const WhyCareHomesLoseResidents: React.FC = () => {
 
                 <div className="space-y-4 mb-14">
                   {[
-                    { label: 'Eliminates the response window', body: 'The family receives contact in under 30 seconds — before they have moved to the next home on their list.' },
+                    { label: 'Eliminates the response window', body: 'The family receives contact in under 30 seconds before they have moved to the next home on their list.' },
                     { label: 'Qualifies the enquiry automatically', body: 'The system gathers care needs, budget, and timeline information before the manager is ever involved, so when a human does engage, it is a warm, informed conversation.' },
-                    { label: 'Secures the tour booking immediately', body: 'Rather than a back-and-forth scheduling process, the system offers available slots and locks in the visit — removing friction at the highest-value moment.' },
-                    { label: 'Operates without headcount', body: 'Evening enquiries, weekend enquiries, bank holiday enquiries — all handled identically to Tuesday morning at 10am.' },
+                    { label: 'Secures the tour booking immediately', body: 'Rather than a back-and-forth scheduling process, the system offers available slots and locks in the visit removing friction at the highest-value moment.' },
+                    { label: 'Operates without headcount', body: 'Evening enquiries, weekend enquiries, bank holiday enquiries all handled identically to Tuesday morning at 10am.' },
                   ].map((item, i) => (
                     <div key={i} className="flex gap-5 p-6 bg-white border border-stone-200">
                       <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full shrink-0 mt-2" />
@@ -359,18 +363,18 @@ const WhyCareHomesLoseResidents: React.FC = () => {
                 </h2>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-8">
-                  A common concern among care home managers when automation is discussed is that it will feel impersonal — that families in a vulnerable, emotional moment will be put off by a system rather than a human voice.
+                  A common concern among care home managers when automation is discussed is that it will feel impersonal that families in a vulnerable, emotional moment will be put off by a system rather than a human voice.
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-8">
-                  The data does not support this concern. What families consistently report as most distressing is silence — the hours-long wait with no acknowledgement that their enquiry was received. A warm, immediate response — even from a system — resolves this anxiety. By the time the manager speaks to the family in person (at the tour the system has already booked), the relationship is already positive.
+                  The data does not support this concern. What families consistently report as most distressing is silence the hours-long wait with no acknowledgement that their enquiry was received. A warm, immediate response even from a system resolves this anxiety. By the time the manager speaks to the family in person (at the tour the system has already booked), the relationship is already positive.
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-14">
                   The manager's role does not diminish. It becomes more valuable. Instead of spending significant hours per week chasing enquiries, following up on cold leads, and managing a disorganised pipeline, their time is directed entirely toward the conversations that matter: tours, assessments, and admissions. This is where their skills are irreplaceable. The system handles everything that precedes that moment.
                 </p>
 
-                {/* ── Section 7 — Closing ── */}
+                {/* ── Section 7 Closing ── */}
                 <h2 className="text-2xl md:text-3xl font-serif text-slate-900 tracking-tight mb-6">
                   The Competitive Reality
                 </h2>
@@ -380,7 +384,7 @@ const WhyCareHomesLoseResidents: React.FC = () => {
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-8">
-                  The independent home that relies on a coordinator checking emails between other duties is not competing on a level field. But the gap is closable — and quickly. The infrastructure to respond in under 30 seconds exists, it is accessible, and it does not require a large technology team to operate.
+                  The independent home that relies on a coordinator checking emails between other duties is not competing on a level field. But the gap is closable and quickly. The infrastructure to respond in under 30 seconds exists, it is accessible, and it does not require a large technology team to operate.
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-14">
@@ -394,7 +398,7 @@ const WhyCareHomesLoseResidents: React.FC = () => {
                     See how Effito responds to enquiries in under 30 seconds.
                   </h3>
                   <p className="text-slate-400 font-light text-sm leading-relaxed mb-8 max-w-lg">
-                    We install the enquiry response infrastructure described in this article — and the recruitment and retention systems that sit alongside it. Book a strategy call to see it in action.
+                    We install the enquiry response infrastructure described in this article and the recruitment and retention systems that sit alongside it. Book a strategy call to see it in action.
                   </p>
                   <Link
                     to="/contact"
@@ -416,17 +420,18 @@ const WhyCareHomesLoseResidents: React.FC = () => {
             >
               <div className="sticky top-28 space-y-10">
 
-                {/* About Effito */}
+                {/* About the Author */}
                 <div className="border border-stone-200 p-8">
-                  <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-5">About Effito</span>
+                  <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-5">About the Author</span>
+                  <p className="text-sm text-slate-900 font-semibold mb-1">Harry Pickup</p>
                   <p className="text-sm text-slate-500 font-light leading-relaxed mb-6">
-                    Effito installs automated enquiry, recruitment, and staff operations infrastructure for UK residential care homes — so owners stop losing residents and money to administrative chaos.
+                    Co-founder at Effito. Harry works with independent care home owners across the UK to identify where enquiries are being lost and build the infrastructure that catches them before they go cold.
                   </p>
                   <Link
                     to="/contact"
                     className="block w-full text-center border border-slate-900 text-slate-900 px-5 py-3.5 text-[10px] uppercase tracking-[0.35em] font-bold hover:bg-slate-900 hover:text-white transition-all"
                   >
-                    Book Strategy Call
+                    Speak to Harry
                   </Link>
                 </div>
 
