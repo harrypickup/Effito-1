@@ -14,14 +14,14 @@ const relatedArticles = [
   {
     slug: 'agency-nursing-costs-how-to-eliminate-them',
     category: 'Recruitment',
-    title: 'Agency Nursing Fees Are Destroying Your Margin — Here Is How to Stop It',
+    title: 'Agency Nursing Fees Are Destroying Your Margin Here Is How to Stop It',
     readTime: '8 min read',
     date: 'March 2025',
   },
   {
     slug: 'staff-retention-care-homes-2025',
     category: 'Retention',
-    title: 'Why Your Best Care Staff Are Leaving — And the Infrastructure to Keep Them',
+    title: 'Why Your Best Care Staff Are Leaving And the Infrastructure to Keep Them',
     readTime: '7 min read',
     date: 'January 2025',
   },
@@ -31,35 +31,39 @@ const CareHomeAutomationGuide: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>What Care Home Automation Actually Looks Like in 2025 | Effito Blog</title>
+        <title>Care Home Operations in 2026: What the Best Homes Are Doing Differently | Effito Blog</title>
         <meta
           name="description"
-          content="Most care home owners have no idea what is now possible with automation. This is what it actually looks like — the enquiries answered at midnight, the applicants screened before breakfast, the staff questions answered at 3am. And the ROI behind all of it."
+          content="Most care home owners have no idea what is now possible with automation. This is what it actually looks like: the enquiries answered at midnight, the applicants screened before breakfast, the staff questions answered at 3am. And the ROI behind all of it."
         />
         <meta
           name="keywords"
-          content="care home automation 2025, care home operations, care home technology UK, residential care home efficiency, care home AI, automate care home enquiries, care home management software UK, care home ROI"
+          content="care home automation 2026, care home operations, care home technology UK, residential care home efficiency, care home AI, automate care home enquiries, care home management software UK, care home ROI"
         />
         <link rel="canonical" href="https://www.effito.com/blog/care-home-automation-guide-2025" />
-        <meta property="og:title" content="What Care Home Automation Actually Looks Like in 2025" />
-        <meta property="og:description" content="Most care home owners have no idea what is now possible. This is the guide that changes that." />
+        <meta property="og:title" content="Care Home Operations in 2026: What the Best Homes Are Doing Differently" />
+        <meta property="og:description" content="The gap between the best care homes and the rest is widening. Here is exactly what the top operators are doing in 2026 that most homes are still not." />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://www.effito.com/blog/care-home-automation-guide-2025" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="What Care Home Automation Actually Looks Like in 2025" />
-        <meta name="twitter:description" content="Most care home owners have no idea what is now possible with automation. This is the guide that changes that." />
+        <meta name="twitter:title" content="Care Home Operations in 2026: What the Best Homes Are Doing Differently" />
+        <meta name="twitter:description" content="Most care home owners have no idea what is now possible. This is the guide that changes that." />
         <script type="application/ld+json">{`
           {
             "@context": "https://schema.org",
             "@type": "BlogPosting",
-            "headline": "What Care Home Automation Actually Looks Like in 2025",
-            "description": "Most care home owners have no idea what is now possible with automation. This guide covers enquiry handling, recruitment, and staff operations — and the real ROI behind each one.",
-            "datePublished": "2025-02-01",
-            "dateModified": "2025-02-01",
+            "headline": "Care Home Operations in 2026: What the Best Homes Are Doing Differently",
+            "description": "The gap between the best care homes and the rest is widening in 2026. This guide covers exactly what high-performing operators are doing around enquiry handling, recruitment, and staff operations and the real ROI behind each one.",
+            "datePublished": "2026-02-01",
+            "dateModified": "2026-04-01",
             "author": {
-              "@type": "Organization",
-              "name": "Effito",
-              "url": "https://www.effito.com"
+              "@type": "Person",
+              "name": "Harry Pickup",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Effito",
+                "url": "https://www.effito.com"
+              }
             },
             "publisher": {
               "@type": "Organization",
@@ -119,7 +123,7 @@ const CareHomeAutomationGuide: React.FC = () => {
                 transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
                 className="text-4xl md:text-6xl lg:text-7xl font-serif text-slate-900 tracking-tighter leading-[1.05] mb-8"
               >
-                What Care Home Automation Actually Looks Like in 2025
+                Care Home Operations in 2026: What the Best Homes Are Doing Differently
               </motion.h1>
 
               <motion.p
@@ -128,7 +132,7 @@ const CareHomeAutomationGuide: React.FC = () => {
                 transition={{ duration: 0.7, delay: 0.25 }}
                 className="text-lg md:text-xl text-slate-500 font-light leading-relaxed max-w-2xl"
               >
-                Most care home owners hear the word "automation" and picture something complicated, expensive, and built for someone else's business. This guide is about changing that picture completely.
+                Most care home owners hear the word "automation" and picture something complicated, expensive, and built for someone else's business. In 2026, that assumption is no longer just wrong. It is expensive. This guide is about changing that picture completely.
               </motion.p>
             </div>
 
@@ -141,7 +145,7 @@ const CareHomeAutomationGuide: React.FC = () => {
               <div className="space-y-6">
                 <div>
                   <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-1.5">Published</span>
-                  <span className="text-sm font-light text-slate-600">February 2025</span>
+                  <span className="text-sm font-light text-slate-600">April 2026</span>
                 </div>
                 <div>
                   <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-1.5">Reading Time</span>
@@ -149,7 +153,7 @@ const CareHomeAutomationGuide: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-1.5">Written by</span>
-                  <span className="text-sm font-light text-slate-600">Effito Editorial</span>
+                  <span className="text-sm font-light text-slate-600">Harry Pickup</span>
                 </div>
                 <div>
                   <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-1.5">Topic</span>
@@ -187,7 +191,7 @@ const CareHomeAutomationGuide: React.FC = () => {
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-8">
-                  What happens next, in most care homes in the UK, is nothing. The enquiry lands in an inbox that nobody checks on a Sunday evening. It sits there until Monday morning. By then the family has moved on — they submitted enquiries to three other homes at the same time, one of them called back within the hour, and that conversation already felt reassuring. By the time your manager replies on Monday, the family is booked in for a tour somewhere else.
+                  What happens next, in most care homes in the UK, is nothing. The enquiry lands in an inbox that nobody checks on a Sunday evening. It sits there until Monday morning. By then the family has moved on they submitted enquiries to three other homes at the same time, one of them called back within the hour, and that conversation already felt reassuring. By the time your manager replies on Monday, the family is booked in for a tour somewhere else.
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-8">
@@ -252,7 +256,7 @@ const CareHomeAutomationGuide: React.FC = () => {
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {[
                       { stat: '52%', label: 'of care home telephone enquiries go completely unanswered' },
-                      { stat: '60s', label: 'automated response time — versus the industry average of 6 to 24 hours' },
+                      { stat: '60s', label: 'automated response time, versus the industry average of 6 to 24 hours' },
                       { stat: '£33,748', label: 'revenue recovered per additional admission at an average 6-month stay' },
                     ].map((item, i) => (
                       <div key={i} className={`${i > 0 ? 'md:border-l md:border-slate-800 md:pl-8' : ''}`}>
@@ -264,7 +268,7 @@ const CareHomeAutomationGuide: React.FC = () => {
                 </div>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-8">
-                  The financial case here is not complicated. A 40-bed home at 86% occupancy has roughly five or six empty beds at any given time. Each empty bed costs around £1,298 a week in lost revenue. If automated enquiry handling recovers just three additional admissions over the course of a year — from enquiries that would otherwise have gone cold or been lost to a faster competitor — that is over £100,000 in recovered revenue. Against a system that costs a fraction of that to install and run.
+                  The financial case here is not complicated. A 40-bed home at 86% occupancy has roughly five or six empty beds at any given time. Each empty bed costs around £1,298 a week in lost revenue. If automated enquiry handling recovers just three additional admissions over the course of a year from enquiries that would otherwise have gone cold or been lost to a faster competitor that is over £100,000 in recovered revenue. Against a system that costs a fraction of that to install and run.
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-14">
@@ -292,7 +296,7 @@ const CareHomeAutomationGuide: React.FC = () => {
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-8">
-                  A 30-staff care home with 25% annual turnover — which is roughly the sector average — replaces around seven or eight people a year. At 17.7 hours per hire, that is over 140 manager hours spent on recruitment admin annually. Nearly four full working weeks. Every year. Just on the admin of finding staff, not on managing or developing them.
+                  A 30-staff care home with 25% annual turnover which is roughly the sector average replaces around seven or eight people a year. At 17.7 hours per hire, that is over 140 manager hours spent on recruitment admin annually. Nearly four full working weeks. Every year. Just on the admin of finding staff, not on managing or developing them.
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-8">
@@ -316,7 +320,7 @@ const CareHomeAutomationGuide: React.FC = () => {
                     {
                       num: '01',
                       title: 'Speed of first contact',
-                      body: 'Good candidates have options. The home that speaks to them first — within minutes of application, not days — wins their attention before competitors do.',
+                      body: 'Good candidates have options. The home that speaks to them first within minutes of application, not days wins their attention before competitors do.',
                     },
                     {
                       num: '02',
@@ -326,7 +330,7 @@ const CareHomeAutomationGuide: React.FC = () => {
                     {
                       num: '03',
                       title: 'Time per hire',
-                      body: 'From 17.7 hours of admin to under 3. That time does not disappear — it goes back to the care home.',
+                      body: 'From 17.7 hours of admin to under 3. That time does not disappear it goes back to the care home.',
                     },
                     {
                       num: '04',
@@ -336,7 +340,7 @@ const CareHomeAutomationGuide: React.FC = () => {
                     {
                       num: '05',
                       title: 'Early leaver rate',
-                      body: '39% of care staff with under a year of service leave. Proper screening — checking values fit and genuine motivation — meaningfully reduces this.',
+                      body: '39% of care staff with under a year of service leave. Proper screening checking values fit and genuine motivation meaningfully reduces this.',
                     },
                   ].map((item, i) => (
                     <div key={i} className="flex gap-6 p-6 border-b border-stone-200 last:border-0 group hover:bg-stone-50 transition-colors">
@@ -355,7 +359,7 @@ const CareHomeAutomationGuide: React.FC = () => {
                 </h2>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-8">
-                  This is the one that surprises people most. Not because the problem is surprising — every care home manager knows it intimately — but because the solution feels almost too straightforward once you understand it.
+                  This is the one that surprises people most. Not because the problem is surprising every care home manager knows it intimately but because the solution feels almost too straightforward once you understand it.
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-8">
@@ -375,7 +379,7 @@ const CareHomeAutomationGuide: React.FC = () => {
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-8">
-                  And then there is the retention dimension. Skills for Care data shows that staff with positive employment factors — feeling supported, knowing what to do, having access to information when they need it — leave at 14.4% per year. Those without those factors leave at 42.2%. The difference is enormous. A lot of early departures in care come from a specific feeling: I did not know what to do and nobody was there. A system that answers questions at 3am removes that feeling entirely.
+                  And then there is the retention dimension. Skills for Care data shows that staff with positive employment factors feeling supported, knowing what to do, having access to information when they need it leave at 14.4% per year. Those without those factors leave at 42.2%. The difference is enormous. A lot of early departures in care come from a specific feeling: I did not know what to do and nobody was there. A system that answers questions at 3am removes that feeling entirely.
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-14">
@@ -399,7 +403,7 @@ const CareHomeAutomationGuide: React.FC = () => {
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-8">
-                  Recovering three additional admissions per year from enquiries that would otherwise have been lost — at an average stay of six months — generates around £101,000 in revenue. Manager time saved on enquiry and tour admin, at four hours a week, adds another £7,000. Two fewer replacement hires through better retention saves £7,200 in direct recruitment costs. Fifteen hours saved per hire across eight annual hires adds £4,200. Reducing agency by just one shift per week saves around £2,000. And reclaiming 30 minutes a day in staff query time adds £4,550.
+                  Recovering three additional admissions per year from enquiries that would otherwise have been lost at an average stay of six months generates around £101,000 in revenue. Manager time saved on enquiry and tour admin, at four hours a week, adds another £7,000. Two fewer replacement hires through better retention saves £7,200 in direct recruitment costs. Fifteen hours saved per hire across eight annual hires adds £4,200. Reducing agency by just one shift per week saves around £2,000. And reclaiming 30 minutes a day in staff query time adds £4,550.
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-8">
@@ -410,7 +414,7 @@ const CareHomeAutomationGuide: React.FC = () => {
                 <div className="bg-slate-900 p-8 md:p-10 mb-14">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                     {[
-                      { stat: '£130k+', label: 'annual value generated — conservative floor for a 40-bed home' },
+                      { stat: '£130k+', label: 'annual value generated, conservative floor for a 40-bed home' },
                       { stat: '21×', label: 'return on investment based on total infrastructure cost' },
                     ].map((item, i) => (
                       <div key={i} className={`${i > 0 ? 'md:border-l md:border-slate-800 md:pl-8' : ''}`}>
@@ -457,7 +461,7 @@ const CareHomeAutomationGuide: React.FC = () => {
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-8">
-                  The honest answer is that this technology has matured quickly. What we are describing was not practical or accessible to independent care home operators three years ago. It is now. The gap between what large care groups can afford to build internally and what an independent home can access has narrowed to almost nothing.
+                  The honest answer is that this technology has matured fast. What we are describing was not practical or accessible to independent care home operators three years ago. In 2026 it is not only practical, it is expected. The gap between what large care groups can afford to build internally and what an independent home can access has narrowed to almost nothing.
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-8">
@@ -465,7 +469,7 @@ const CareHomeAutomationGuide: React.FC = () => {
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-14">
-                  The homes that wait are not standing still. The market is moving around them. Every month without this infrastructure is another month of lost enquiries, slower hires, higher agency bills, and manager hours spent on tasks that a system could handle in seconds.
+                  The homes that wait are not standing still. The market is moving around them. Every month without this infrastructure is another month of lost enquiries, slower hires, higher agency bills, and manager hours spent on tasks that a system could handle in seconds. In 2026, that gap between the homes that have built this and the ones that have not is becoming visible. You can see it in occupancy numbers. In CQC ratings. In how quickly vacancies get filled.
                 </p>
 
                 {/* Final CTA box */}
@@ -500,7 +504,7 @@ const CareHomeAutomationGuide: React.FC = () => {
                 <div className="border border-stone-200 p-8">
                   <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-5">About Effito</span>
                   <p className="text-sm text-slate-500 font-light leading-relaxed mb-6">
-                    Effito installs operational infrastructure for UK residential care homes. We cover enquiry response, recruitment, and staff operations — replacing manual processes with systems that run 24 hours a day without adding headcount.
+                    Effito installs operational infrastructure for UK residential care homes. We cover enquiry response, recruitment, and staff operations, replacing manual processes with systems that run 24 hours a day without adding headcount.
                   </p>
                   <Link
                     to="/contact"
