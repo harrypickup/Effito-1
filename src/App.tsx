@@ -20,6 +20,7 @@ import OccupancyOptimisation from './pages/blog/OccupancyOptimisation';
 import StaffRetention from './pages/blog/StaffRetention';
 import EnquiryResponseBenchmark from './pages/blog/EnquiryResponseBenchmark';
 import RecruitmentPipeline from './pages/blog/RecruitmentPipeline';
+import AdminTimeTax from './pages/blog/AdminTimeTax';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -54,6 +55,7 @@ const App: React.FC = () => {
             <Route path="/blog/staff-retention-care-homes-2025" element={<StaffRetention />} />
             <Route path="/blog/enquiry-response-time-care-home-benchmark" element={<EnquiryResponseBenchmark />} />
             <Route path="/blog/care-home-recruitment-pipeline-build" element={<RecruitmentPipeline />} />
+            <Route path="/blog/operational-admin-time-care-home-directors" element={<AdminTimeTax />} />
           </Routes>
         </main>
         <Footer />
