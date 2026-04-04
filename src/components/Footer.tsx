@@ -26,6 +26,7 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-white font-medium mb-4 text-sm uppercase tracking-widest">Resources</h3>
             <ul className="space-y-2 text-sm opacity-70 font-light">
+              <li><Link to="/blog" className="hover:text-white transition-colors">Blog</Link></li>
               <li><a href="/calculator" className="hover:text-white transition-colors">Revenue Calculator</a></li>
             </ul>
           </div>
