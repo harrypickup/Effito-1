@@ -9,21 +9,21 @@ const relatedArticles = [
     category: 'Recruitment',
     title: 'Build a Recruitment Pipeline That Runs Without You',
     readTime: '10 min read',
-    date: 'December 2024',
+    date: 'January 2026',
   },
   {
     slug: 'staff-retention-care-homes-2025',
     category: 'Retention',
     title: 'Why Your Best Care Staff Are Leaving — And the Infrastructure to Keep Them',
     readTime: '7 min read',
-    date: 'January 2025',
+    date: 'February 2026',
   },
   {
     slug: 'operational-admin-time-care-home-directors',
     category: 'Operations',
     title: '30 Hours a Week: The Hidden Admin Tax on Care Home Directors',
     readTime: '5 min read',
-    date: 'November 2024',
+    date: 'January 2026',
   },
 ];
 
@@ -148,7 +148,7 @@ const AgencyNursingFees: React.FC = () => {
               <div className="space-y-6">
                 <div>
                   <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-1.5">Published</span>
-                  <span className="text-sm font-light text-slate-600">March 2025</span>
+                  <span className="text-sm font-light text-slate-600">April 2026</span>
                 </div>
                 <div>
                   <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-1.5">Reading Time</span>
