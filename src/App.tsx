@@ -13,6 +13,7 @@ import Terms from './pages/Terms';
 import WhoItsFor from './pages/WhoItsFor';
 import Blog from './pages/Blog';
 import WhyCareHomesLoseResidents from './pages/blog/WhyCareHomesLoseResidents';
+import AgencyNursingFees from './pages/blog/AgencyNursingFees';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -40,6 +41,7 @@ const App: React.FC = () => {
             <Route path="/terms" element={<Terms />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/why-care-homes-lose-residents-slow-enquiry-response" element={<WhyCareHomesLoseResidents />} />
+            <Route path="/blog/agency-nursing-costs-how-to-eliminate-them" element={<AgencyNursingFees />} />
           </Routes>
         </main>
         <Footer />
