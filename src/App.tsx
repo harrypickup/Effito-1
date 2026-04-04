@@ -11,6 +11,7 @@ import Contact from './pages/Contact';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import WhoItsFor from './pages/WhoItsFor';
+import Blog from './pages/Blog';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -36,6 +37,7 @@ const App: React.FC = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
+            <Route path="/blog" element={<Blog />} />
           </Routes>
         </main>
         <Footer />
