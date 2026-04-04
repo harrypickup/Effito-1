@@ -57,9 +57,13 @@ const AgencyNursingFees: React.FC = () => {
             "datePublished": "2025-03-10",
             "dateModified": "2025-03-10",
             "author": {
-              "@type": "Organization",
-              "name": "Effito",
-              "url": "https://www.effito.com"
+              "@type": "Person",
+              "name": "Reece Hubbard",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Effito",
+                "url": "https://www.effito.com"
+              }
             },
             "publisher": {
               "@type": "Organization",
@@ -152,7 +156,7 @@ const AgencyNursingFees: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-1.5">Written by</span>
-                  <span className="text-sm font-light text-slate-600">Effito Editorial</span>
+                  <span className="text-sm font-light text-slate-600">Reece Hubbard</span>
                 </div>
                 <div>
                   <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-1.5">Topic</span>
@@ -413,17 +417,18 @@ const AgencyNursingFees: React.FC = () => {
             >
               <div className="sticky top-28 space-y-10">
 
-                {/* About Effito */}
+                {/* About the Author */}
                 <div className="border border-stone-200 p-8">
-                  <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-5">About Effito</span>
+                  <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-stone-400 block mb-5">About the Author</span>
+                  <p className="text-sm text-slate-900 font-semibold mb-1">Reece Hubbard</p>
                   <p className="text-sm text-slate-500 font-light leading-relaxed mb-6">
-                    Effito installs automated recruitment, enquiry, and staff operations infrastructure for UK residential care homes. We help owners stop relying on agencies and start building permanent teams.
+                    Co-founder at Effito. Reece works with care home owners across the UK to break their dependency on agency staff and build permanent recruitment pipelines that run without them.
                   </p>
                   <Link
                     to="/contact"
                     className="block w-full text-center border border-slate-900 text-slate-900 px-5 py-3.5 text-[10px] uppercase tracking-[0.35em] font-bold hover:bg-slate-900 hover:text-white transition-all"
                   >
-                    Book Strategy Call
+                    Speak to Reece
                   </Link>
                 </div>
 
