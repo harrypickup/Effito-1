@@ -15,6 +15,7 @@ import Blog from './pages/Blog';
 import WhyCareHomesLoseResidents from './pages/blog/WhyCareHomesLoseResidents';
 import AgencyNursingFees from './pages/blog/AgencyNursingFees';
 import CareHomeAutomationGuide from './pages/blog/CareHomeAutomationGuide';
+import CQCComplianceAutomation from './pages/blog/CQCComplianceAutomation';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -44,6 +45,7 @@ const App: React.FC = () => {
             <Route path="/blog/why-care-homes-lose-residents-slow-enquiry-response" element={<WhyCareHomesLoseResidents />} />
             <Route path="/blog/agency-nursing-costs-how-to-eliminate-them" element={<AgencyNursingFees />} />
             <Route path="/blog/care-home-automation-guide-2025" element={<CareHomeAutomationGuide />} />
+            <Route path="/blog/cqc-compliance-automation-staff-policies" element={<CQCComplianceAutomation />} />
           </Routes>
         </main>
         <Footer />
