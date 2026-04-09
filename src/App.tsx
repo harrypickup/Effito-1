@@ -49,10 +49,10 @@ const App: React.FC = () => {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/why-care-homes-lose-residents-slow-enquiry-response" element={<WhyCareHomesLoseResidents />} />
             <Route path="/blog/agency-nursing-costs-how-to-eliminate-them" element={<AgencyNursingFees />} />
-            <Route path="/blog/care-home-automation-guide-2025" element={<CareHomeAutomationGuide />} />
+            <Route path="/blog/care-home-operations-2026" element={<CareHomeAutomationGuide />} />
             <Route path="/blog/cqc-compliance-automation-staff-policies" element={<CQCComplianceAutomation />} />
             <Route path="/blog/care-home-occupancy-optimisation" element={<OccupancyOptimisation />} />
-            <Route path="/blog/care-home-operations-2026" element={<StaffRetention />} />
+            <Route path="/blog/staff-retention-care-homes-2025" element={<StaffRetention />} />
             <Route path="/blog/enquiry-response-time-care-home-benchmark" element={<EnquiryResponseBenchmark />} />
             <Route path="/blog/care-home-recruitment-pipeline-build" element={<RecruitmentPipeline />} />
             <Route path="/blog/operational-admin-time-care-home-directors" element={<AdminTimeTax />} />
