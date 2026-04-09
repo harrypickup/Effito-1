@@ -191,7 +191,7 @@ const CareHomeAutomationGuide: React.FC = () => {
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-8">
-                  What happens next, in most care homes in the UK, is nothing. The enquiry lands in an inbox that nobody checks on a Sunday evening. It sits there until Monday morning. By then the family has moved on they submitted enquiries to three other homes at the same time, one of them called back within the hour, and that conversation already felt reassuring. By the time your manager replies on Monday, the family is booked in for a tour somewhere else.
+                  What happens next, in most care homes in the UK, is nothing. The enquiry lands in an inbox that nobody checks on a Sunday evening. It sits there until Monday morning. By then the family has moved on - they submitted enquiries to three other homes at the same time, one of them called back within the hour, and that conversation already felt reassuring. By the time your manager replies on Monday, the family is booked in for a tour somewhere else.
                 </p>
 
                 <p className="text-base md:text-lg text-slate-600 leading-[1.85] font-light mb-8">
