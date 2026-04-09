@@ -40,7 +40,7 @@ const articles: Article[] = [
     tag: 'Editor\'s Pick',
   },
   {
-    slug: 'care-home-automation-guide-2025',
+    slug: 'care-home-operations-2026',
     category: 'Operations',
     title: 'Care Home Operations in 2026: What the Best Homes Are Doing Differently',
     excerpt:
