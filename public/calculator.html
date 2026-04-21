@@ -25,6 +25,7 @@
   --slate-400: #94a3b8;
   --slate-200: #e2e8f0;
   --stone-200: #e7e5e4;
+  --stone-300: #d6d3d1;
   --stone-400: #a8a29e;
   --emerald: #059669;
 }
@@ -894,6 +895,9 @@ footer {
 
 @media (max-width: 640px) {
   .hero-stats { flex-direction: column; gap: 24px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { align-items: flex-start; }
+  .footer-bottom-left { flex-direction: column; gap: 8px; }
 }
 </style>
 </head>
@@ -1134,7 +1138,8 @@ footer {
       <div class="footer-col">
         <h3>Resources</h3>
         <ul>
-          <li><a href="https://www.effito.com/calculator">Revenue Calculator</a></li>
+          <li><a href="https://www.effito.com/blog">Blog</a></li>
+          <li><a href="/calculator">Revenue Calculator</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1225,7 +1230,6 @@ footer {
   }
 
   // ── PDF GENERATION ──
-  // ── PDF GENERATION ──
   function generatePDF(name, email) {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
@@ -1233,7 +1237,6 @@ footer {
     const pageW = 210;
     const pageH = 297;
 
-    // Colours matching website
     const cream    = [250, 249, 246];
     const navy     = [15,  23,  42];
     const stone200 = [231, 229, 228];
@@ -1242,62 +1245,51 @@ footer {
     const emerald  = [5,   150, 105];
     const white    = [255, 255, 255];
 
-    // Full cream background
     doc.setFillColor(...cream);
     doc.rect(0, 0, pageW, pageH, 'F');
 
-    // Navy header band
     doc.setFillColor(...navy);
     doc.rect(0, 0, pageW, 52, 'F');
 
-    // Emerald top accent
     doc.setFillColor(...emerald);
     doc.rect(0, 0, pageW, 1.5, 'F');
 
-    // Logo
     doc.setTextColor(...cream);
     doc.setFontSize(18);
     doc.setFont('helvetica', 'bold');
     doc.text('Effito', 20, 22);
 
-    // Report title
     doc.setFontSize(7.5);
     doc.setFont('helvetica', 'normal');
     doc.setTextColor(148, 163, 184);
     doc.text('MISSED ENQUIRY REVENUE REPORT', 20, 31);
     doc.text('effito.com/calculator', 20, 39);
 
-    // Date and name right aligned
     const today = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
     doc.setFontSize(7.5);
     doc.setTextColor(100, 116, 139);
     doc.text(today, pageW - 20, 31, { align: 'right' });
     if (name) doc.text('Prepared for: ' + name, pageW - 20, 39, { align: 'right' });
 
-    // Main loss label
     doc.setTextColor(...navy);
     doc.setFontSize(8.5);
     doc.setFont('helvetica', 'normal');
     doc.text('ESTIMATED ANNUAL REVENUE LOST', 20, 70);
 
-    // Main loss figure
     doc.setFontSize(44);
     doc.setFont('helvetica', 'bold');
     doc.setTextColor(...navy);
     doc.text(fmt(r.annualLoss), 20, 90);
 
-    // Subtitle
     doc.setFontSize(9);
     doc.setFont('helvetica', 'normal');
     doc.setTextColor(...stone400);
     doc.text('leaving your care home every year through unanswered or slow enquiries', 20, 98);
 
-    // Divider
     doc.setDrawColor(...stone200);
     doc.setLineWidth(0.4);
     doc.line(20, 106, pageW - 20, 106);
 
-    // Metrics 2x2 grid
     const metrics = [
       ['Enquiries Lost Per Month',       r.lostPerMonth.toFixed(1)],
       ['Admissions Missed Per Year',     r.missedAdmissionsPerYear.toFixed(1)],
@@ -1327,7 +1319,6 @@ footer {
       doc.text(label.toUpperCase(), x + 8, y + 18);
     });
 
-    // Recoverable navy card
     doc.setFillColor(...navy);
     doc.roundedRect(20, 178, 170, 36, 3, 3, 'F');
 
@@ -1345,7 +1336,6 @@ footer {
     doc.setFont('helvetica', 'normal');
     doc.text('estimated annual revenue recovered with 24/7 automated enquiry response', 30, 209);
 
-    // Inputs section
     doc.setDrawColor(...stone200);
     doc.setLineWidth(0.4);
     doc.line(20, 222, pageW - 20, 222);
@@ -1379,7 +1369,6 @@ footer {
       doc.text(value.replace('GBP', '\u00A3'), x + lw, y);
     });
 
-    // Footer band
     doc.setFillColor(...navy);
     doc.rect(0, 264, pageW, 33, 'F');
 
@@ -1441,13 +1430,9 @@ footer {
     btn.disabled = true;
     btn.innerHTML = '<svg viewBox="0 0 16 16" width="14" height="14" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5" stroke-dasharray="10 28" stroke-linecap="round"><animateTransform attributeName="transform" type="rotate" from="0 8 8" to="360 8 8" dur="0.8s" repeatCount="indefinite"/></circle></svg> Generating...';
 
-    // Generate PDF
     generatePDF(name, email);
-
-    // Send to n8n
     await sendToN8N(name, email);
 
-    // Show success
     document.getElementById('gate-form').style.display = 'none';
     document.getElementById('gate-success').classList.add('visible');
   }
@@ -1471,7 +1456,7 @@ footer {
     const isOpen = menu.classList.contains('open');
     if (isOpen) {
       menu.classList.remove('open');
-            iconMenu.style.display = 'block';
+      iconMenu.style.display = 'block';
       iconClose.style.display = 'none';
     } else {
       menu.classList.add('open');
