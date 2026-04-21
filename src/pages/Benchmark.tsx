@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // ─── Types ──────────────────────────────────────────────────────────────────
@@ -32,6 +33,12 @@ const BENCHMARKS = {
 // ─── Component ──────────────────────────────────────────────────────────────
 const Benchmark: React.FC = () => {
   const [step, setStep] = useState<Step>('intro');
+  const resultsRef = useRef<HTMLDivElement>(null);
+
+  // Scroll to top on step change
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [step]);
 
   // Pillar 1 inputs
   const [occupancy, setOccupancy] = useState(86);
@@ -293,11 +300,14 @@ const Benchmark: React.FC = () => {
         type="range" min={min} max={max} step={s} value={value}
         onChange={e => onChange(Number(e.target.value))}
         className="w-full h-[3px] bg-stone-200 rounded-full appearance-none cursor-pointer
-          [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5
+          [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6
           [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-slate-900
           [&::-webkit-slider-thumb]:border-[3px] [&::-webkit-slider-thumb]:border-[#FAF9F6]
           [&::-webkit-slider-thumb]:shadow-[0_0_0_2px_#1E1E2A] [&::-webkit-slider-thumb]:cursor-pointer
-          [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:hover:scale-125"
+          [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:hover:scale-110
+          [&::-moz-range-thumb]:w-6 [&::-moz-range-thumb]:h-6 [&::-moz-range-thumb]:rounded-full
+          [&::-moz-range-thumb]:bg-slate-900 [&::-moz-range-thumb]:border-[3px]
+          [&::-moz-range-thumb]:border-[#FAF9F6] [&::-moz-range-thumb]:cursor-pointer"
       />
       <div className="flex justify-between mt-2">
         <span className="text-[10px] text-stone-400">{prefix}{min.toLocaleString()}{unit}</span>
@@ -362,6 +372,28 @@ const Benchmark: React.FC = () => {
 
   return (
     <div className="bg-[#FAF9F6] relative overflow-x-hidden min-h-screen">
+
+      <Helmet>
+        <title>Care Home Benchmark | Effito</title>
+        <meta name="description" content="Benchmark your care home across 10 critical metrics against verified UK industry data. Free tool from Effito — see exactly where you stand in 2 minutes." />
+      </Helmet>
+
+      {/* Print styles for PDF download */}
+      <style>{`
+        @media print {
+          header, footer, button, .no-print { display: none !important; }
+          body { background: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+          section { break-inside: avoid; }
+          .bg-slate-900 { background-color: #0F172A !important; }
+          .text-white { color: white !important; }
+          .text-emerald-400, .text-emerald-500, .text-emerald-600 { color: #059669 !important; }
+          .text-amber-400, .text-amber-500, .text-amber-600 { color: #D97706 !important; }
+          .text-red-400 { color: #F87171 !important; }
+          .bg-emerald-500 { background-color: #059669 !important; }
+          .bg-amber-500 { background-color: #D97706 !important; }
+          .bg-red-400 { background-color: #F87171 !important; }
+        }
+      `}</style>
 
       <AnimatePresence mode="wait">
 
@@ -587,10 +619,47 @@ const Benchmark: React.FC = () => {
             </section>
 
             {/* Results Grid */}
-            <section className="py-16 md:py-24 px-6 md:px-8 max-w-[1400px] mx-auto">
-              <div className="mb-12 md:mb-16">
-                <h2 className="text-4xl md:text-6xl font-serif text-slate-900 tracking-tighter mb-4">Detailed Breakdown.</h2>
-                <p className="text-slate-500 font-light max-w-xl">Each metric scored against verified industry data with personalised analysis.</p>
+            <section className="py-16 md:py-24 px-6 md:px-8 max-w-[1400px] mx-auto" ref={resultsRef}>
+
+              {/* Biggest Opportunity Callout */}
+              {results.filter(r => r.rating === 'red').length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.6 }}
+                  className="mb-12 md:mb-16 border border-red-200 bg-red-50/30"
+                >
+                  <div className="bg-slate-900 px-8 py-4 flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-red-400" />
+                    <span className="text-[9px] font-bold uppercase tracking-[0.35em] text-slate-500">Your Biggest Opportunity</span>
+                  </div>
+                  <div className="p-8 md:p-10">
+                    <h3 className="text-2xl md:text-3xl font-serif text-slate-900 tracking-tight mb-4">
+                      {results.filter(r => r.rating === 'red')[0].label}
+                    </h3>
+                    <div className="flex items-baseline gap-4 mb-4">
+                      <span className="text-4xl font-serif text-red-400">{results.filter(r => r.rating === 'red')[0].userValue}</span>
+                      <span className="text-sm text-stone-400 font-light">vs. best-in-class {results.filter(r => r.rating === 'red')[0].bestInClass}</span>
+                    </div>
+                    <p className="text-sm text-slate-600 font-light leading-[1.8] max-w-2xl">
+                      {results.filter(r => r.rating === 'red')[0].insight}
+                    </p>
+                  </div>
+                </motion.div>
+              )}
+
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-6">
+                <div>
+                  <h2 className="text-4xl md:text-6xl font-serif text-slate-900 tracking-tighter mb-4">Detailed Breakdown.</h2>
+                  <p className="text-slate-500 font-light max-w-xl">Each metric scored against verified industry data with personalised analysis.</p>
+                </div>
+                <button
+                  onClick={() => window.print()}
+                  className="shrink-0 border border-slate-900 text-slate-900 px-8 py-3.5 text-[12px] uppercase tracking-[0.2em] font-semibold hover:bg-slate-900 hover:text-white transition-all duration-300 flex items-center gap-3"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Download Report
+                </button>
               </div>
 
               <div className="space-y-0 border border-stone-200">
